@@ -1,22 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Contacts.hpp                                       :+:      :+:    :+:   */
+/*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/11 23:34:55 by brfialho          #+#    #+#             */
-/*   Updated: 2026/07/07 21:20:59 by brfialho         ###   ########.fr       */
+/*   Created: 2026/07/07 21:40:49 by brfialho          #+#    #+#             */
+/*   Updated: 2026/07/07 21:43:04 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string>
 
-#ifndef CONTACTS_HPP
- #define CONTACTS_HPP
+#ifndef CONTACT_HPP
+ #define CONTACT_HPP
 
- class Contacts
- {
+ class Contact {
 	private:
 		std::string _firstName;
 		std::string _lastName;
@@ -24,13 +23,13 @@
 		std::string _phone;
 		std::string _secret;
 	public:
-		Contacts();
-		Contacts(
+		Contact();
+		Contact(
 			std::string firstName, 
 			std::string lastName, 
 			std::string nickName, 
 			std::string phone, 
-			std::string darkestSecret);
+			std::string Secret);
 		std::string getFirst();
 		std::string getLast();
 		std::string getNick();
@@ -40,7 +39,7 @@
 		void setLast(std::string lastName);
 		void setNick(std::string nickName);
 		void setPhone(std::string phone);
-		void setSecret(std::string darkestSecret);
+		void setSecret(std::string Secret);
  };
 
 #endif

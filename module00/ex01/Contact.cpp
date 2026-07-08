@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Contacts.cpp                                       :+:      :+:    :+:   */
+/*   Contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/07 20:47:24 by brfialho          #+#    #+#             */
-/*   Updated: 2026/07/07 21:20:13 by brfialho         ###   ########.fr       */
+/*   Created: 2026/07/07 21:40:39 by brfialho          #+#    #+#             */
+/*   Updated: 2026/07/07 21:40:43 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Contacts.hpp"
+#include "Contact.hpp"
 #include <string>
 
-Contacts::Contacts(void)
+Contact::Contact(void)
 {
 	_firstName = "NULL";
 	_lastName = "NULL";
@@ -22,7 +22,7 @@ Contacts::Contacts(void)
 	_secret = "NULL";
 }
 
-Contacts::Contacts(
+Contact::Contact(
 	std::string firstName,
 	std::string lastName, 
 	std::string nickName,
@@ -36,52 +36,52 @@ Contacts::Contacts(
 	_secret = secret;
 }
 
-std::string Contacts::getFirst(void)
+std::string Contact::getFirst(void)
 {
 	return (_firstName);
 }
 
-std::string Contacts::getLast(void)
+std::string Contact::getLast(void)
 {
 	return (_lastName);
 }
 
-std::string Contacts::getNick(void)
+std::string Contact::getNick(void)
 {
 	return (_nickName);
 }
 
-std::string Contacts::getPhone(void)
+std::string Contact::getPhone(void)
 {
 	return (_phone);
 }
 
-std::string Contacts::getSecret(void)
+std::string Contact::getSecret(void)
 {
 	return (_secret);
 }
 
-void Contacts::setFirst(std::string firstName)
+void Contact::setFirst(std::string firstName)
 {
 	_firstName = firstName;
 }
 
-void Contacts::setLast(std::string lastName)
+void Contact::setLast(std::string lastName)
 {
 	_lastName = lastName;
 }
 
-void Contacts::setNick(std::string nickName)
+void Contact::setNick(std::string nickName)
 {
 	_nickName = nickName;
 }
 
-void Contacts::setPhone(std::string phone)
+void Contact::setPhone(std::string phone)
 {
 	_phone = phone;
 }
 
-void Contacts::setSecret(std::string secret)
+void Contact::setSecret(std::string secret)
 {
 	_secret = secret;
 }

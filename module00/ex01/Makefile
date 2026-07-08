@@ -15,7 +15,8 @@ define LOADING
 endef
 
 CC= c++ -Werror -Wextra -Wall -std=c++98
-SRC= main.cpp
+SRC= main.cpp \
+	Contact.cpp
 
 O_DIR= obj/
 OBJ= $(SRC:%.cpp=$(O_DIR)%.o)
