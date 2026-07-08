@@ -6,12 +6,21 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/07 20:47:24 by brfialho          #+#    #+#             */
-/*   Updated: 2026/07/07 21:10:03 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/07/07 21:20:13 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contacts.hpp"
 #include <string>
+
+Contacts::Contacts(void)
+{
+	_firstName = "NULL";
+	_lastName = "NULL";
+	_nickName = "NULL";
+	_phone = "NULL";
+	_secret = "NULL";
+}
 
 Contacts::Contacts(
 	std::string firstName,
@@ -50,4 +59,29 @@ std::string Contacts::getPhone(void)
 std::string Contacts::getSecret(void)
 {
 	return (_secret);
+}
+
+void Contacts::setFirst(std::string firstName)
+{
+	_firstName = firstName;
+}
+
+void Contacts::setLast(std::string lastName)
+{
+	_lastName = lastName;
+}
+
+void Contacts::setNick(std::string nickName)
+{
+	_nickName = nickName;
+}
+
+void Contacts::setPhone(std::string phone)
+{
+	_phone = phone;
+}
+
+void Contacts::setSecret(std::string secret)
+{
+	_secret = secret;
 }
