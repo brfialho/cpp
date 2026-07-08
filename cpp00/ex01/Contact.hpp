@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/07 21:40:49 by brfialho          #+#    #+#             */
-/*   Updated: 2026/07/07 23:03:53 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/07/08 00:47:24 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,11 @@
 		std::string getNick();
 		std::string getPhone();
 		std::string getSecret();
+		void setFirst(std::string firstName);
+		void setLast(std::string lastName);
+		void setNick(std::string nickName);
+		void setPhone(std::string phone);
+		void setSecret(std::string secret);
  };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/07 22:42:56 by brfialho          #+#    #+#             */
-/*   Updated: 2026/07/07 23:02:13 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/07/08 01:07:30 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,46 @@ PhoneBook::PhoneBook(void)
 {
 }
 
-void PhoneBook::add(Contact contact)
+static void	get_info(Contact &c)
 {
-	static int i = 0;
+	std::string input;
+
+	std::cout << "FIRST NAME: ";
+	// std::cin >> input;
+	std::getline(std::cin, input);
+	c.setFirst(input);
+
+	std::cout << "LAST NAME: ";
+	// std::cin >> input;
+	std::getline(std::cin, input);
+	c.setLast(input);
+
+	std::cout << "NICK NAME: ";
+	// std::cin >> input;
+	std::getline(std::cin, input);
+	c.setNick(input);
+
+	std::cout << "PHONE: ";
+	// std::cin >> input;
+	std::getline(std::cin, input);
+	c.setPhone(input);
+
+	std::cout << "DARKEST SECRET: ";
+	// std::cin >> input;
+	std::getline(std::cin, input);
+	c.setSecret(input);
+}
+
+void PhoneBook::add(void)
+{
+	Contact		c;
+	static int	i = 0;
 
 	if (i > 7)
 		i = 0;
-	_list[i++] = contact;
+
+	get_info(c);
+	_list[i++] = c;
 }
 
 void PhoneBook::printList(void)

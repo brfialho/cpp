@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 23:45:38 by brfialho          #+#    #+#             */
-/*   Updated: 2026/07/08 00:32:12 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/07/08 01:16:47 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ int main(void)
     {
         print_menu();
         std::cin >> input;
+        std::cin.ignore(100000, '\n');
         std::cout << "\n\n";
         if (input.length() > 1)
             goto invalid;
@@ -43,18 +44,21 @@ int main(void)
         {
             case '1':
                 std::cout << "OPTION: " << 1 << '\n';
+                book.add();
                 break;
             case '2':
                 std::cout << "OPTION: " << 2 << '\n';
                 break;
             case '3':
                 std::cout << "OPTION: " << 3 << '\n';
+                std::cout << "GOODBYE :)\n";
+                return (0);
                 break;
             default:
                 invalid:
                 std::cout << "WRONG! TRY AGAIN DUMBASS\n";
         }
-        std::cin.ignore(100000, '\n');
+        book.printList();
         std::cout << '\n';
     }
 }

@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 23:34:11 by brfialho          #+#    #+#             */
-/*   Updated: 2026/07/07 23:01:10 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/07/08 00:36:56 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 	public:
 		PhoneBook();
 		void printList(void);
-		void add(Contact contact);
+		void add(void);
  };
 
 #endif
