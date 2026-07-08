@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 23:34:11 by brfialho          #+#    #+#             */
-/*   Updated: 2026/07/07 21:56:39 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/07/07 23:01:10 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,13 @@
 
 # include "Contact.hpp"
 
- class Phonebook {
+ class PhoneBook {
 	private:
-		Contact List[8];
+		Contact _list[8];
 	public:
-		Phonebook();
-		
+		PhoneBook();
+		void printList(void);
+		void add(Contact contact);
  };
 
 #endif

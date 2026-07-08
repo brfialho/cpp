@@ -16,6 +16,7 @@ endef
 
 CC= c++ -Werror -Wextra -Wall -std=c++98
 SRC= main.cpp \
+	PhoneBook.cpp \
 	Contact.cpp
 
 O_DIR= obj/

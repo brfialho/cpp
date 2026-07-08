@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/07 21:40:39 by brfialho          #+#    #+#             */
-/*   Updated: 2026/07/07 22:08:52 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/07/07 23:04:31 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,20 @@ Contact::Contact(void)
 	_nickName = "NULL";
 	_phone = "NULL";
 	_secret = "NULL";
+}
+
+Contact::Contact(
+	std::string firstName,
+	std::string lastName, 
+	std::string nickName,
+	std::string phone,
+	std::string secret)
+{
+	_firstName = firstName;
+	_lastName = lastName;
+	_nickName = nickName;
+	_phone = phone;
+	_secret = secret;
 }
 
 std::string Contact::getFirst(void)
