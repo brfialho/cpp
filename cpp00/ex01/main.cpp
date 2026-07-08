@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 23:45:38 by brfialho          #+#    #+#             */
-/*   Updated: 2026/07/07 23:55:21 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/07/08 00:25:52 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,16 +30,16 @@ void    print_menu(void)
 int main(void)
 {
     PhoneBook   book;
-    std::string input[6];
+    std::string input;
 
     while (1)
     {
         print_menu();
-        std::cin >> input[0];
+        std::cin >> input;
         std::cout << "\n\n";
-        if (input[0].length() > 1)
+        if (input.length() > 1)
             goto invalid;
-        switch (input[0][0])
+        switch (input[0])
         {
             case '1':
                 std::cout << "OPTION: " << 1 << '\n';
