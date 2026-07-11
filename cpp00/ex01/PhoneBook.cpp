@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/07 22:42:56 by brfialho          #+#    #+#             */
-/*   Updated: 2026/07/11 05:40:55 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/07/11 05:47:52 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ PhoneBook::PhoneBook(void)
 	_numbers_helper[5] = "       six";
 	_numbers_helper[6] = "     seven";
 	_numbers_helper[7] = "     eight";
-	_error_message[1] = "WRONG! TRY AGAIN DUMBASS\n";
-	_error_message[2] = "Oops... looks like you have no contacts in your phone book yet. Try adding one first\n";
+	_error_message[1] = "WRONG! TRY AGAIN DUMBASS\n\n";
+	_error_message[2] = "Oops... looks like you have no contacts in your phone book yet. Try adding one first\n\n";
 	_error_code = 0;
 }
 
@@ -43,7 +43,7 @@ void PhoneBook::setError(int errorCode)
 
 void	PhoneBook::printError(void)
 {
-	std::cout << '\n' << _error_message[_error_code];
+	std::cout << _error_message[_error_code];
 }
 
 void PhoneBook::add(void)
@@ -127,7 +127,7 @@ void	PhoneBook::search(void)
 	}
 	prompt:
 	this->printList();
-	std::cout << "Which contact do you want more info? select by typing the index number >> ";
+	std::cout << "Which contact do you want more info? select by typing the index number\n";
 	std::getline(std::cin, input);
 	if (input.length() != 1
 	|| !(input[0] - '0' >= 0 && input[0] - '0' <= 7)

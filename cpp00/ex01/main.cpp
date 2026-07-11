@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 23:45:38 by brfialho          #+#    #+#             */
-/*   Updated: 2026/07/11 05:31:02 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/07/11 05:46:57 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ void    print_menu(void)
     // std::cout << '\n';
     std::cout << "[1] ADD\n";
     std::cout << "[2] SEARCH\n";
-    std::cout << "[3] EXIT\n";
+    std::cout << "[3] EXIT\n\n";
     // std::cout << "\n";
-    std::cout << ">> ";
+    // std::cout << ">> ";
 }
 
 int main(void)
