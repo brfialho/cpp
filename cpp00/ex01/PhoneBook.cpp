@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/07 22:42:56 by brfialho          #+#    #+#             */
-/*   Updated: 2026/07/11 05:02:44 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/07/11 05:40:55 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,24 @@ PhoneBook::PhoneBook(void)
 	_numbers_helper[5] = "       six";
 	_numbers_helper[6] = "     seven";
 	_numbers_helper[7] = "     eight";
+	_error_message[1] = "WRONG! TRY AGAIN DUMBASS\n";
+	_error_message[2] = "Oops... looks like you have no contacts in your phone book yet. Try adding one first\n";
+	_error_code = 0;
+}
+
+int PhoneBook::getError(void)
+{
+	return (_error_code);
+}
+
+void PhoneBook::setError(int errorCode)
+{
+	_error_code = errorCode;
+}
+
+void	PhoneBook::printError(void)
+{
+	std::cout << '\n' << _error_message[_error_code];
 }
 
 void PhoneBook::add(void)
@@ -44,22 +62,27 @@ static void	get_info(Contact &c)
 {
 	std::string input;
 
+	std::cout << "\033[2J\033[H";
 	std::cout << "FIRST NAME: ";
 	std::getline(std::cin, input);
 	c.setFirst(input);
 
+	std::cout << "\033[2J\033[H";
 	std::cout << "LAST NAME: ";
 	std::getline(std::cin, input);
 	c.setLast(input);
 
+	std::cout << "\033[2J\033[H";
 	std::cout << "NICK NAME: ";
 	std::getline(std::cin, input);
 	c.setNick(input);
 
+	std::cout << "\033[2J\033[H";
 	std::cout << "PHONE: ";
 	std::getline(std::cin, input);
 	c.setPhone(input);
 
+	std::cout << "\033[2J\033[H";
 	std::cout << "DARKEST SECRET: ";
 	std::getline(std::cin, input);
 	c.setSecret(input);
@@ -67,7 +90,7 @@ static void	get_info(Contact &c)
 
 void PhoneBook::printList(void)
 {
-	std::cout << '\n';
+	std::cout << "\033[2J\033[H";
 	std::cout << "+-------------------------------------------+\n";
 	std::cout << "|  INDEX   |FIRST NAME| LAST NAME| NICK NAME|\n";
 	std::cout << "|-------------------------------------------|\n";
@@ -98,21 +121,26 @@ void	PhoneBook::search(void)
 
 	if (_list[0].getFirst().empty())
 	{
-		std::cout << "Oops... looks like you have no contacts in your phone book yet. Try adding one first\n";
+		std::cout << "\033[2J\033[H";
+		_error_code = 2;
 		return ;
 	}
-	this->printList();
 	prompt:
+	this->printList();
 	std::cout << "Which contact do you want more info? select by typing the index number >> ";
 	std::getline(std::cin, input);
 	if (input.length() != 1
 	|| !(input[0] - '0' >= 0 && input[0] - '0' <= 7)
 	|| _list[input[0] - '0'].getFirst().empty())
+	{
+		std::cout << "\033[2J\033[H";
 		goto prompt;
-	
+	}
 	std::cout << _list[input[0] - '0'].getFirst() << '\n';
 	std::cout << _list[input[0] - '0'].getLast() << '\n';
 	std::cout << _list[input[0] - '0'].getNick() << '\n';
 	std::cout << _list[input[0] - '0'].getPhone() << '\n';
 	std::cout << _list[input[0] - '0'].getSecret() << '\n';
+	std::cout << "\nPress ENTER to go back to menu";
+	std::getline(std::cin, input);
 }

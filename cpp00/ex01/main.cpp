@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 23:45:38 by brfialho          #+#    #+#             */
-/*   Updated: 2026/07/11 04:20:01 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/07/11 05:31:02 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 
 void    print_menu(void)
 {
+    std::cout << "\033[2J\033[H";
     std::cout << "##########################\n";
     std::cout << "  TOTALLY REAL PHONEBOOK  \n";
     std::cout << "##########################\n";
@@ -35,6 +36,9 @@ int main(void)
     while (1)
     {
         print_menu();
+        if (book.getError())
+            book.printError();
+        book.setError(0);
         std::getline(std::cin, input);
         if (input.length() > 1)
             goto invalid;
@@ -51,7 +55,7 @@ int main(void)
                 return (0);
             default:
                 invalid:
-                std::cout << "WRONG! TRY AGAIN DUMBASS\n";
+                book.setError(1);
         }
         std::cout << '\n';
     }
