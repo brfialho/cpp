@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 23:45:38 by brfialho          #+#    #+#             */
-/*   Updated: 2026/07/11 03:19:08 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/07/11 03:31:19 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int main(void)
                 invalid:
                 std::cout << "WRONG! TRY AGAIN DUMBASS\n";
         }
-        // book.printList();
+        book.printList();
         std::cout << '\n';
     }
 }

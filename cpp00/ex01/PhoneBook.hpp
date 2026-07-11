@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 23:34:11 by brfialho          #+#    #+#             */
-/*   Updated: 2026/07/08 00:36:56 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/07/11 03:48:22 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@
 
  class PhoneBook {
 	private:
-		Contact _list[8];
+		Contact		_list[8];
+		std::string	_numbers_helper[9];
 	public:
 		PhoneBook();
 		void printList(void);
