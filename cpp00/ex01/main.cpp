@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 23:45:38 by brfialho          #+#    #+#             */
-/*   Updated: 2026/07/08 01:16:47 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/07/11 03:19:08 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,7 @@ int main(void)
     while (1)
     {
         print_menu();
-        std::cin >> input;
-        std::cin.ignore(100000, '\n');
-        std::cout << "\n\n";
+        std::getline(std::cin, input);
         if (input.length() > 1)
             goto invalid;
         switch (input[0])
@@ -58,7 +56,7 @@ int main(void)
                 invalid:
                 std::cout << "WRONG! TRY AGAIN DUMBASS\n";
         }
-        book.printList();
+        // book.printList();
         std::cout << '\n';
     }
 }
