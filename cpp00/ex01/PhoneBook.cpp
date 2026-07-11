@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/07 22:42:56 by brfialho          #+#    #+#             */
-/*   Updated: 2026/07/11 04:16:22 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/07/11 04:31:29 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,8 @@ static void	get_info(Contact &c)
 
 void PhoneBook::printList(void)
 {
-	if (_list[0].getFirst().empty())
-		return ;
+	// if (_list[0].getFirst().empty())
+	// 	return ;
 	std::cout << '\n';
 	std::cout << "+-------------------------------------------+\n";
 	std::cout << "|  INDEX   |FIRST NAME| LAST NAME| NICK NAME|\n";
@@ -98,4 +98,20 @@ static std::string	format_string(std::string s)
 		for (int i = formated.length(); i < 10; i++ )
 			formated.insert(0, 1, 32);
 	return (formated);
+}
+
+void	PhoneBook::search(void)
+{
+	std::string	input;
+
+	this->printList();
+	prompt:
+	std::cout << "Which contact do you want more info? select by typing the index number >> ";
+	std::getline(std::cin, input);
+	std::cout << '\n';
+	if (input.length() != 1
+	|| !(input[0] - '0' >= 0 && input[0] - '0' <= 7)
+	|| _list[input[0] - '0'].getFirst().empty())
+		goto prompt;
+	std::cout << "nice\n";
 }

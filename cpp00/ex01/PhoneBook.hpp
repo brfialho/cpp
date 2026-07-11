@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 23:34:11 by brfialho          #+#    #+#             */
-/*   Updated: 2026/07/11 03:48:22 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/07/11 04:19:08 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 		PhoneBook();
 		void printList(void);
 		void add(void);
+		void search(void);
  };
 
 #endif

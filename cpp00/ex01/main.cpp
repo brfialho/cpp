@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 23:45:38 by brfialho          #+#    #+#             */
-/*   Updated: 2026/07/11 03:31:19 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/07/11 04:20:01 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,22 +41,18 @@ int main(void)
         switch (input[0])
         {
             case '1':
-                std::cout << "OPTION: " << 1 << '\n';
                 book.add();
                 break;
             case '2':
-                std::cout << "OPTION: " << 2 << '\n';
+                book.search();
                 break;
             case '3':
-                std::cout << "OPTION: " << 3 << '\n';
                 std::cout << "GOODBYE :)\n";
                 return (0);
-                break;
             default:
                 invalid:
                 std::cout << "WRONG! TRY AGAIN DUMBASS\n";
         }
-        book.printList();
         std::cout << '\n';
     }
 }
