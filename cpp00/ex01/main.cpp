@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 23:45:38 by brfialho          #+#    #+#             */
-/*   Updated: 2026/07/12 01:13:33 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/07/12 02:09:58 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,7 @@
 #include <string>
 #include "PhoneBook.hpp"
 
-void    print_menu(void)
-{
-    std::cout << CLEAR;
-    std::cout << "##########################\n";
-    std::cout << "  TOTALLY REAL PHONEBOOK  \n";
-    std::cout << "##########################\n";
-    // std::cout << '\n';
-    std::cout << "[1] ADD\n";
-    std::cout << "[2] SEARCH\n";
-    std::cout << "[3] EXIT\n\n";
-    // std::cout << "\n";
-    // std::cout << ">> ";
-}
+static void    print_menu(void);
 
 int main(void)
 {
@@ -59,4 +47,15 @@ int main(void)
         }
         std::cout << '\n';
     }
+}
+
+static void    print_menu(void)
+{
+    std::cout << CLEAR;
+    std::cout << "##########################\n";
+    std::cout << "  TOTALLY REAL PHONEBOOK  \n";
+    std::cout << "##########################\n";
+    std::cout << "[1] ADD\n";
+    std::cout << "[2] SEARCH\n";
+    std::cout << "[3] EXIT\n\n";
 }
