@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 23:45:38 by brfialho          #+#    #+#             */
-/*   Updated: 2026/07/11 05:46:57 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/07/12 01:13:33 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 void    print_menu(void)
 {
-    std::cout << "\033[2J\033[H";
+    std::cout << CLEAR;
     std::cout << "##########################\n";
     std::cout << "  TOTALLY REAL PHONEBOOK  \n";
     std::cout << "##########################\n";

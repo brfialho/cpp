@@ -6,28 +6,28 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/07 22:42:56 by brfialho          #+#    #+#             */
-/*   Updated: 2026/07/11 05:47:52 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/07/12 02:08:47 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 #include <iostream>
 
-static void	get_info(Contact &c);
+static std::string	get_info(std::string prompt);
 static std::string	format_string(std::string s);
 
 PhoneBook::PhoneBook(void)
 {
-	_numbers_helper[0] = "      zero";
-	_numbers_helper[1] = "       one";
-	_numbers_helper[2] = "       two";
-	_numbers_helper[3] = "      four";
-	_numbers_helper[4] = "      five";
-	_numbers_helper[5] = "       six";
-	_numbers_helper[6] = "     seven";
-	_numbers_helper[7] = "     eight";
-	_error_message[1] = "WRONG! TRY AGAIN DUMBASS\n\n";
-	_error_message[2] = "Oops... looks like you have no contacts in your phone book yet. Try adding one first\n\n";
+	_numbers_helper[0] = "     0    ";
+	_numbers_helper[1] = "     1    ";
+	_numbers_helper[2] = "     2    ";
+	_numbers_helper[3] = "     3    ";
+	_numbers_helper[4] = "     4    ";
+	_numbers_helper[5] = "     5    ";
+	_numbers_helper[6] = "     6    ";
+	_numbers_helper[7] = "     7    ";
+	_error_message[1] = "ERROR: Wrong usage, please type the desired option by index then press ENTER\n\n";
+	_error_message[2] = "ERROR: Oops... looks like you have no contacts in your phone book yet. Try adding one first\n\n";
 	_error_code = 0;
 }
 
@@ -53,44 +53,30 @@ void PhoneBook::add(void)
 
 	if (i > 7)
 		i = 0;
-
-	get_info(c);
+	c.setFirst(get_info("FIRST NAME: "));
+	c.setLast(get_info("LAST NAME: "));
+	c.setNick(get_info("NICK NAME: "));
+	c.setPhone(get_info("PHONE: "));
+	c.setSecret(get_info("DARKEST SECRET: "));
 	_list[i++] = c;
 }
 
-static void	get_info(Contact &c)
+static std::string	get_info(std::string prompt)
 {
-	std::string input;
+	std::string	input;
 
-	std::cout << "\033[2J\033[H";
-	std::cout << "FIRST NAME: ";
-	std::getline(std::cin, input);
-	c.setFirst(input);
-
-	std::cout << "\033[2J\033[H";
-	std::cout << "LAST NAME: ";
-	std::getline(std::cin, input);
-	c.setLast(input);
-
-	std::cout << "\033[2J\033[H";
-	std::cout << "NICK NAME: ";
-	std::getline(std::cin, input);
-	c.setNick(input);
-
-	std::cout << "\033[2J\033[H";
-	std::cout << "PHONE: ";
-	std::getline(std::cin, input);
-	c.setPhone(input);
-
-	std::cout << "\033[2J\033[H";
-	std::cout << "DARKEST SECRET: ";
-	std::getline(std::cin, input);
-	c.setSecret(input);
+	while (input.empty())
+	{
+		std::cout << CLEAR;
+		std::cout << prompt;
+		std::getline(std::cin, input);
+	}
+	return (input);
 }
 
 void PhoneBook::printList(void)
 {
-	std::cout << "\033[2J\033[H";
+	std::cout << CLEAR;
 	std::cout << "+-------------------------------------------+\n";
 	std::cout << "|  INDEX   |FIRST NAME| LAST NAME| NICK NAME|\n";
 	std::cout << "|-------------------------------------------|\n";
@@ -121,26 +107,28 @@ void	PhoneBook::search(void)
 
 	if (_list[0].getFirst().empty())
 	{
-		std::cout << "\033[2J\033[H";
+		std::cout << CLEAR;
 		_error_code = 2;
 		return ;
 	}
 	prompt:
 	this->printList();
-	std::cout << "Which contact do you want more info? select by typing the index number\n";
+	std::cout << "Which contact do you want more info? Select by typing the index number or 'Q' to go to MENU\n\n";
 	std::getline(std::cin, input);
+	if (input == "q" || input == "Q")
+		return ;
 	if (input.length() != 1
 	|| !(input[0] - '0' >= 0 && input[0] - '0' <= 7)
 	|| _list[input[0] - '0'].getFirst().empty())
 	{
-		std::cout << "\033[2J\033[H";
+		std::cout << CLEAR;
 		goto prompt;
 	}
-	std::cout << _list[input[0] - '0'].getFirst() << '\n';
-	std::cout << _list[input[0] - '0'].getLast() << '\n';
-	std::cout << _list[input[0] - '0'].getNick() << '\n';
-	std::cout << _list[input[0] - '0'].getPhone() << '\n';
-	std::cout << _list[input[0] - '0'].getSecret() << '\n';
-	std::cout << "\nPress ENTER to go back to menu";
+	std::cout << '\n' << "FIRST NAME     :"<< _list[input[0] - '0'].getFirst() << '\n';
+	std::cout << "LAST NAME      :" << _list[input[0] - '0'].getLast() << '\n';
+	std::cout << "NICKNAME       :" << _list[input[0] - '0'].getNick() << '\n';
+	std::cout << "PHONE          :" << _list[input[0] - '0'].getPhone() << '\n';
+	std::cout << "DARKEST SECRET :" << _list[input[0] - '0'].getSecret() << '\n';
+	std::cout << "\nPress ENTER to go back to MENU";
 	std::getline(std::cin, input);
 }

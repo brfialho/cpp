@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 23:34:11 by brfialho          #+#    #+#             */
-/*   Updated: 2026/07/11 05:26:56 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/07/12 01:13:40 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define PHONEBOOK_H
 
 # include "Contact.hpp"
+
+# define CLEAR "\033[2J\033[H"
 
  class PhoneBook {
 	private:
