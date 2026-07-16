@@ -16,13 +16,13 @@ endef
 
 CC= c++ -Werror -Wextra -Wall -std=c++98
 SRC= Account.cpp \
-	main.cpp
-# 	tests.cpp
+	tests.cpp
+# 	main.cpp
 
 O_DIR= obj/
 OBJ= $(SRC:%.cpp=$(O_DIR)%.o)
 
-NAME= tests
+NAME= recover
 
 all: $(NAME)
 

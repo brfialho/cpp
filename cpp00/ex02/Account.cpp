@@ -6,12 +6,18 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/16 16:02:28 by brfialho          #+#    #+#             */
-/*   Updated: 2026/07/16 17:10:19 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/07/16 17:20:53 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Account.hpp"
-#include <chrono>
+// #include <chrono>
+#include <iostream>
+
+int Account::_nbAccounts = 0;
+int Account::_totalAmount = 0;
+int Account::_totalNbDeposits = 0;
+int Account::_totalNbWithdrawals = 0;
 
 int	Account::getNbAccounts( void )
 {
@@ -82,8 +88,20 @@ int		Account::checkAmount( void ) const
 	return (_amount);
 }
 
-static void	_displayTimestamp( void )
+void	Account::_displayTimestamp( void )
 {
-	
+	std::cout << "14/03/2001";
 }
 
+void	Account::displayStatus( void ) const
+{
+	std::cout << "confia";
+}
+
+void	Account::displayAccountsInfos( void )
+{
+	std::cout << "ALL INFO";
+}
+
+Account::~Account( void ){
+}

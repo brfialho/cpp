@@ -4,3 +4,5 @@ obj
 phonebook
 *.log
 main-tests.cpp
+log
+recover
