@@ -1,5 +1,6 @@
-test*
 *.out
 megaphone
 obj
 phonebook
+*.log
+main-tests.cpp
