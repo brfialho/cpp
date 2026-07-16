@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/16 16:02:28 by brfialho          #+#    #+#             */
-/*   Updated: 2026/07/16 17:20:53 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/07/16 17:25:47 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,17 +90,19 @@ int		Account::checkAmount( void ) const
 
 void	Account::_displayTimestamp( void )
 {
-	std::cout << "14/03/2001";
+	std::cout << "14/03/2001 ";
 }
 
 void	Account::displayStatus( void ) const
 {
-	std::cout << "confia";
+	_displayTimestamp();
+	std::cout << "confia\n";
 }
 
 void	Account::displayAccountsInfos( void )
 {
-	std::cout << "ALL INFO";
+	_displayTimestamp();
+	std::cout << "ALL INFO\n";
 }
 
 Account::~Account( void ){
