@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/16 16:02:28 by brfialho          #+#    #+#             */
-/*   Updated: 2026/07/20 19:13:28 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/07/20 19:23:17 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,44 +22,37 @@ int Account::_totalNbWithdrawals = 0;
 
 int	Account::getNbAccounts( void )
 {
-	return (_nbAccounts);
+	return _nbAccounts;
 }
 
 int	Account::getTotalAmount( void )
 {
-	return (_totalAmount);
+	return _totalAmount;
 }
 
 int	Account::getNbDeposits( void )
 {
-	return (_totalNbDeposits);
+	return _totalNbDeposits;
 }
 
 int	Account::getNbWithdrawals( void )
 {
-	return (_totalNbWithdrawals);
+	return _totalNbWithdrawals;
 }
 
-Account::Account( void )
+Account::Account( void ):
+	_accountIndex(_nbAccounts),
+	_amount(0),
+	_nbDeposits(0),
+	_nbWithdrawals(0)
+{}
+
+Account::Account ( int initial_deposit ): 
+	_accountIndex(_nbAccounts),
+	_amount(initial_deposit),
+	_nbDeposits(0),
+	_nbWithdrawals(0)
 {
-	_accountIndex = _nbAccounts;
-	_amount = 0;
-	_nbDeposits = 0;
-	_nbWithdrawals = 0;;
-
-	_nbAccounts++;
-
-	_displayTimestamp();
-	std::cout << "created\n";
-}
-
-Account::Account( int initial_deposit )
-{
-	_accountIndex = _nbAccounts;
-	_amount = initial_deposit;
-	_nbDeposits = 0;
-	_nbWithdrawals = 0;
-
 	_nbAccounts++;
 	_totalAmount += initial_deposit;
 
@@ -76,7 +69,6 @@ Account::~Account( void )
 			<< ";amount:" << _amount
 			<< ";closed\n";
 }
-
 
 void	Account::makeDeposit( int deposit )
 {
@@ -106,7 +98,7 @@ bool	Account::makeWithdrawal( int withdrawal )
 	if (withdrawal > _amount)
 	{
 		std::cout << "refused\n";
-		return (false);
+		return false;
 	}
 
 	_amount -= withdrawal;
@@ -119,7 +111,7 @@ bool	Account::makeWithdrawal( int withdrawal )
 			<< ";amount:" << _amount
 			<< ";nb_withdrawals:" << _nbWithdrawals
 			<< '\n';
-	return (true);
+	return true;
 }
 
 int		Account::checkAmount( void ) const
