@@ -6,16 +6,14 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/16 16:02:28 by brfialho          #+#    #+#             */
-/*   Updated: 2026/07/20 18:37:47 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/07/20 19:13:28 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Account.hpp"
+#include <ctime>
+#include <iomanip>
 #include <iostream>
-// #include <chrono>
-
-#define PURPLE "\033[95m"
-#define RESET "\033[0m"
 
 int Account::_nbAccounts = 0;
 int Account::_totalAmount = 0;
@@ -129,9 +127,22 @@ int		Account::checkAmount( void ) const
 	return (_amount);
 }
 
-void	Account::_displayTimestamp( void )
+void Account::_displayTimestamp( void )
 {
-	std::cout << "[19920104_091532] ";
+	std::time_t	now = std::time(NULL);
+	std::tm		*ltm = std::localtime(&now);
+
+	std::cout << std::setfill('0')
+			<< '[' 
+			<< std::setw(2) << 1900 + ltm->tm_year
+			<< std::setw(2) << 1 + ltm->tm_mon
+			<< std::setw(2) << ltm->tm_mday
+			<< "_"
+			<< std::setw(2) << ltm->tm_hour
+			<< std::setw(2) << ltm->tm_min
+			<< std::setw(2) << ltm->tm_sec
+			<< "] "
+			<< std::setfill(' ');
 }
 
 void	Account::displayStatus( void ) const
