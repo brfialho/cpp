@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 17:54:21 by brfialho          #+#    #+#             */
-/*   Updated: 2026/07/25 18:53:37 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/07/25 19:07:52 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,8 @@ class	HumanB	{
 
 public:
 	HumanB( const std::string &name );
-
 	void	setWeapon( Weapon &weapon );
-
 	void	attack( void );
-
 
 private:
 	std::string	_name;

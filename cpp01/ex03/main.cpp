@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 17:52:42 by brfialho          #+#    #+#             */
-/*   Updated: 2026/07/25 18:50:53 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/07/25 19:07:34 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,4 @@ int main( void )
 		club.setType("some other type of club");
 		jim.attack();
 	}
-
-	return 0;
 }
