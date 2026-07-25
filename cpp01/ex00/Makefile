@@ -23,7 +23,7 @@ SRC= main.cpp \
 O_DIR= obj/
 OBJ= $(SRC:%.cpp=$(O_DIR)%.o)
 
-NAME= zombie
+NAME= zombie.out
 
 all: $(NAME)
 
