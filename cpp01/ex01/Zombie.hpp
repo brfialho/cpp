@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 14:19:49 by brfialho          #+#    #+#             */
-/*   Updated: 2026/07/25 16:26:55 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/07/25 17:24:17 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,13 @@ class Zombie {
 
 public:
 	Zombie();
-	Zombie(std::string name);
+	Zombie( std::string name );
 
 	~Zombie();
 
-	void announce( void );
+	void	setName( std::string name );
+
+	void	announce( void );
 
 
 private:
