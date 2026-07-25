@@ -15,6 +15,7 @@ define LOADING
 endef
 
 CC= c++ -Werror -Wextra -Wall -std=c++98
+INCLUDES= -Iincludes/
 SRC= main.cpp \
 	srcs/Weapon.cpp \
 	srcs/HumanA.cpp \
@@ -28,14 +29,14 @@ NAME= violence.out
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@$(CC) $(OBJ) -o $(NAME)
+	@$(CC) $(INCLUDES) $(OBJ) -o $(NAME)
 	@echo -n "$(GREEN)\nSuccessfully Generated $(RESET)$(NAME) \n\n"
 
 $(O_DIR)%.o: %.cpp
 	@mkdir -p $(dir $@)
 	@echo "$(MAGENTA)Compiling$(RESET) $(notdir $<)"
 	@sleep 0.0001
-	@$(CC) -c $< -o $@
+	@$(CC) $(INCLUDES) -c $< -o $@
 
 clean:
 	@echo "$(MAGENTA)Cleansing $(NAME) Objects"
