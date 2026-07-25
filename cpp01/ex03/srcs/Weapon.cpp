@@ -6,13 +6,17 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 17:53:32 by brfialho          #+#    #+#             */
-/*   Updated: 2026/07/25 18:05:06 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/07/25 18:32:21 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Weapon.hpp"
 
 Weapon::Weapon()
+{}
+
+Weapon::Weapon( const std::string &type ):
+_type(type)
 {}
 
 const	std::string	&Weapon::getType( void )
