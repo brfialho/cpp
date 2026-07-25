@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 17:52:56 by brfialho          #+#    #+#             */
-/*   Updated: 2026/07/25 18:31:50 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/07/25 18:36:16 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ public:
 	const	std::string	&getType( void );
 
 	void	setType(const std::string &type);
+
 
 private:
 	std::string	_type;

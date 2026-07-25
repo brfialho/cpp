@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 17:53:56 by brfialho          #+#    #+#             */
-/*   Updated: 2026/07/25 18:26:06 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/07/25 18:48:17 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,14 @@ class	HumanA	{
 
 public:
 	HumanA( const std::string &name,
-		const Weapon &weapon );
+		Weapon &weapon );
 
 	void	attack( void );
 
 
 private:
 	std::string	_name;
-	Weapon		_weapon;
+	Weapon		&_weapon;
 
 };
 
