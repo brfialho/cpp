@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/28 17:35:52 by brfialho          #+#    #+#             */
-/*   Updated: 2026/07/29 20:30:35 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/07/29 22:33:47 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,7 @@
 #include <string>
 
 bool		openFiles(std::ifstream &input, std::ofstream &output, std::string &filename);
-std::string	&replace(std::string &buffer, const std::string &oldString, const std::string &newString);
-// void	copyFile(std::ifstream	&input, std::ofstream &output);
-// void	replaceStrings(std::ofstream &output, std::string &oldString);
+std::string	getNewDumpFile(std::string &oldDumpFile, const std::string &oldString, const std::string &newString);
 
 int main(int argc, char **argv)
 {
@@ -29,16 +27,17 @@ int main(int argc, char **argv)
 	std::string			filename(argv[1]);
 	std::ifstream		input;
 	std::ofstream		output;
+	std::string			dumpFile;
+	std::string			buffer;
 
-	if (filename.empty() || oldString.empty() || newString.empty())
+	if (filename.empty() || oldString.empty())
 		return (std::cout << "Usage:   <filename> <stringToBeReplaced> <replacementString>\n", 2);
 	if (!openFiles(input, output, filename))
 		return 3;
-	
-	std::string	buffer;
 
 	while (std::getline(input, buffer))
-		output << replace(buffer, oldString, newString) << '\n';
+		dumpFile.append(buffer + "\n");
+	output << getNewDumpFile(dumpFile, oldString, newString);
 }
 
 bool	openFiles(std::ifstream &input, std::ofstream &output, std::string &filename)
@@ -49,25 +48,23 @@ bool	openFiles(std::ifstream &input, std::ofstream &output, std::string &filenam
 	output.open((filename.append(".replace")).c_str());
 	if (!output)
 		return (input.close(), std::cout << "could not create " << filename << '\n', false);
-	return (true);
+	return true;
 }
 
-std::string	&replace(std::string &buffer, const std::string &oldString, const std::string &newString)
+std::string	getNewDumpFile(std::string &oldDumpFile, const std::string &oldString, const std::string &newString)
 {
-	static	size_t newLen = newString.length();
-	static	size_t oldLen = oldString.length();
-	std::string	copy(buffer);
-	size_t		pos = 0;
+	std::string	newDump;
 
-	while ((pos = buffer.find(oldString, pos)) != (size_t)-1)
+	for (size_t i = 0; oldDumpFile[i]; i++)
 	{
-		// std::cout << buffer.c_str() + pos << ' ' << pos << '\n';
-		if (newLen > oldLen)
-			buffer.resize(newLen - oldLen, newString[0] + 1);
-		for (int i = 0; i < newLen; i++)
-			buffer[pos + i] = newString[i];
-		pos += oldLen;
+		if (!oldDumpFile.compare(i, oldString.length(), oldString))
+		{
+			newDump.append(newString);
+			i += oldString.length() - 1;
+			continue;
+		}
+		newDump.append(1, oldDumpFile[i]);
 	}
-	(void)newString;
-	return (buffer);
+
+	return newDump;
 }
