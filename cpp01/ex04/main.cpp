@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/28 17:35:52 by brfialho          #+#    #+#             */
-/*   Updated: 2026/07/29 23:04:50 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/07/29 23:24:07 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int main(int argc, char **argv)
 		return 3;
 
 	while (std::getline(input, buffer))
-		dumpFile.append(buffer + "\n");
+		input.eof() ? dumpFile.append(buffer) : dumpFile.append(buffer + "\n");
 	output << processDumpFile(dumpFile, oldString, newString);
 }
 
@@ -55,31 +55,11 @@ std::string	&processDumpFile(std::string &dumpFile, const std::string &oldString
 {
 	size_t	pos = 0;
 
-	while((pos = dumpFile.find(oldString)) != std::string::npos)
+	while((pos = dumpFile.find(oldString, pos)) != std::string::npos)
 	{
 		dumpFile.erase(pos, oldString.length());
 		dumpFile.insert(pos, newString);
 		pos += newString.length();
 	}
-
 	return dumpFile;
 }
-
-// std::string	getNewDumpFile(std::string &oldDumpFile, const std::string &oldString, const std::string &newString)
-// {
-// 	std::string	newDump;
-
-// 	newDump.reserve(oldDumpFile.length());
-// 	for (size_t i = 0; oldDumpFile[i]; i++)
-// 	{
-// 		if (!oldDumpFile.compare(i, oldString.length(), oldString))
-// 		{
-// 			newDump.append(newString);
-// 			i += oldString.length() - 1;
-// 			continue;
-// 		}
-// 		newDump.push_back(oldDumpFile[i]);
-// 	}
-
-// 	return newDump;
-// }
