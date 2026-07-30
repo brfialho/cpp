@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/28 17:35:52 by brfialho          #+#    #+#             */
-/*   Updated: 2026/07/29 22:33:47 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/07/29 22:52:05 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ std::string	getNewDumpFile(std::string &oldDumpFile, const std::string &oldStrin
 {
 	std::string	newDump;
 
+	newDump.reserve(oldDumpFile.length());
 	for (size_t i = 0; oldDumpFile[i]; i++)
 	{
 		if (!oldDumpFile.compare(i, oldString.length(), oldString))
@@ -63,7 +64,7 @@ std::string	getNewDumpFile(std::string &oldDumpFile, const std::string &oldStrin
 			i += oldString.length() - 1;
 			continue;
 		}
-		newDump.append(1, oldDumpFile[i]);
+		newDump.push_back(oldDumpFile[i]);
 	}
 
 	return newDump;
