@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/30 18:08:11 by brfialho          #+#    #+#             */
-/*   Updated: 2026/07/30 19:05:59 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/07/30 19:23:27 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 class	Fixed {
 	
 private:
-	static const int	_width = 8;
+	static const int	_fractionalBit = 8;
 	int					_value;
 
 
