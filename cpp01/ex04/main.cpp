@@ -6,16 +6,17 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/28 17:35:52 by brfialho          #+#    #+#             */
-/*   Updated: 2026/07/29 23:24:07 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/07/29 23:34:43 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fstream>
 #include <iostream>
 #include <string>
+#include <sstream>
 
 bool		openFiles(std::ifstream &input, std::ofstream &output, std::string &filename);
-std::string	&processDumpFile(std::string &dumpFile, const std::string &oldString, const std::string &newString);
+std::string	processDumpFile(std::string dumpFile, const std::string &oldString, const std::string &newString);
 
 int main(int argc, char **argv)
 {
@@ -27,17 +28,15 @@ int main(int argc, char **argv)
 	std::string			filename(argv[1]);
 	std::ifstream		input;
 	std::ofstream		output;
-	std::string			dumpFile;
-	std::string			buffer;
+	std::stringstream	dumpFile;
 
 	if (filename.empty() || oldString.empty())
 		return (std::cout << "Usage:   <filename> <stringToBeReplaced> <replacementString>\n", 2);
 	if (!openFiles(input, output, filename))
 		return 3;
 
-	while (std::getline(input, buffer))
-		input.eof() ? dumpFile.append(buffer) : dumpFile.append(buffer + "\n");
-	output << processDumpFile(dumpFile, oldString, newString);
+	dumpFile << input.rdbuf();
+	output << processDumpFile(dumpFile.str(), oldString, newString);
 }
 
 bool	openFiles(std::ifstream &input, std::ofstream &output, std::string &filename)
@@ -51,7 +50,7 @@ bool	openFiles(std::ifstream &input, std::ofstream &output, std::string &filenam
 	return true;
 }
 
-std::string	&processDumpFile(std::string &dumpFile, const std::string &oldString, const std::string &newString)
+std::string	processDumpFile(std::string dumpFile, const std::string &oldString, const std::string &newString)
 {
 	size_t	pos = 0;
 
