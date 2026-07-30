@@ -14,7 +14,7 @@ define LOADING
     @sleep 0.15
 endef
 
-CC= c++ -Werror -Wextra -Wall -std=c++98
+CC= c++ -Werror -Wextra -Wall -std=c++98 -Wno-implicit-fallthrough
 SRC= main.cpp \
 	Harl.cpp \
 	Harl.hpp
@@ -22,7 +22,7 @@ SRC= main.cpp \
 O_DIR= obj/
 OBJ= $(SRC:%.cpp=$(O_DIR)%.o)
 
-NAME= harl-2.out
+NAME= harlFilter
 
 all: $(NAME)
 

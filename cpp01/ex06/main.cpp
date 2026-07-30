@@ -6,35 +6,18 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/29 23:40:17 by brfialho          #+#    #+#             */
-/*   Updated: 2026/07/30 00:29:41 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/07/30 00:53:30 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
 
-int main( void )
+int main( int argc, char **argv )
 {
+	if (argc != 2)
+		return (std::cout << "Usage: ./harlFilter <level>\n", 1);
+
 	Harl	h;
 
-	h.complain("INFO");
-	h.complain("");
-	h.complain("ERROR");
-	h.complain("NADA HAVER");
-	h.complain("INFO");
-	h.complain("DEBUG");
-	h.complain("WARNING");
-	h.complain("ERROR");
-	h.complain("ERRADO");
-
-	std::string	input;
-
-	while (true)
-	{
-		std::cout << "try yourself: ";
-		std::cin >> input;
-		if (input.compare("q") == 0 || input.compare("Q") == 0)
-			break;
-		h.complain(input);
-	}
-	std::cout << "BYE\n";
+	h.complain(std::string(argv[1]));
 }
