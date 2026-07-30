@@ -22,7 +22,7 @@ SRC= main.cpp \
 O_DIR= obj/
 OBJ= $(SRC:%.cpp=$(O_DIR)%.o)
 
-NAME= string.out
+NAME= harl.out
 
 all: $(NAME)
 
