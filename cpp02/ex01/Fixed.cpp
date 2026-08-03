@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/30 18:08:15 by brfialho          #+#    #+#             */
-/*   Updated: 2026/08/03 17:03:36 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/08/03 17:38:36 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,18 +24,6 @@ _value (raw << _fractionalBit)
 	std::cout << "Int Constructor Called\n";
 }
 
-Fixed&	Fixed::operator=(const Fixed& other)
-{
-	std::cout << "Copy assignment operator Called \n";
-
-	if (this == &other)
-		return *this;
-
-	_value = other._value;
-
-	return *this;
-}
-
 Fixed::Fixed( const float raw ):
 _value ((int)roundf(raw * (1 << _fractionalBit)))
 {
@@ -46,6 +34,18 @@ Fixed::Fixed( const Fixed &other ):
 _value(other._value)
 {
 	std::cout << "Copy Constructor Called\n";
+}
+
+Fixed&	Fixed::operator=(const Fixed& other)
+{
+	std::cout << "Copy assignment operator Called \n";
+
+	if (this == &other)
+		return *this;
+
+	_value = other._value;
+
+	return *this;
 }
 
 Fixed::~Fixed()

@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/30 18:08:11 by brfialho          #+#    #+#             */
-/*   Updated: 2026/08/03 16:54:06 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/08/03 17:38:13 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ public:
 	Fixed( const float raw );
 	Fixed( const Fixed &other );
 	Fixed& operator=( const Fixed &other );
-	Fixed& operator<<( const Fixed &other );
 	~Fixed();
 
 	int		getRawBits( void ) const;

@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/30 19:30:39 by brfialho          #+#    #+#             */
-/*   Updated: 2026/07/30 19:32:35 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/08/03 17:27:26 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	main( void )
 	Fixed const	c( 42.42f );
 	Fixed const	d( b );
 
-	a = Fixed( 1234.4321f );
+	a = Fixed(1234.4321f);
 
 	std::cout << "a is " << a << std::endl;
 	std::cout << "b is " << b << std::endl;
