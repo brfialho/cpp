@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/30 18:08:15 by brfialho          #+#    #+#             */
-/*   Updated: 2026/08/03 17:38:36 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/08/03 18:11:41 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,32 +14,22 @@
 
 Fixed::Fixed():
 _value(0)
-{
-	std::cout << "Default Constructor Called\n";
-}
+{}
 
 Fixed::Fixed( const int raw ):
 _value (raw << _fractionalBit)
-{
-	std::cout << "Int Constructor Called\n";
-}
+{}
 
 Fixed::Fixed( const float raw ):
 _value ((int)roundf(raw * (1 << _fractionalBit)))
-{
-	std::cout << "Float Constructor Called\n";
-}
+{}
 
 Fixed::Fixed( const Fixed &other ):
 _value(other._value)
-{
-	std::cout << "Copy Constructor Called\n";
-}
+{}
 
 Fixed&	Fixed::operator=(const Fixed& other)
 {
-	std::cout << "Copy assignment operator Called \n";
-
 	if (this == &other)
 		return *this;
 
@@ -49,21 +39,15 @@ Fixed&	Fixed::operator=(const Fixed& other)
 }
 
 Fixed::~Fixed()
-{
-	std::cout << "Destructor Called \n";
-}
+{}
 
 int	Fixed::getRawBits( void ) const
 {
-	std::cout << "getRawBits member function Called\n";
-
 	return _value;
 }
 
 void	Fixed::setRawBits( int const raw )
 {
-	std::cout << "setRawBits member function Called \n";
-
 	_value = raw;
 }
 
@@ -75,6 +59,88 @@ float	Fixed::toFloat( void ) const
 int		Fixed::toInt( void ) const
 {
 	return	(_value >> _fractionalBit);
+}
+
+bool	Fixed::operator>(const Fixed &other)
+{
+	return (_value > other._value);
+}
+
+bool	Fixed::operator<(const Fixed &other)
+{
+	return (_value < other._value);
+}
+
+bool	Fixed::operator>=(const Fixed &other)
+{
+	return (_value >= other._value);
+}
+
+bool	Fixed::operator<=(const Fixed &other)
+{
+	return (_value <= other._value);
+}
+
+bool	Fixed::operator==(const Fixed &other)
+{
+	return (_value == other._value);
+}
+
+bool	Fixed::operator!=(const Fixed &other)
+{
+	return (_value != other._value);
+}
+
+Fixed	Fixed::operator+(const Fixed &other)
+{
+	return (Fixed(_value + other._value));
+}
+
+Fixed	Fixed::operator-(const Fixed &other)
+{
+	return (Fixed(_value - other._value));
+}
+
+Fixed	Fixed::operator*(const Fixed &other)
+{
+	return (Fixed(_value * other._value));
+}
+
+Fixed	Fixed::operator/(const Fixed &other)
+{
+	return (Fixed(_value / other._value));
+}
+
+Fixed	&Fixed::operator++()
+{
+	_value++;
+
+	return *this;
+}
+
+Fixed	&Fixed::operator--()
+{
+	_value--;
+
+	return *this;
+}
+
+Fixed	Fixed::operator++(int)
+{
+	Fixed	old = *this;
+
+	_value++;
+
+	return old;
+}
+
+Fixed	Fixed::operator--(int)
+{
+	Fixed	old = *this;
+
+	_value--;
+
+	return old;
 }
 
 std::ostream& operator<<(std::ostream& out, const Fixed& fixed)

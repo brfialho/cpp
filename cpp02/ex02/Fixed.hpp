@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/30 18:08:11 by brfialho          #+#    #+#             */
-/*   Updated: 2026/08/03 17:38:13 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/08/03 18:00:55 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,23 @@ public:
 
 	float	toFloat( void ) const;
 	int		toInt( void ) const;
+
+	bool	operator>(const Fixed &other);
+	bool	operator<(const Fixed &other);
+	bool	operator>=(const Fixed &other);
+	bool	operator<=(const Fixed &other);
+	bool	operator==(const Fixed &other);
+	bool	operator!=(const Fixed &other);
+
+	Fixed	operator+(const Fixed &other);
+	Fixed	operator-(const Fixed &other);
+	Fixed	operator*(const Fixed &other);
+	Fixed	operator/(const Fixed &other);
+
+	Fixed	&operator++();
+	Fixed	&operator--();
+	Fixed	operator++(int);
+	Fixed	operator--(int);
 
 };
 
