@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/30 18:08:11 by brfialho          #+#    #+#             */
-/*   Updated: 2026/07/30 19:36:33 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/08/03 16:54:06 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define FIXED_H
 
 #include <iostream>
+#include <cmath>
 
 class	Fixed {
 	
