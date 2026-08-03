@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/30 18:08:15 by brfialho          #+#    #+#             */
-/*   Updated: 2026/08/03 18:39:36 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/08/03 18:45:38 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -163,4 +163,9 @@ std::ostream& operator<<(std::ostream& out, const Fixed& fixed)
     out << fixed.toFloat();
 
     return out;
+}
+
+static	Fixed	Fixed::&min( Fixed &a, Fixed &b )
+{
+	
 }
