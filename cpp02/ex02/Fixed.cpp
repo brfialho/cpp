@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/30 18:08:15 by brfialho          #+#    #+#             */
-/*   Updated: 2026/08/03 18:11:41 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/08/03 18:39:36 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,22 +93,37 @@ bool	Fixed::operator!=(const Fixed &other)
 
 Fixed	Fixed::operator+(const Fixed &other)
 {
-	return (Fixed(_value + other._value));
+	Fixed	result;
+
+	result._value = _value + other._value;
+	return (result);
 }
 
 Fixed	Fixed::operator-(const Fixed &other)
 {
-	return (Fixed(_value - other._value));
+	Fixed	result;
+
+	result._value = _value - other._value;
+	return (result);
 }
 
 Fixed	Fixed::operator*(const Fixed &other)
 {
-	return (Fixed(_value * other._value));
+	Fixed	result;
+
+	result._value = (_value * other._value) >> _fractionalBit;
+	return (result);
 }
 
 Fixed	Fixed::operator/(const Fixed &other)
 {
-	return (Fixed(_value / other._value));
+	if (other._value)
+		std::runtime_error("Division by 0\n");
+
+	Fixed	result;
+
+	result._value = (_value << _fractionalBit) / other._value;
+	return (result);
 }
 
 Fixed	&Fixed::operator++()
