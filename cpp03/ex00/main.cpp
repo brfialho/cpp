@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/04 17:49:03 by brfialho          #+#    #+#             */
-/*   Updated: 2026/08/04 18:13:31 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/08/04 18:41:27 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,17 @@
 
 int	main ( void )
 {
-	ClapTrap	c;
+	ClapTrap	a("Pikachu");
+	ClapTrap	b("Squirtle");
+	ClapTrap	c("Charmander");
 
-	// std::cout << c._hp << '\n';
+	for (int i = 0; i < 12; i++)
+	{
+		a.attack("enemy");
+		b.beRepaired(5);
+		c.takeDamage(4);
+		std::cout << '\n';
+	}
+	c.attack("enemy");
+	c.beRepaired(5);
 }
