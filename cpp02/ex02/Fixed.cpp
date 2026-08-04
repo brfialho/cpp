@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/30 18:08:15 by brfialho          #+#    #+#             */
-/*   Updated: 2026/08/04 15:32:28 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/08/04 16:26:02 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,8 +117,8 @@ Fixed	Fixed::operator*(const Fixed &other)
 
 Fixed	Fixed::operator/(const Fixed &other)
 {
-	if (other._value)
-		std::runtime_error("Division by 0\n");
+	if (other._value == 0)
+		throw	std::runtime_error("Division by 0\n");
 
 	Fixed	result;
 

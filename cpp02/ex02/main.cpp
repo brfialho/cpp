@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/30 19:30:39 by brfialho          #+#    #+#             */
-/*   Updated: 2026/08/04 15:44:21 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/08/04 16:26:18 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	main( void )
 	std::cout << a + c << '\n';
 	std::cout << a - c << '\n';
 	std::cout << a * c << '\n';
-	std::cout << a / c << '\n';
+	std::cout << a / b << '\n';
 
 	std::cout << std::boolalpha;
 	std::cout << a << " > " << c << ' ' << (a > c) << '\n';
