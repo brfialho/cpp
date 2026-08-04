@@ -6,21 +6,30 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/04 16:56:39 by brfialho          #+#    #+#             */
-/*   Updated: 2026/08/04 16:56:40 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/08/04 17:18:19 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Point.hpp"
 
-Point::Point()
+Point::Point():
+_x(0),
+_y(0)
 {}
 
-Point::Point( const Point &other )
+Point::Point( const float x, const float y ):
+_x(x),
+_y(y)
 {}
 
-Point&	Point::operator=(const Point& other)
+Point::Point( const Point &other ):
+_x(other._x),
+_y(other._y)
+{}
+
+Point&	Point::operator=( const Point& other )
 {
-
+	(void)other;
 	return *this;
 }
 
