@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/30 18:08:15 by brfialho          #+#    #+#             */
-/*   Updated: 2026/08/04 16:26:02 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/08/04 16:52:11 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,37 +61,37 @@ int		Fixed::toInt( void ) const
 	return	(_value >> _fractionalBit);
 }
 
-bool	Fixed::operator>(const Fixed &other)
+bool	Fixed::operator>(const Fixed &other) const
 {
 	return (_value > other._value);
 }
 
-bool	Fixed::operator<(const Fixed &other)
+bool	Fixed::operator<(const Fixed &other) const
 {
 	return (_value < other._value);
 }
 
-bool	Fixed::operator>=(const Fixed &other)
+bool	Fixed::operator>=(const Fixed &other) const
 {
 	return (_value >= other._value);
 }
 
-bool	Fixed::operator<=(const Fixed &other)
+bool	Fixed::operator<=(const Fixed &other) const
 {
 	return (_value <= other._value);
 }
 
-bool	Fixed::operator==(const Fixed &other)
+bool	Fixed::operator==(const Fixed &other) const
 {
 	return (_value == other._value);
 }
 
-bool	Fixed::operator!=(const Fixed &other)
+bool	Fixed::operator!=(const Fixed &other) const
 {
 	return (_value != other._value);
 }
 
-Fixed	Fixed::operator+(const Fixed &other)
+Fixed	Fixed::operator+(const Fixed &other) const
 {
 	Fixed	result;
 
@@ -99,7 +99,7 @@ Fixed	Fixed::operator+(const Fixed &other)
 	return (result);
 }
 
-Fixed	Fixed::operator-(const Fixed &other)
+Fixed	Fixed::operator-(const Fixed &other) const
 {
 	Fixed	result;
 
@@ -107,7 +107,7 @@ Fixed	Fixed::operator-(const Fixed &other)
 	return (result);
 }
 
-Fixed	Fixed::operator*(const Fixed &other)
+Fixed	Fixed::operator*(const Fixed &other) const
 {
 	Fixed	result;
 
@@ -115,7 +115,7 @@ Fixed	Fixed::operator*(const Fixed &other)
 	return (result);
 }
 
-Fixed	Fixed::operator/(const Fixed &other)
+Fixed	Fixed::operator/(const Fixed &other) const
 {
 	if (other._value == 0)
 		throw	std::runtime_error("Division by 0\n");
@@ -181,14 +181,14 @@ Fixed	&Fixed::max( Fixed &a, Fixed &b )
 
 const Fixed	&Fixed::min( const Fixed &a,  const Fixed &b )
 {
-	if (b._value < a._value)
+	if (b < a)
 		return (b);
 	return (a);
 }
 
 const Fixed	&Fixed::max( const Fixed &a, const Fixed &b )
 {
-	if (b._value > a._value)
+	if (b > a)
 		return (b);
 	return (a);
 }
