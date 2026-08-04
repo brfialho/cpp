@@ -1,20 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Point.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/30 19:30:39 by brfialho          #+#    #+#             */
-/*   Updated: 2026/08/04 16:57:24 by brfialho         ###   ########.fr       */
+/*   Created: 2026/08/04 16:56:39 by brfialho          #+#    #+#             */
+/*   Updated: 2026/08/04 16:56:40 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include "Fixed.hpp"
 #include "Point.hpp"
 
-int	main( void )
+Point::Point()
+{}
+
+Point::Point( const Point &other )
+{}
+
+Point&	Point::operator=(const Point& other)
 {
 
+	return *this;
 }
+
+Point::~Point()
+{}
+

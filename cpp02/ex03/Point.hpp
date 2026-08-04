@@ -1,20 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Point.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/30 19:30:39 by brfialho          #+#    #+#             */
-/*   Updated: 2026/08/04 16:57:24 by brfialho         ###   ########.fr       */
+/*   Created: 2026/08/04 16:56:42 by brfialho          #+#    #+#             */
+/*   Updated: 2026/08/04 16:56:42 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include "Fixed.hpp"
-#include "Point.hpp"
+#ifndef POINT_H
+# define POINT_H
 
-int	main( void )
-{
+class	Point {
 
-}
+private:
+
+
+public:
+	Point();
+	Point( const Point &other );
+	Point& operator=( const Point &other );
+	~Point();
+
+};
+
+#endif
