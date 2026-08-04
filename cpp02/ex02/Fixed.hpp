@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/30 18:08:11 by brfialho          #+#    #+#             */
-/*   Updated: 2026/08/03 18:44:49 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/08/04 15:45:09 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,18 @@
 
 class	Fixed {
 
-	static	Fixed	&min( Fixed &a, Fixed &b );
-	static	Fixed	&min( const Fixed &a, const Fixed &b );
-	static	Fixed	&max( Fixed &a, Fixed &b );
-	static	Fixed	&max( const Fixed &a, const Fixed &b );
-	
+
 private:
 	static const int	_fractionalBit = 8;
 	int					_value;
 
 
 public:
+	static Fixed		&min( Fixed &a, Fixed &b );
+	static Fixed		&max( Fixed &a, Fixed &b );
+	static const Fixed	&min( const Fixed &a, const Fixed &b );
+	static const Fixed	&max( const Fixed &a, const Fixed &b );
+
 	Fixed();
 	Fixed( const int raw );
 	Fixed( const float raw );

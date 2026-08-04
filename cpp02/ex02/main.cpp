@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/30 19:30:39 by brfialho          #+#    #+#             */
-/*   Updated: 2026/08/03 18:08:40 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/08/04 15:44:21 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,14 @@ int	main( void )
 		std::cout << a++ << std::endl;
 		std::cout << a << std::endl;
 		std::cout << b << std::endl;
-		// std::cout << Fixed::max( a, b ) << std::endl;
+		std::cout << Fixed::max( a, b ) << std::endl;
 	}
 
 	Fixed		a;
-	Fixed const	c( 42.42f );
+	Fixed const	c( 42.25f );
 
-	a = Fixed(1234.4321f);
+	a = Fixed(5.5f);
+	Fixed	b = a;
 
 	std::cout << '\n';
 	std::cout << a + c << '\n';
@@ -39,13 +40,15 @@ int	main( void )
 	std::cout << a * c << '\n';
 	std::cout << a / c << '\n';
 
-	std::cout << (a > c) << '\n';
-	std::cout << (a < c) << '\n';
-	std::cout << (a >= c) << '\n';
-	std::cout << (a <= c) << '\n';
-	std::cout << (a == c) << '\n';
-	std::cout << (a != c) << '\n';
-	std::cout << a++ << ' ' << a << ' ' << ++a << '\n';
-	std::cout << a-- << ' ' << a << ' ' << --a << '\n';
-	
+	std::cout << std::boolalpha;
+	std::cout << a << " > " << c << ' ' << (a > c) << '\n';
+	std::cout << a << " < " << c << ' ' << (a < c) << '\n';
+	std::cout << a << " >= " << c << ' ' << (a >= c) << '\n';
+	std::cout << a << " >= " << b << ' ' << (a >= b) << '\n';
+	std::cout << a << " <= " << c << ' ' << (a <= c) << '\n';
+	std::cout << a << " <= " << b << ' ' << (a <= b) << '\n';
+	std::cout << a << " == " << c << ' ' << (a == c) << '\n';
+	std::cout << a << " == " << b << ' ' << (a == b) << '\n';
+	std::cout << a << " != " << c << ' ' << (a != c) << '\n';
+	std::cout << a << " != " << b << ' ' << (a != b) << '\n';
 }

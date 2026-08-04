@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/30 18:08:15 by brfialho          #+#    #+#             */
-/*   Updated: 2026/08/03 18:45:38 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/08/04 15:32:28 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -165,7 +165,30 @@ std::ostream& operator<<(std::ostream& out, const Fixed& fixed)
     return out;
 }
 
-static	Fixed	Fixed::&min( Fixed &a, Fixed &b )
+Fixed	&Fixed::min( Fixed &a, Fixed &b )
 {
-	
+	if (b < a)
+		return (b);
+	return (a);
+}
+
+Fixed	&Fixed::max( Fixed &a, Fixed &b )
+{
+	if (b > a)
+		return (b);
+	return (a);
+}
+
+const Fixed	&Fixed::min( const Fixed &a,  const Fixed &b )
+{
+	if (b._value < a._value)
+		return (b);
+	return (a);
+}
+
+const Fixed	&Fixed::max( const Fixed &a, const Fixed &b )
+{
+	if (b._value > a._value)
+		return (b);
+	return (a);
 }
