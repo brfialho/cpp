@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/04 18:44:56 by brfialho          #+#    #+#             */
-/*   Updated: 2026/08/05 20:28:42 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/08/05 20:35:00 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,24 @@ void	ScravTrap::guardGate( void )
 {
 	std::cout << "ScravTrap " << getName() << " is now in guard mode\n";
 	_guardMode = true;
+}
+
+void	ScravTrap::attack(const std::string& target)
+{
+	if (!_hp)
+	{
+		std::cout << "ClapTrap " << _name << " cant attack because he is dead\n";
+		return;
+	}
+	if (!_energy)
+	{
+		std::cout << "ClapTrap " << _name << " cant attack because he has no energy\n";
+		return;
+	}
+
+	std::cout << "ClapTrap " << _name 
+			<< " attacks " << target 
+			<< " causing " << _atk << " points of damage"
+			<< '\n';
+	_energy--;
 }
