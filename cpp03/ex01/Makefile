@@ -16,7 +16,8 @@ endef
 
 CC= c++ -Werror -Wextra -Wall -std=c++98
 SRC= main.cpp \
-	ClapTrap.cpp
+	ClapTrap.cpp \
+	ScravTrap.cpp
 
 O_DIR= obj/
 OBJ= $(SRC:%.cpp=$(O_DIR)%.o)

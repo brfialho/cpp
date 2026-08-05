@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/04 17:48:10 by brfialho          #+#    #+#             */
-/*   Updated: 2026/08/04 18:41:00 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/08/05 19:44:18 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,20 @@
 
 ClapTrap::ClapTrap():
 _name("UNAMED"),
-_hp(10),
-_energy(10),
-_atk(0)
+_hp(100),
+_energy(50),
+_atk(20)
 {
-	std::cout << "Default Constructor has been called\n";
+	std::cout << "ClapTrap Default Constructor has been called\n";
 }
 
 ClapTrap::ClapTrap( const std::string name ):
 _name(name),
-_hp(10),
-_energy(10),
-_atk(0)
+_hp(100),
+_energy(50),
+_atk(20)
 {
-	std::cout << "Name Constructor has been called\n";
+	std::cout << "ClapTrap Name Constructor has been called\n";
 }
 
 ClapTrap::ClapTrap( const ClapTrap &other ):
@@ -36,12 +36,12 @@ _hp(other._hp),
 _energy(other._energy),
 _atk(other._atk)
 {
-	std::cout << "Copy Constructor has been called\n";
+	std::cout << "ClapTrap Copy Constructor has been called\n";
 }
 
 ClapTrap&	ClapTrap::operator=( const ClapTrap& other )
 {
-	std::cout << "Assign Operator has been called\n";
+	std::cout << "ClapTrap Assign Operator has been called\n";
 
 	if (this == &other)
 		return *this;
@@ -55,7 +55,12 @@ ClapTrap&	ClapTrap::operator=( const ClapTrap& other )
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << "Destructor has been called\n";
+	std::cout << "ClapTrap Destructor has been called\n";
+}
+
+std::string		ClapTrap::getName( void )
+{
+	return(_name);
 }
 
 void	ClapTrap::attack(const std::string& target)
