@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/04 17:48:10 by brfialho          #+#    #+#             */
-/*   Updated: 2026/08/06 18:18:44 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/08/06 19:16:03 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ _atk(0)
 	std::cout << "ClapTrap " << _name << " Default Constructor has been called\n";
 }
 
-ClapTrap::ClapTrap( const std::string name ):
+ClapTrap::ClapTrap( const std::string &name ):
 _name(name),
 _hp(10),
 _energy(10),
@@ -31,7 +31,7 @@ _atk(0)
 }
 
 ClapTrap::ClapTrap( 
-		const std::string name, 
+		const std::string &name, 
 		unsigned int hp, 
 		unsigned int energy, 
 		unsigned int atk ):

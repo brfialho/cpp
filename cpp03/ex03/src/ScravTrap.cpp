@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/04 18:44:56 by brfialho          #+#    #+#             */
-/*   Updated: 2026/08/06 17:02:09 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/08/06 19:16:17 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ _guardMode(false)
 	std::cout << "ScravTrap " << getName() << " Default Constructor has been called\n";
 }
 
-ScravTrap::ScravTrap( const std::string name ):
+ScravTrap::ScravTrap( const std::string &name ):
 ClapTrap(name, 100, 50, 20),
 _guardMode(false)
 {

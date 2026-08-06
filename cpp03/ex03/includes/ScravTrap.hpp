@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/04 18:45:00 by brfialho          #+#    #+#             */
-/*   Updated: 2026/08/06 18:06:30 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/08/06 19:15:50 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ protected:
 
 public:
 	ScravTrap();
-	ScravTrap( const std::string name );
+	ScravTrap( const std::string &name );
 	ScravTrap( const ScravTrap &other );
 	ScravTrap& operator=( const ScravTrap &other );
 	~ScravTrap();

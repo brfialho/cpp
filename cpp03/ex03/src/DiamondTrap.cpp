@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/06 17:28:51 by brfialho          #+#    #+#             */
-/*   Updated: 2026/08/06 18:20:44 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/08/06 19:15:17 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 	
 // }
 
-DiamondTrap::DiamondTrap( const std::string name ):
+DiamondTrap::DiamondTrap( const std::string &name ):
 ClapTrap(name + "_clap_name", 100, 50, 30),
 ScravTrap(),
 FragTrap(),

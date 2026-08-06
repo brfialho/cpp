@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/04 17:48:14 by brfialho          #+#    #+#             */
-/*   Updated: 2026/08/06 18:18:00 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/08/06 19:15:35 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ private:
 
 
 protected:
-	ClapTrap( const std::string name, 
+	ClapTrap( const std::string &name, 
 			unsigned int hp, 
 			unsigned int energy, 
 			unsigned int atk );
@@ -39,7 +39,7 @@ protected:
 
 public:
 	ClapTrap();
-	ClapTrap( const std::string name );
+	ClapTrap( const std::string &name );
 	ClapTrap( const ClapTrap &other );
 	ClapTrap& operator=( const ClapTrap &other );
 	~ClapTrap();
