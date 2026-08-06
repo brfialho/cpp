@@ -6,20 +6,21 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/04 18:44:56 by brfialho          #+#    #+#             */
-/*   Updated: 2026/08/06 15:39:46 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/08/06 17:02:09 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScravTrap.hpp"
 
 ScravTrap::ScravTrap():
+ClapTrap("UNAMED", 100, 50, 20),
 _guardMode(false)
 {
 	std::cout << "ScravTrap " << getName() << " Default Constructor has been called\n";
 }
 
 ScravTrap::ScravTrap( const std::string name ):
-ClapTrap(name),
+ClapTrap(name, 100, 50, 20),
 _guardMode(false)
 {
 	std::cout << "ScravTrap " << getName() << " Name Constructor has been called\n";
