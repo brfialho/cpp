@@ -6,18 +6,17 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/06 17:28:51 by brfialho          #+#    #+#             */
-/*   Updated: 2026/08/06 19:15:17 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/08/06 19:48:12 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
 
-// DiamondTrap::DiamondTrap():
-// ScravTrap(),
-// FragTrap()
-// {
-	
-// }
+DiamondTrap::DiamondTrap():
+ClapTrap("UNAMED_clap_name", 100, 50, 30)
+{
+	std::cout << "DiamondTrap " << getName() << " aka " << _name << " Default Constructor has been called\n";
+}
 
 DiamondTrap::DiamondTrap( const std::string &name ):
 ClapTrap(name + "_clap_name", 100, 50, 30),
@@ -25,21 +24,35 @@ ScravTrap(),
 FragTrap(),
 _name(name)
 {
-	std::cout << "DiamondTrap " << getName() << " aka " << _name << "Constructor has been called\n";
+	std::cout << "DiamondTrap " << getName() << " aka " << _name << " Name Constructor has been called\n";
 }
 
-// DiamondTrap::DiamondTrap( const DiamondTrap &other )
-// {}
+DiamondTrap::DiamondTrap( const DiamondTrap &other ):
+ClapTrap(other),
+ScravTrap(other),
+FragTrap(other),
+_name(other._name)
+{
+	std::cout << "DiamondTrap " << getName() << " aka " << _name << " Copy Constructor has been called\n";
+}
 
-// DiamondTrap&	DiamondTrap::operator=( const DiamondTrap& other )
-// {
-// 	if (this == &other)
-// 		return *this;
-// 	return *this;
-// }
+DiamondTrap&	DiamondTrap::operator=( const DiamondTrap& other )
+{
+	std::cout << "DiamondTrap " << getName() << " aka " << _name << " Assign Operator has been called\n";
+	if (this == &other)
+		return *this;
 
-// DiamondTrap::~DiamondTrap()
-// {}
+	ClapTrap::operator=(other);
+	assignScravMembers(other);
+	// assignFragMembers(other);
+	_name = other._name;
+	return *this;
+}
+
+DiamondTrap::~DiamondTrap()
+{
+	std::cout << "DiamondTrap " << getName() << " aka " << _name << " Destructor has been called\n";
+}
 
 std::string		DiamondTrap::getClassName( void )
 {
