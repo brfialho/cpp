@@ -6,23 +6,35 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/06 17:28:56 by brfialho          #+#    #+#             */
-/*   Updated: 2026/08/06 17:28:56 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/08/06 18:19:13 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DIAMONDTRAP_H
 # define DIAMONDTRAP_H
 
-class	DiamondTrap {
+#include "ScravTrap.hpp"
+#include "FragTrap.hpp"
+
+class	DiamondTrap : public ScravTrap, public FragTrap	{
 
 private:
+	std::string	_name;
+
+
+protected:
+	std::string	getClassName( void );
 
 
 public:
-	DiamondTrap();
-	DiamondTrap( const DiamondTrap &other );
-	DiamondTrap& operator=( const DiamondTrap &other );
-	~DiamondTrap();
+	// DiamondTrap();
+	DiamondTrap( const std::string name );
+	// DiamondTrap( const DiamondTrap &other );
+	// DiamondTrap& operator=( const DiamondTrap &other );
+	// ~DiamondTrap();
+
+	void	whoAmI( void );
+	void	displayStats( void );
 
 };
 

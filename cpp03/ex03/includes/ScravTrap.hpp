@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/04 18:45:00 by brfialho          #+#    #+#             */
-/*   Updated: 2026/08/06 15:57:28 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/08/06 18:06:30 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include "ClapTrap.hpp"
 
-class	ScravTrap : public ClapTrap {
+class	ScravTrap : virtual public ClapTrap {
 
 private:
 	bool	_guardMode;

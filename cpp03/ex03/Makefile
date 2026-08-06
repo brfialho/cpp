@@ -52,4 +52,10 @@ fclean:
 
 re: fclean all
 
-.PHONY: all re fclean clean 
+rerun: re
+	@./clap.out
+
+run: all
+	@./clap.out
+
+.PHONY: all re fclean clean  run

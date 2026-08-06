@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/06 16:10:20 by brfialho          #+#    #+#             */
-/*   Updated: 2026/08/06 17:08:08 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/08/06 18:05:38 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 #define BOLD_RED "\033[1;31m"
 #define RESET "\033[0m"
 
-class	FragTrap : public ClapTrap	{
+class	FragTrap : virtual public ClapTrap	{
 
 private:
 
