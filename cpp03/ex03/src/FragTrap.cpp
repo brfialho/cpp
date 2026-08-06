@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/06 16:10:23 by brfialho          #+#    #+#             */
-/*   Updated: 2026/08/06 19:44:45 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/08/06 20:55:56 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,17 @@ std::string		FragTrap::getClassName( void )
 
 void	FragTrap::highFivesGuys(void)
 {
+	static	std::string	nameToPrint = getName();
+	static	std::string	helper = "_clap_name";
+
+	nameToPrint = getName();
+	if (getClassName() == "DiamondTrap")
+		nameToPrint.erase(nameToPrint.length() - helper.length());
+
 	if (getHp() == 0)
 	{
 		std::cout << "Unfortunely for " << getClassName()
-				<< ' ' << getName()
+				<< ' ' << nameToPrint
 				<< " dead guys cant high five... :(\n";
 		return ;
 	}
@@ -65,22 +72,22 @@ void	FragTrap::highFivesGuys(void)
 	input.clear();
 	std::cout << CLEAR
 			<< PROMPT_COLOR
-			<< getClassName() << ' ' << getName() << " wants to high five!!!!\n\n"
-			<<	"Type Y to high five him or N to ignore"
+			<< getClassName() << ' ' << nameToPrint << " wants to high five!!!!\n\n"
+			<<	"Type Y to high five or N to ignore"
 			<< RESET
 			<< std::endl;
 	std::getline(std::cin, input);
 	if (input == "Y" || input == "y")
 	{
 		std::cout << BOLD_GREEN
-		<< "You highfived "<< getClassName() << ' ' << getName() << " and its happy! \n"
+		<< "You highfived "<< getClassName() << ' ' << nameToPrint << " and its happy! \n"
 		<< RESET;
 		return;
 	}
 	if (input == "N" || input == "n")
 	{
 		std::cout << BOLD_RED
-		<< "You ignored "<< getClassName() << ' ' << getName() << " and now its crying...\nYou cold hearted monster!\n"
+		<< "You ignored "<< getClassName() << ' ' << nameToPrint << " and now its crying...\nYou cold hearted MONSTER!\n"
 		<< RESET;
 		return;
 	}

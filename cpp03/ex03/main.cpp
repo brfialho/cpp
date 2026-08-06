@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/04 17:49:03 by brfialho          #+#    #+#             */
-/*   Updated: 2026/08/06 19:25:50 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/08/06 20:55:16 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ int	main ( void )
 {
 	DiamondTrap	d("CHARIZARD");
 	DiamondTrap	c(d);
+	ScravTrap	s("SCRAV");
+	FragTrap	f("FRAG");
 
 	std::cout << '\n';
 	d.whoAmI();
@@ -27,6 +29,7 @@ int	main ( void )
 	{
 		d.takeDamage(8);
 		d.attack("DUMMY");
+		s.attack("DUMMY");
 		std::cout << '\n';
 	}
 
@@ -37,4 +40,5 @@ int	main ( void )
 	c.whoAmI();
 	c.displayStats();
 	d.highFivesGuys();
+	f.highFivesGuys();
 } 

@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/04 17:48:10 by brfialho          #+#    #+#             */
-/*   Updated: 2026/08/06 19:16:03 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/08/06 20:51:34 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,18 +98,24 @@ unsigned int	ClapTrap::getAtk( void )
 
 void	ClapTrap::attack(const std::string& target)
 {
+	static	std::string	nameToPrint = _name;
+	static	std::string	helper = "_clap_name";
+
+	nameToPrint = _name;
+	if (getClassName() == "DiamondTrap")
+		nameToPrint.erase(nameToPrint.length() - helper.length());
 	if (!_hp)
 	{
-		std::cout << getClassName() << " " << _name << " cant attack because he is dead\n";
+		std::cout << getClassName() << " " << nameToPrint << " cant attack because he is dead\n";
 		return;
 	}
 	if (!_energy)
 	{
-		std::cout << getClassName() << " " << _name << " cant attack because he has no energy\n";
+		std::cout << getClassName() << " " << nameToPrint << " cant attack because he has no energy\n";
 		return;
 	}
 
-	std::cout << getClassName() << " " << _name 
+	std::cout << getClassName() << " " << nameToPrint 
 			<< " attacks " << target 
 			<< " causing " << _atk << " points of damage"
 			<< '\n';
@@ -118,15 +124,20 @@ void	ClapTrap::attack(const std::string& target)
 
 void	ClapTrap::takeDamage(unsigned int amount)
 {
+	static	std::string	nameToPrint = _name;
+	static	std::string	helper = "_clap_name";
+
+	nameToPrint = _name;
+	if (getClassName() == "DiamondTrap")
+		nameToPrint.erase(nameToPrint.length() - helper.length());
 	if (!_hp)
 	{
-		std::cout << getClassName() << " " << _name << " is already dead :(\n";
+		std::cout << getClassName() << " " << nameToPrint << " is already dead :(\n";
 		return;
 	}
 
 	amount > _hp ? _hp = 0 : _hp -= amount;
-
-	std::cout << getClassName() << " " << _name 
+	std::cout << getClassName() << " " << nameToPrint 
 			<< " takes " << amount << " points of damage"
 			<< " and now has " << _hp << " points of hp"
 			<< '\n';
@@ -134,20 +145,25 @@ void	ClapTrap::takeDamage(unsigned int amount)
 
 void	ClapTrap::beRepaired(unsigned int amount)
 {
+	static	std::string	nameToPrint = _name;
+	static	std::string	helper = "_clap_name";
+
+	nameToPrint = _name;
+	if (getClassName() == "DiamondTrap")
+		nameToPrint.erase(nameToPrint.length() - helper.length());
 	if (!_hp)
 	{
-		std::cout << getClassName() << " " << _name << " cant use repair because he is dead\n";
+		std::cout << getClassName() << " " << nameToPrint << " cant use repair because he is dead\n";
 		return;
 	}
 	if (!_energy)
 	{
-		std::cout << getClassName() << " " << _name << " cant use repair because he has no energy\n";
+		std::cout << getClassName() << " " << nameToPrint << " cant use repair because he has no energy\n";
 		return;
 	}
-
 	_hp += amount;
 	_energy--;
-	std::cout << getClassName() << " " << _name 
+	std::cout << getClassName() << " " << nameToPrint 
 			<< " repaired itself for " << amount << " hp"
 			<< " and now has " << _hp << " points of hp"
 			<< '\n';
