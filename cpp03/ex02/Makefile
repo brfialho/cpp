@@ -15,10 +15,11 @@ define LOADING
 endef
 
 CC= c++ -Werror -Wextra -Wall -std=c++98
+INCLUDES= -Iincludes/
 SRC= main.cpp \
-	ClapTrap.cpp \
-	ScravTrap.cpp \
-	FragTrap.cpp
+	src/ClapTrap.cpp \
+	src/ScravTrap.cpp \
+	src/FragTrap.cpp
 
 O_DIR= obj/
 OBJ= $(SRC:%.cpp=$(O_DIR)%.o)
@@ -28,14 +29,14 @@ NAME= clap.out
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@$(CC) $(OBJ) -o $(NAME)
+	@$(CC) $(INCLUDES) $(OBJ) -o $(NAME)
 	@echo -n "$(GREEN)\nSuccessfully Generated $(RESET)$(NAME) \n\n"
 
 $(O_DIR)%.o: %.cpp
 	@mkdir -p $(dir $@)
 	@echo "$(MAGENTA)Compiling$(RESET) $(notdir $<)"
 	@sleep 0.0001
-	@$(CC) -c $< -o $@
+	@$(CC) $(INCLUDES) -c $< -o $@
 
 clean:
 	@echo "$(MAGENTA)Cleansing $(NAME) Objects"

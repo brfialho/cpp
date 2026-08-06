@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/06 16:10:23 by brfialho          #+#    #+#             */
-/*   Updated: 2026/08/06 17:08:36 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/08/06 17:19:26 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,13 @@ std::string		FragTrap::getClassName( void )
 
 void	FragTrap::highFivesGuys(void)
 {
+	if (getHp() == 0)
+	{
+		std::cout << "Unfortunely for " << getClassName()
+				<< ' ' << getName()
+				<< " dead guys cant high five... :(\n";
+		return ;
+	}
 	std::string	input;
 
 	prompt:

@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/04 17:49:03 by brfialho          #+#    #+#             */
-/*   Updated: 2026/08/06 17:06:03 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/08/06 17:15:40 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int	main ( void )
 	s.guardGate();
 	for (int i = 0; i < 52; i++)
 	{
+		std::cout << "LOOP: " << i << '\n';
 		f.attack("DUMMY");
 		t.beRepaired(10);
 		a.takeDamage(20);
@@ -35,4 +36,5 @@ int	main ( void )
 		std::cout << '\n';
 	}
 	a.highFivesGuys();
+	f.highFivesGuys();
 } 
