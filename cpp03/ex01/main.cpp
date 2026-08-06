@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/04 17:49:03 by brfialho          #+#    #+#             */
-/*   Updated: 2026/08/05 20:28:04 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/08/06 15:55:00 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,17 @@ int	main ( void )
 {
 	ScravTrap	s("PICCACHU");
 	ScravTrap	t(s);
+	ScravTrap	a("CHARMANDER");
 
-	s.guardGate();
-	for (int i = 0; i < 12; i++)
+	t.guardGate();
+	for (int i = 0; i < 52; i++)
 	{
 		s.attack("DUMMY");
-		t.attack("DUMMY");
+		t.beRepaired(10);
+		a.takeDamage(20);
+		a.attack("DUMMY");
 		std::cout << '\n';
 	}
+
+	// std::cout << s.getClassName() << '\n';
 } 

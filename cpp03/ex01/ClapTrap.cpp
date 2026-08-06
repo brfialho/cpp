@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/04 17:48:10 by brfialho          #+#    #+#             */
-/*   Updated: 2026/08/05 20:21:06 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/08/06 15:54:11 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,11 @@ ClapTrap::~ClapTrap()
 	std::cout << "ClapTrap " << _name << " Destructor has been called\n";
 }
 
+std::string		ClapTrap::getClassName( void )
+{
+	return ("ClapTrap");
+}
+
 std::string		ClapTrap::getName( void )
 {
 	return(_name);
@@ -67,16 +72,16 @@ void	ClapTrap::attack(const std::string& target)
 {
 	if (!_hp)
 	{
-		std::cout << "ClapTrap " << _name << " cant attack because he is dead\n";
+		std::cout << getClassName() << " " << _name << " cant attack because he is dead\n";
 		return;
 	}
 	if (!_energy)
 	{
-		std::cout << "ClapTrap " << _name << " cant attack because he has no energy\n";
+		std::cout << getClassName() << " " << _name << " cant attack because he has no energy\n";
 		return;
 	}
 
-	std::cout << "ClapTrap " << _name 
+	std::cout << getClassName() << " " << _name 
 			<< " attacks " << target 
 			<< " causing " << _atk << " points of damage"
 			<< '\n';
@@ -87,13 +92,13 @@ void	ClapTrap::takeDamage(unsigned int amount)
 {
 	if (!_hp)
 	{
-		std::cout << "ClapTrap " << _name << "is already dead :(\n";
+		std::cout << getClassName() << " " << _name << " is already dead :(\n";
 		return;
 	}
 
 	amount > _hp ? _hp = 0 : _hp -= amount;
 
-	std::cout << "ClapTrap " << _name 
+	std::cout << getClassName() << " " << _name 
 			<< " takes " << amount << " points of damage"
 			<< " and now has " << _hp << " points of hp"
 			<< '\n';
@@ -103,18 +108,18 @@ void	ClapTrap::beRepaired(unsigned int amount)
 {
 	if (!_hp)
 	{
-		std::cout << "ClapTrap " << _name << " cant use repair because he is dead\n";
+		std::cout << getClassName() << " " << _name << " cant use repair because he is dead\n";
 		return;
 	}
 	if (!_energy)
 	{
-		std::cout << "ClapTrap " << _name << " cant use repair because he has no energy\n";
+		std::cout << getClassName() << " " << _name << " cant use repair because he has no energy\n";
 		return;
 	}
 
 	_hp += amount;
 	_energy--;
-	std::cout << "ClapTrap " << _name 
+	std::cout << getClassName() << " " << _name 
 			<< " repaired itself for " << amount << " hp"
 			<< " and now has " << _hp << " points of hp"
 			<< '\n';

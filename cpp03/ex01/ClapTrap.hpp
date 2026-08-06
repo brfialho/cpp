@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/04 17:48:14 by brfialho          #+#    #+#             */
-/*   Updated: 2026/08/05 19:42:57 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/08/06 15:50:00 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,9 @@ private:
 
 
 protected:
-	std::string		getName( void );
+	virtual std::string		getClassName( void );
+
+	std::string				getName( void );
 	// unsigned int	getHp( void );
 	// unsigned int	getEnergy( void );
 	// unsigned int	getAtk( void );
