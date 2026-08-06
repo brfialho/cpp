@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/04 18:45:00 by brfialho          #+#    #+#             */
-/*   Updated: 2026/08/06 15:50:48 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/08/06 15:57:28 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@
 
 class	ScravTrap : public ClapTrap {
 
-
 private:
 	bool	_guardMode;
 
 
 protected:
 	std::string	getClassName( void );
+
 
 public:
 	ScravTrap();

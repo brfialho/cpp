@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/04 17:49:03 by brfialho          #+#    #+#             */
-/*   Updated: 2026/08/06 15:55:00 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/08/06 15:56:56 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,4 @@ int	main ( void )
 		a.attack("DUMMY");
 		std::cout << '\n';
 	}
-
-	// std::cout << s.getClassName() << '\n';
 } 
