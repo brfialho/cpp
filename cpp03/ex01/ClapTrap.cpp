@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/04 17:48:10 by brfialho          #+#    #+#             */
-/*   Updated: 2026/08/06 15:54:11 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/08/06 17:22:59 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,31 @@
 
 ClapTrap::ClapTrap():
 _name("UNAMED"),
-_hp(100),
-_energy(50),
-_atk(20)
+_hp(10),
+_energy(10),
+_atk(0)
 {
 	std::cout << "ClapTrap " << _name << " Default Constructor has been called\n";
 }
 
 ClapTrap::ClapTrap( const std::string name ):
 _name(name),
-_hp(100),
-_energy(50),
-_atk(20)
+_hp(10),
+_energy(10),
+_atk(0)
+{
+	std::cout << "ClapTrap " << _name << " Name Constructor has been called\n";
+}
+
+ClapTrap::ClapTrap( 
+		const std::string name, 
+		unsigned int hp, 
+		unsigned int energy, 
+		unsigned int atk ):
+_name(name),
+_hp(hp),
+_energy(energy),
+_atk(atk)
 {
 	std::cout << "ClapTrap " << _name << " Name Constructor has been called\n";
 }
