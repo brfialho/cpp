@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/04 18:44:56 by brfialho          #+#    #+#             */
-/*   Updated: 2026/08/06 21:05:42 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/08/06 21:15:31 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,3 +68,28 @@ void	ScravTrap::guardGate( void )
 	std::cout << getClassName() << ' ' << nameToPrint << " is now in guard mode\n";
 	_guardMode = true;
 }
+
+void	ScravTrap::attack(const std::string& target)
+{
+	std::string	nameToPrint = getName();
+
+	if (getClassName() == "DiamondTrap")
+		nameToPrint.erase(nameToPrint.length() - CLAP_NAME_LENGTH);
+	if (!getHp())
+	{
+		std::cout << getClassName() << " " << nameToPrint << " cant attack because he is dead SCRAVTRAP EDITION\n";
+		return;
+	}
+	if (!getEnergy())
+	{
+		std::cout << getClassName() << " " << nameToPrint << " cant attack because he has no energy SCRAVTRAP EDITION\n";
+		return;
+	}
+
+	std::cout << getClassName() << " " << nameToPrint 
+			<< " attacks " << target 
+			<< " causing " << getAtk() << " points of damage SCRAVTRAP EDITION"
+			<< '\n';
+	setEnergy(getEnergy() - 1);
+}
+

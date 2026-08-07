@@ -14,7 +14,7 @@ define LOADING
     @sleep 0.15
 endef
 
-CC= c++ -Werror -Wextra -Wall -std=c++98
+CC= c++ -Werror -Wextra -Wall -std=c++98 -Wshadow
 INCLUDES= -Iincludes/
 SRC= main.cpp \
 	src/ClapTrap.cpp \

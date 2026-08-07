@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/06 17:28:51 by brfialho          #+#    #+#             */
-/*   Updated: 2026/08/06 19:48:12 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/08/06 21:14:36 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,4 +69,9 @@ void	DiamondTrap::displayStats( void )
 	std::cout << "HP: " << getHp() << '\n'
 			<< "Energy: " << getEnergy() << '\n'
 			<< "ATK: " << getAtk() << '\n';
+}
+
+void	DiamondTrap::attack(const std::string& target)
+{
+	ScravTrap::attack(target);
 }

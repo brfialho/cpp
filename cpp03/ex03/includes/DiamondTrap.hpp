@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/06 17:28:56 by brfialho          #+#    #+#             */
-/*   Updated: 2026/08/06 19:19:42 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/08/06 21:13:44 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ public:
 
 	void	whoAmI( void );
 	void	displayStats( void );
+
+	void	attack(const std::string& target);
 
 };
 

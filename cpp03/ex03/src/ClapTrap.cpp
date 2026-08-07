@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/04 17:48:10 by brfialho          #+#    #+#             */
-/*   Updated: 2026/08/06 21:05:19 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/08/06 21:12:51 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,11 @@ unsigned int	ClapTrap::getEnergy( void )
 unsigned int	ClapTrap::getAtk( void )
 {
 	return(_atk);
+}
+
+void	ClapTrap::setEnergy( unsigned int amount )
+{
+	_energy = amount;
 }
 
 void	ClapTrap::attack(const std::string& target)

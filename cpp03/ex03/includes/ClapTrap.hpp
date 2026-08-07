@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/04 17:48:14 by brfialho          #+#    #+#             */
-/*   Updated: 2026/08/06 21:01:27 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/08/06 21:12:40 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ protected:
 	unsigned int			getEnergy( void );
 	unsigned int			getAtk( void );
 
+	void	setEnergy( unsigned int amount );
+
 
 public:
 	ClapTrap();
@@ -46,9 +48,9 @@ public:
 	ClapTrap& operator=( const ClapTrap &other );
 	~ClapTrap();
 
-	void	attack(const std::string& target);
-	void	takeDamage(unsigned int amount);
-	void	beRepaired(unsigned int amount);
+	virtual void	attack(const std::string& target);
+	void			takeDamage(unsigned int amount);
+	void			beRepaired(unsigned int amount);
 };
 
 #endif
