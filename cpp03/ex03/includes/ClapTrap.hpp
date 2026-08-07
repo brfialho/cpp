@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/04 17:48:14 by brfialho          #+#    #+#             */
-/*   Updated: 2026/08/06 19:15:35 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/08/06 21:01:27 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 #include <string>
 #include <iostream>
+
+#define	CLAP_NAME_LENGTH 10
 
 class	ClapTrap {
 

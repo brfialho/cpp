@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/04 17:48:10 by brfialho          #+#    #+#             */
-/*   Updated: 2026/08/06 20:51:34 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/08/06 21:05:19 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,12 +98,10 @@ unsigned int	ClapTrap::getAtk( void )
 
 void	ClapTrap::attack(const std::string& target)
 {
-	static	std::string	nameToPrint = _name;
-	static	std::string	helper = "_clap_name";
+	std::string	nameToPrint = _name;
 
-	nameToPrint = _name;
 	if (getClassName() == "DiamondTrap")
-		nameToPrint.erase(nameToPrint.length() - helper.length());
+		nameToPrint.erase(nameToPrint.length() - CLAP_NAME_LENGTH);
 	if (!_hp)
 	{
 		std::cout << getClassName() << " " << nameToPrint << " cant attack because he is dead\n";
@@ -124,12 +122,10 @@ void	ClapTrap::attack(const std::string& target)
 
 void	ClapTrap::takeDamage(unsigned int amount)
 {
-	static	std::string	nameToPrint = _name;
-	static	std::string	helper = "_clap_name";
+	std::string	nameToPrint = _name;
 
-	nameToPrint = _name;
 	if (getClassName() == "DiamondTrap")
-		nameToPrint.erase(nameToPrint.length() - helper.length());
+		nameToPrint.erase(nameToPrint.length() - CLAP_NAME_LENGTH);
 	if (!_hp)
 	{
 		std::cout << getClassName() << " " << nameToPrint << " is already dead :(\n";
@@ -145,12 +141,10 @@ void	ClapTrap::takeDamage(unsigned int amount)
 
 void	ClapTrap::beRepaired(unsigned int amount)
 {
-	static	std::string	nameToPrint = _name;
-	static	std::string	helper = "_clap_name";
+	std::string	nameToPrint = _name;
 
-	nameToPrint = _name;
 	if (getClassName() == "DiamondTrap")
-		nameToPrint.erase(nameToPrint.length() - helper.length());
+		nameToPrint.erase(nameToPrint.length() - CLAP_NAME_LENGTH);
 	if (!_hp)
 	{
 		std::cout << getClassName() << " " << nameToPrint << " cant use repair because he is dead\n";
@@ -161,6 +155,7 @@ void	ClapTrap::beRepaired(unsigned int amount)
 		std::cout << getClassName() << " " << nameToPrint << " cant use repair because he has no energy\n";
 		return;
 	}
+
 	_hp += amount;
 	_energy--;
 	std::cout << getClassName() << " " << nameToPrint 

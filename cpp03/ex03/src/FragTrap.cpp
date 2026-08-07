@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/06 16:10:23 by brfialho          #+#    #+#             */
-/*   Updated: 2026/08/06 20:55:56 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/08/06 21:05:51 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,12 +52,10 @@ std::string		FragTrap::getClassName( void )
 
 void	FragTrap::highFivesGuys(void)
 {
-	static	std::string	nameToPrint = getName();
-	static	std::string	helper = "_clap_name";
+	std::string	nameToPrint = getName();
 
-	nameToPrint = getName();
 	if (getClassName() == "DiamondTrap")
-		nameToPrint.erase(nameToPrint.length() - helper.length());
+		nameToPrint.erase(nameToPrint.length() - CLAP_NAME_LENGTH);
 
 	if (getHp() == 0)
 	{
@@ -66,6 +64,7 @@ void	FragTrap::highFivesGuys(void)
 				<< " dead guys cant high five... :(\n";
 		return ;
 	}
+
 	std::string	input;
 
 	prompt:

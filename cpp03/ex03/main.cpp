@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/04 17:49:03 by brfialho          #+#    #+#             */
-/*   Updated: 2026/08/06 20:55:16 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/08/06 21:07:01 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int	main ( void )
 
 	c = d;
 
+	d.whoAmI();
 	d.displayStats();
 	d.guardGate();
 	c.whoAmI();

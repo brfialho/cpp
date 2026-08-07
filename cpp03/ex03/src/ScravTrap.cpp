@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/04 18:44:56 by brfialho          #+#    #+#             */
-/*   Updated: 2026/08/06 20:53:46 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/08/06 21:05:42 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,13 +61,10 @@ std::string		ScravTrap::getClassName( void )
 
 void	ScravTrap::guardGate( void )
 {
-	static	std::string	nameToPrint = getName();
-	static	std::string	helper = "_clap_name";
+	std::string	nameToPrint = getName();
 
-	nameToPrint = getName();
 	if (getClassName() == "DiamondTrap")
-		nameToPrint.erase(nameToPrint.length() - helper.length());
-
+		nameToPrint.erase(nameToPrint.length() - CLAP_NAME_LENGTH);
 	std::cout << getClassName() << ' ' << nameToPrint << " is now in guard mode\n";
 	_guardMode = true;
 }
