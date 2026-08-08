@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/08 16:17:57 by brfialho          #+#    #+#             */
-/*   Updated: 2026/08/08 16:18:13 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/08/08 16:31:55 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ public:
 	WrongAnimal( const std::string &type );
 	WrongAnimal( const WrongAnimal &other );
 	WrongAnimal& operator=( const WrongAnimal &other );
-	~WrongAnimal();
+	virtual ~WrongAnimal();
 
 	std::string	getType( void ) const;
 

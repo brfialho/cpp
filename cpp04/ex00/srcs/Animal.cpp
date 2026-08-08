@@ -6,14 +6,14 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/08 15:40:31 by brfialho          #+#    #+#             */
-/*   Updated: 2026/08/08 16:12:45 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/08/08 16:28:04 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 
 Animal::Animal():
-_type("NO TYPE")
+_type("Animal")
 {
 	std::cout << "Animal Default Constructor has been called\n";
 }
@@ -52,5 +52,5 @@ std::string	Animal::getType( void ) const
 
 void	Animal::makeSound( void ) const
 {
-	std::cout << "NO SOUND\n";
+	std::cout << "*Generic Animal sounds*\n";
 }

@@ -6,14 +6,14 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/08 16:16:57 by brfialho          #+#    #+#             */
-/*   Updated: 2026/08/08 16:17:07 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/08/08 16:29:23 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "WrongAnimal.hpp"
 
 WrongAnimal::WrongAnimal():
-_type("NO TYPE")
+_type("WrongAnimal")
 {
 	std::cout << "WrongAnimal Default Constructor has been called\n";
 }
@@ -52,5 +52,5 @@ std::string	WrongAnimal::getType( void ) const
 
 void	WrongAnimal::makeSound( void ) const
 {
-	std::cout << "NO SOUND\n";
+	std::cout << "*Strange and unatural animal sounds*\n";
 }

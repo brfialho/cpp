@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/08 15:39:42 by brfialho          #+#    #+#             */
-/*   Updated: 2026/08/08 16:25:41 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/08/08 16:32:06 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@ int	main ( void )
 		j->makeSound();
 		meta->makeSound();
 
-		// delete	meta;
-		// delete	j;
-		// delete	i;
+		delete	meta;
+		delete	j;
+		delete	i;
 	}
 	{
 		std::cout << '\n';
@@ -48,7 +48,7 @@ int	main ( void )
 		((WrongCat *)i)->makeSound(); // will output the WrongCat sound
 		meta->makeSound();
 
-		// delete	meta;
-		// delete	i;
+		delete	meta;
+		delete	i;
 	}
 }

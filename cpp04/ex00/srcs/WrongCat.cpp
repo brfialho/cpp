@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/08 16:17:22 by brfialho          #+#    #+#             */
-/*   Updated: 2026/08/08 16:17:33 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/08/08 16:28:20 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,5 @@ WrongCat::~WrongCat()
 
 void	WrongCat::makeSound( void ) const
 {
-	std::cout << "MIAAAAAAAU\n";
+	std::cout << "Wrong MIAAAAAAAU\n";
 }
