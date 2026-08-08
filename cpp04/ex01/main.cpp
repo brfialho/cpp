@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/08 15:39:42 by brfialho          #+#    #+#             */
-/*   Updated: 2026/08/08 17:29:55 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/08/08 18:01:58 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,40 +15,21 @@
 #include "Dog.hpp"
 #include "WrongAnimal.hpp"
 #include "WrongCat.hpp"
+#include "Brain.hpp"
 
 int	main ( void )
 {
-	{
-		const Animal* meta = new Animal();
-		const Animal* j = new Dog();
-		const Animal* i = new Cat();
+	Brain	brain;
 
-		std::cout << meta->getType() << " " << std::endl;
-		std::cout << j->getType() << " " << std::endl;
-		std::cout << i->getType() << " " << std::endl;
+	brain.printIdeas();
 
-		i->makeSound(); //will output the cat sound!
-		j->makeSound();
-		meta->makeSound();
-
-		delete	meta;
-		delete	j;
-		delete	i;
-	}
-	{
-		std::cout << '\n';
-
-		const WrongAnimal* meta = new WrongAnimal();
-		const WrongAnimal* i = new WrongCat();
-
-		std::cout << meta->getType() << " " << std::endl;
-		std::cout << i->getType() << " " << std::endl;
-
-		i->makeSound(); //will NOT output the WrongCat sound
-		((WrongCat *)i)->makeSound(); // will output the WrongCat sound
-		meta->makeSound();
-
-		delete	meta;
-		delete	(WrongCat *)i;
-	}
+	brain.setIdeas("NOVA IDEA");
+	brain.printIdeas();
+	
+	brain.setIdeas("BRAIN FOG", 5);
+	Brain	b(brain);
+	b.printIdeas();
+	b.setIdeas("NULL");
+	brain.printIdeas();
+	b.printIdeas();
 }

@@ -22,6 +22,7 @@ SRC= main.cpp \
 	srcs/Dog.cpp \
 	srcs/WrongAnimal.cpp \
 	srcs/WrongCat.cpp \
+	srcs/Brain.cpp
 
 O_DIR= obj/
 OBJ= $(SRC:%.cpp=$(O_DIR)%.o)
