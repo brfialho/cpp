@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/08 15:39:42 by brfialho          #+#    #+#             */
-/*   Updated: 2026/08/08 18:29:18 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/08/08 18:41:55 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 #include "WrongAnimal.hpp"
 #include "WrongCat.hpp"
 #include "Brain.hpp"
+
+#define	ANIMALS 10
 
 int	main ( void )
 {
@@ -35,12 +37,16 @@ int	main ( void )
 
 	std::cout << '\n';
 
-	Dog	dog;
-	dog.getBrain()->printIdeas();
-	dog.getBrain()->setIdeas("BONE");
-	Dog	d(dog);
-	d.getBrain()->setIdeas("SLEEP");
-	dog.getBrain()->setIdeas("SIT", 3);
-	dog.getBrain()->printIdeas();
-	d.getBrain()->printIdeas();
+	Cat	cat;
+	cat.getBrain()->printIdeas();
+	cat.getBrain()->setIdeas("RATS");
+	Cat	c(cat);
+	c.getBrain()->setIdeas("NAPS");
+	cat.getBrain()->setIdeas("STRANGE CAT IDEA", 3);
+	cat.getBrain()->printIdeas();
+	c.getBrain()->printIdeas();
+
+	std::cout << '\n';
+
+	Animal	animals[ANIMALS];
 }

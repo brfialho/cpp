@@ -57,6 +57,11 @@ re: fclean all
 run: all
 	@./$(NAME)
 
+valgrind: all
+	@valgrind ./$(NAME)
+
 rerun: re run
 
-.PHONY: all re fclean clean run rerun
+vrerun: re valgrind
+
+.PHONY: all re fclean clean run rerun valgrind vrerun
