@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/08 15:41:07 by brfialho          #+#    #+#             */
-/*   Updated: 2026/08/08 15:55:55 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/08/08 16:07:52 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,9 @@ Dog&	Dog::operator=( const Dog& other )
 Dog::~Dog()
 {
 	std::cout << "Dog Destructor has been called\n";
+}
+
+void	Dog::makeSound( void )
+{
+	std::cout << "AUAUAUAU!\n";
 }

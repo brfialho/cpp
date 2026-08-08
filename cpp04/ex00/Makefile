@@ -17,12 +17,14 @@ endef
 CC= c++ -Werror -Wextra -Wall -std=c++98
 INCLUDES= -Iincludes/
 SRC= main.cpp \
-	Fixed.cpp
+	srcs/Animal.cpp \
+	srcs/Cat.cpp \
+	srcs/Dog.cpp \
 
 O_DIR= obj/
 OBJ= $(SRC:%.cpp=$(O_DIR)%.o)
 
-NAME= fixed.out
+NAME= animal.out
 
 all: $(NAME)
 
@@ -49,4 +51,9 @@ fclean:
 
 re: fclean all
 
-.PHONY: all re fclean clean 
+run: all
+	@./$(NAME)
+
+rerun: re run
+
+.PHONY: all re fclean clean run rerun
