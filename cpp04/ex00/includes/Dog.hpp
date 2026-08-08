@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/08 15:41:10 by brfialho          #+#    #+#             */
-/*   Updated: 2026/08/08 16:01:42 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/08/08 16:12:17 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ public:
 	Dog& operator=( const Dog &other );
 	~Dog();
 
-	void	makeSound( void );
+	void	makeSound( void ) const;
 
 };
 

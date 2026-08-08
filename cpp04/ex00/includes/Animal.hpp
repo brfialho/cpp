@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/08 15:40:35 by brfialho          #+#    #+#             */
-/*   Updated: 2026/08/08 16:04:05 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/08/08 16:12:06 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ public:
 	Animal& operator=( const Animal &other );
 	~Animal();
 
-	std::string	getType( void );
+	std::string	getType( void ) const;
 
-	virtual void	makeSound( void );
+	virtual void	makeSound( void ) const;
 
 };
 

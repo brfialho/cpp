@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/08 15:41:03 by brfialho          #+#    #+#             */
-/*   Updated: 2026/08/08 16:01:38 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/08/08 16:12:11 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ public:
 	Cat& operator=( const Cat &other );
 	~Cat();
 
-	void	makeSound( void );
+	void	makeSound( void ) const;
 
 };
 

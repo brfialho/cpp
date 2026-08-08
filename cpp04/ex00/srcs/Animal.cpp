@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/08 15:40:31 by brfialho          #+#    #+#             */
-/*   Updated: 2026/08/08 16:10:19 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/08/08 16:12:45 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,12 +45,12 @@ Animal::~Animal()
 	std::cout << "Animal Destructor has been called\n";
 }
 
-std::string	Animal::getType( void )
+std::string	Animal::getType( void ) const
 {
 	return _type;
 }
 
-void	Animal::makeSound( void )
+void	Animal::makeSound( void ) const
 {
 	std::cout << "NO SOUND\n";
 }

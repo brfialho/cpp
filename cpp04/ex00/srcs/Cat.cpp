@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/08 15:41:01 by brfialho          #+#    #+#             */
-/*   Updated: 2026/08/08 16:07:56 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/08/08 16:12:50 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ Cat::~Cat()
 	std::cout << "Cat Destructor has been called\n";
 }
 
-void	Cat::makeSound( void )
+void	Cat::makeSound( void ) const
 {
 	std::cout << "MIAAAAAAAU\n";
 }
