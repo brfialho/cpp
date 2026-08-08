@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/08 15:39:42 by brfialho          #+#    #+#             */
-/*   Updated: 2026/08/08 16:32:06 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/08/08 17:29:55 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,6 @@ int	main ( void )
 		meta->makeSound();
 
 		delete	meta;
-		delete	i;
+		delete	(WrongCat *)i;
 	}
 }
