@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/08 15:39:42 by brfialho          #+#    #+#             */
-/*   Updated: 2026/08/08 20:25:16 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/08/08 20:35:26 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,23 +53,13 @@ int	main ( void )
 
 	for (int i = 0; i < ANIMALS; i++)
 	{
+		std::cout << animals[i]->getType() << '\n';
 		animals[i]->makeSound();
-		if (animals[i]->getType() == "Cat")
-		{
-			((Cat *)animals[i])->getBrain()->setIdeas("BAD IDEA", i);
-			((Cat *)animals[i])->getBrain()->printIdeas();
-		}
-		else if (animals[i]->getType() == "Dog")
-		{
-			((Dog *)animals[i])->getBrain()->setIdeas("BAD IDEA", i);
-			((Dog *)animals[i])->getBrain()->printIdeas();	
-		}
-		else
-		{
-			std::cout << "SOMETHING IS WRONG" << std::endl;	
-			return 1;
-		}
+		animals[i]->getBrain()->setIdeas("BAD IDEA", i);
+		animals[i]->getBrain()->printIdeas();
 	}
 	for (int i = 0; i < ANIMALS; i++)
 		delete animals[i];
+
+	// Animal	a; DOESNT COMPILE BECAUSE ANIMAL IS ABSTRACT NOW
 }

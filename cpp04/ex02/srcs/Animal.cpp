@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/08 15:40:31 by brfialho          #+#    #+#             */
-/*   Updated: 2026/08/08 19:45:02 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/08/08 20:36:11 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,4 @@ Animal::~Animal()
 std::string	Animal::getType( void ) const
 {
 	return _type;
-}
-
-void	Animal::makeSound( void ) const
-{
-	std::cout << "*Generic Animal sounds*\n";
 }
