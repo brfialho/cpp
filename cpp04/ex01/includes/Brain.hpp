@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/08 17:38:22 by brfialho          #+#    #+#             */
-/*   Updated: 2026/08/08 17:55:27 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/08/08 18:16:49 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ private:
 
 public:
 	Brain();
+	Brain( const std::string &idea );
 	Brain( const Brain &other );
 	Brain& operator=( const Brain &other );
 	~Brain();

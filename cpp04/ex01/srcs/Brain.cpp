@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/08 17:39:09 by brfialho          #+#    #+#             */
-/*   Updated: 2026/08/08 18:08:27 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/08/08 18:17:35 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,13 @@ Brain::Brain()
 	std::cout << "Brain Default Constructor has been called\n";
 	for (int i = 0; i < IDEAS; i++)
 		_ideas[i] = "EMPTY";
+}
+
+Brain::Brain( const std::string &idea )
+{
+	std::cout << "Brain Idea Constructor has been called\n";
+	for (int i = 0; i < IDEAS; i++)
+		_ideas[i] = idea;
 }
 
 Brain::Brain( const Brain &other ):
