@@ -20,6 +20,8 @@ SRC= main.cpp \
 	srcs/Animal.cpp \
 	srcs/Cat.cpp \
 	srcs/Dog.cpp \
+	srcs/WrongAnimal.cpp \
+	srcs/WrongCat.cpp \
 
 O_DIR= obj/
 OBJ= $(SRC:%.cpp=$(O_DIR)%.o)
