@@ -16,8 +16,7 @@ endef
 
 CC= c++ -Werror -Wextra -Wall -std=c++98
 SRC= main.cpp \
-	Harl.cpp \
-	Harl.hpp
+	Harl.cpp
 
 O_DIR= obj/
 OBJ= $(SRC:%.cpp=$(O_DIR)%.o)
