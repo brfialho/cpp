@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/04 17:49:03 by brfialho          #+#    #+#             */
-/*   Updated: 2026/08/13 19:28:41 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/08/13 19:37:42 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ int	main ( void )
 	ScravTrap 	s("SCRAV");
 
 	f.highFivesGuys();
-	if (std::cin.failbit)
-		return (0);
+	if (std::cin.fail())
+		return 1;
 	s.guardGate();
 	for (int i = 0; i < 52; i++)
 	{
@@ -38,5 +38,9 @@ int	main ( void )
 		std::cout << '\n';
 	}
 	a.highFivesGuys();
+	if (std::cin.fail())
+		return 1;
 	f.highFivesGuys();
+	if (std::cin.fail())
+		return 1;
 } 

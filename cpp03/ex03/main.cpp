@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/04 17:49:03 by brfialho          #+#    #+#             */
-/*   Updated: 2026/08/06 21:17:08 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/08/13 19:39:20 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,9 @@ int	main ( void )
 	c.whoAmI();
 	c.displayStats();
 	d.highFivesGuys();
+	if (std::cin.fail())
+		return 1;
 	f.highFivesGuys();
+	if (std::cin.fail())
+		return 1;
 } 
