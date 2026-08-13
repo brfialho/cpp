@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/06 16:10:23 by brfialho          #+#    #+#             */
-/*   Updated: 2026/08/06 17:19:26 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/08/13 19:30:23 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,11 @@ void	FragTrap::highFivesGuys(void)
 			<<	"Type Y to high five him or N to ignore"
 			<< RESET
 			<< std::endl;
-	std::getline(std::cin, input);
+	if (!std::getline(std::cin, input))
+	{
+		std::cin.setstate(std::ios::failbit);
+		return;
+	}
 	if (input == "Y" || input == "y")
 	{
 		std::cout << BOLD_GREEN
