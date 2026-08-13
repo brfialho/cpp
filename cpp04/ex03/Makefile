@@ -17,17 +17,15 @@ endef
 CC= c++ -Werror -Wextra -Wall -std=c++98
 INCLUDES= -Iincludes/
 SRC= main.cpp \
-	srcs/Animal.cpp \
-	srcs/Cat.cpp \
-	srcs/Dog.cpp \
-	srcs/WrongAnimal.cpp \
-	srcs/WrongCat.cpp \
-	srcs/Brain.cpp
+	srcs/AMateria.cpp \
+	srcs/Cure.cpp \
+	srcs/Ice.cpp \
+	srcs/ICharacter.cpp
 
 O_DIR= obj/
 OBJ= $(SRC:%.cpp=$(O_DIR)%.o)
 
-NAME= animal.out
+NAME= materia.out
 
 all: $(NAME)
 
