@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/30 18:08:15 by brfialho          #+#    #+#             */
-/*   Updated: 2026/08/12 22:55:09 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/08/12 23:34:38 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,9 @@ int		Fixed::toInt( void ) const
 
 Fixed	Fixed::squareRoot( void )
 {
-	return (sqrRoot(_value >> _fractionalBit));
+	Fixed	f;
+	f.setRawBits(sqrRoot(_value << _fractionalBit));
+	return (f);
 }
 
 bool	Fixed::operator>(const Fixed &other) const

@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/04 16:56:42 by brfialho          #+#    #+#             */
-/*   Updated: 2026/08/12 21:01:54 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/08/12 23:00:29 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ public:
 	Point& operator=( const Point &other );
 	~Point();
 
-	// static Fixed	distance( const Point &a, const Point &b );
+	static Fixed	distance( const Point &a, const Point &b );
 
 };
 

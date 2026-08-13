@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/04 16:56:39 by brfialho          #+#    #+#             */
-/*   Updated: 2026/08/12 21:01:51 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/08/12 23:04:17 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,9 @@ Point&	Point::operator=( const Point& other )
 Point::~Point()
 {}
 
+Fixed	Point::distance( const Point &a, const Point &b )
+{
+	Fixed f = (( a._x - b._x) * (a._x - b._x)) + ((a._y - b._y) * (a._y - b._y));
 
-
-// Fixed	Point::distance( const Point &a, const Point &b )
-// {
-// }
+	return (f.squareRoot());
+}
