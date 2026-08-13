@@ -6,11 +6,13 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/30 18:08:15 by brfialho          #+#    #+#             */
-/*   Updated: 2026/08/04 16:52:11 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/08/12 22:55:09 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
+
+static int sqrRoot(int x);
 
 Fixed::Fixed():
 _value(0)
@@ -46,6 +48,11 @@ int	Fixed::getRawBits( void ) const
 	return _value;
 }
 
+int		Fixed::getFractionalBit( void ) const
+{
+	return _fractionalBit;
+}
+
 void	Fixed::setRawBits( int const raw )
 {
 	_value = raw;
@@ -59,6 +66,11 @@ float	Fixed::toFloat( void ) const
 int		Fixed::toInt( void ) const
 {
 	return	(_value >> _fractionalBit);
+}
+
+Fixed	Fixed::squareRoot( void )
+{
+	return (sqrRoot(_value >> _fractionalBit));
 }
 
 bool	Fixed::operator>(const Fixed &other) const
@@ -165,6 +177,32 @@ std::ostream& operator<<(std::ostream& out, const Fixed& fixed)
     return out;
 }
 
+std::istream&	operator>>(std::istream& in, Fixed& fixed)
+{
+	std::string	input;
+
+	in >> input;
+
+	if (input.empty()
+	|| input == "."
+	|| input == "+"
+	|| input == "-"
+	|| input.find_first_not_of("+-0123456789.") != std::string::npos
+	|| input.find_first_of(".") != input.find_last_of(".")
+	|| input.find("+", 1) != std::string::npos
+	|| input.find("-", 1) != std::string::npos
+	|| input.find(".") == input.length() - 1)
+	{
+		in.setstate(std::ios::failbit);
+		return in;
+	}
+	else if (input.find(".") == std::string::npos)
+		fixed = Fixed(std::atoi(input.c_str()));
+	else
+		fixed = Fixed((float)std::atof(input.c_str()));
+	return in;
+}
+
 Fixed	&Fixed::min( Fixed &a, Fixed &b )
 {
 	if (b < a)
@@ -191,4 +229,29 @@ const Fixed	&Fixed::max( const Fixed &a, const Fixed &b )
 	if (b > a)
 		return (b);
 	return (a);
+}
+
+static int sqrRoot(int x)
+{
+    int root = 0;
+    int bit = 1u << 30;
+
+    while (bit > x)
+        bit >>= 2;
+
+    while (bit != 0) 
+	{
+        if (x >= root + bit)
+		{
+            x -= root + bit;
+            root = (root >> 1) + bit;
+        } 
+		else 
+		{
+            root >>= 1;
+        }
+        bit >>= 2;
+    }
+
+    return root;
 }

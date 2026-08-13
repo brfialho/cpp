@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/30 18:08:11 by brfialho          #+#    #+#             */
-/*   Updated: 2026/08/04 16:53:04 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/08/12 22:57:03 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <iostream>
 #include <cmath>
+#include <cstdlib>
 
 class	Fixed {
 
@@ -38,10 +39,11 @@ public:
 	~Fixed();
 
 	int		getRawBits( void ) const;
+	int		getFractionalBit( void ) const;
 	void	setRawBits( int const raw );
-
 	float	toFloat( void ) const;
 	int		toInt( void ) const;
+	Fixed	squareRoot( void );
 
 	bool	operator>( const Fixed &other ) const;
 	bool	operator<( const Fixed &other ) const;
@@ -63,5 +65,6 @@ public:
 };
 
 std::ostream&	operator<<(std::ostream& out, const Fixed& fixed);
+std::istream&	operator>>(std::istream& in, Fixed& fixed);
 
 #endif
