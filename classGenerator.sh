@@ -23,6 +23,9 @@ write_header() {
 #ifndef ${guard_name}
 # define ${guard_name}
 
+#include <string>
+#include <iostream>
+
 class	${class_name} {
 
 private:
@@ -48,19 +51,27 @@ write_source() {
 #include "${class_name}.hpp"
 
 ${class_name}::${class_name}()
-{}
+{
+	std::cout << "${class_name} Default Constructor has been called\n";
+}
 
 ${class_name}::${class_name}( const ${class_name} &other )
-{}
+{
+	std::cout << "${class_name} Copy Constructor has been called\n";
+}
 
 ${class_name}&	${class_name}::operator=(const ${class_name}& other)
 {
-
+	std::cout << "${class_name} Assignment Operator has been called\n";
+	if (this == &other)
+		return *this;
 	return *this;
 }
 
 ${class_name}::~${class_name}()
-{}
+{
+	std::cout << "${class_name} Destructor has been called\n";
+}
 
 EOF
 	} > "${class_name}.cpp"
