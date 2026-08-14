@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/14 18:56:40 by brfialho          #+#    #+#             */
-/*   Updated: 2026/08/14 19:59:52 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/08/14 20:05:42 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,17 +42,22 @@ Character&	Character::operator=(const Character& other)
 	if (this == &other)
 		return *this;
 
+	for (int i = 0; i < INVENTORY_SLOTS; i++)
+		if (_inventory[i])
+			delete _inventory[i];
 	_name = other._name;
 	for (int i = 0; i < INVENTORY_SLOTS; i++)
 		if (other._inventory[i])
 			_inventory[i] = other._inventory[i]->clone();
-	// Do I just lose the refrence here?????
 	return *this;
 }
 
 Character::~Character()
 {
 	std::cout << "Character Destructor has been called\n";
+	for (int i = 0; i < INVENTORY_SLOTS; i++)
+		if (_inventory[i])
+			delete _inventory[i];
 }
 
 const std::string	&Character::getName() const

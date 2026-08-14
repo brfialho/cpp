@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/13 17:57:01 by brfialho          #+#    #+#             */
-/*   Updated: 2026/08/14 20:01:43 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/08/14 20:04:27 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,4 @@ int	main ( void )
 	e.use(2, d);
 	e.use(3, d);
 
-	for (int i = 0; i < 6; i++)
-		delete m[i];
-	delete ice;
 }
