@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/13 18:32:07 by brfialho          #+#    #+#             */
-/*   Updated: 2026/08/13 19:03:34 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/08/14 18:28:21 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ AMateria&	AMateria::operator=(const AMateria& other)
 	if (this == &other)
 		return *this;
 
-	_type = other._type;
 	return *this;
 }
 

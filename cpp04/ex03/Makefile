@@ -18,9 +18,9 @@ CC= c++ -Werror -Wextra -Wall -std=c++98
 INCLUDES= -Iincludes/
 SRC= main.cpp \
 	srcs/AMateria.cpp \
-	srcs/Cure.cpp \
 	srcs/Ice.cpp \
-	srcs/ICharacter.cpp
+	srcs/Cure.cpp \
+# 	srcs/ICharacter.cpp
 
 O_DIR= obj/
 OBJ= $(SRC:%.cpp=$(O_DIR)%.o)

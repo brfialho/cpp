@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/13 18:28:17 by brfialho          #+#    #+#             */
-/*   Updated: 2026/08/13 18:52:57 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/08/14 18:11:07 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ public:
 	Ice& operator=( const Ice &other );
 	~Ice();
 
+	// void		use(ICharacter& target);
+	AMateria	*clone() const;
 };
 
 #endif
