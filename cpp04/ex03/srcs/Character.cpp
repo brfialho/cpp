@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/14 18:56:40 by brfialho          #+#    #+#             */
-/*   Updated: 2026/08/14 20:05:42 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/08/14 20:10:56 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,9 +69,9 @@ void	Character::equip(AMateria* m)
 {
 	int	i = 0;
 
-	while (i < INVENTORY_SLOTS && _inventory[i] != NULL)
+	while (i < INVENTORY_SLOTS && _inventory[i] != NULL && _inventory[i] != m)
 		++i;
-	if (i == INVENTORY_SLOTS)
+	if (i == INVENTORY_SLOTS || m == NULL || _inventory[i] == m)
 		return;
 	_inventory[i] = m;
 }
