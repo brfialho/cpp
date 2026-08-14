@@ -3,11 +3,12 @@
 
 #include <string>
 #include <iostream>
+#include "ICharacter.hpp"
 
-class	Character {
+class	Character : public ICharacter	{
 
 private:
-
+	std::string	_name;
 
 public:
 	Character();

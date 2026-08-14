@@ -3,8 +3,8 @@
 
 #include <string>
 #include <iostream>
-
-class	MateriaSource {
+#include "IMateriaSource.hpp"
+class	MateriaSource : public IMateriaSource	{
 
 private:
 

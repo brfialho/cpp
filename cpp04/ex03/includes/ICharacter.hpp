@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/13 18:05:15 by brfialho          #+#    #+#             */
-/*   Updated: 2026/08/13 18:33:09 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/08/14 18:35:39 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,7 @@
 
 class	ICharacter {
 
-private:
-
-
 public:
-	ICharacter();
-	ICharacter( const ICharacter &other );
-	ICharacter& operator=( const ICharacter &other );
-	~ICharacter();
 
 	virtual ~ICharacter() {};
 	virtual std::string const & getName() const = 0;
