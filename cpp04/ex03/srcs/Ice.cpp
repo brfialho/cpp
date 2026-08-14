@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/13 18:32:14 by brfialho          #+#    #+#             */
-/*   Updated: 2026/08/14 18:28:58 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/08/14 19:23:29 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,10 @@ Ice::~Ice()
 	std::cout << "Ice Destructor has been called\n";
 }
 
-// void	Ice::use(ICharacter& target)
-// {
-// 	std::cout << "* shoots an ice bolt at <name> *";
-// }
+void	Ice::use(ICharacter& target)
+{
+	std::cout << "* shoots an ice bolt at " << target.getName() << " *\n";
+}
 
 AMateria	*Ice::clone() const
 {

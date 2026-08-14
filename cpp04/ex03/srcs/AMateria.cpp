@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/13 18:32:07 by brfialho          #+#    #+#             */
-/*   Updated: 2026/08/14 18:28:21 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/08/14 19:37:31 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,4 +47,9 @@ AMateria::~AMateria()
 const std::string	&AMateria::getType() const
 {
 	return _type;
+}
+
+void	AMateria::use(ICharacter& target)
+{
+	(void)target;
 }

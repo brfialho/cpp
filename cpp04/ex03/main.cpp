@@ -6,12 +6,13 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/13 17:57:01 by brfialho          #+#    #+#             */
-/*   Updated: 2026/08/14 18:16:27 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/08/14 19:26:12 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Ice.hpp"
 #include "Cure.hpp"
+#include "Character.hpp"
 
 int	main ( void )
 {
@@ -23,6 +24,12 @@ int	main ( void )
 	*a = *b;
 	std::cout << a->getType() << ' ' << b->getType() << '\n';
 
+
+	Character	c("BOB");
+	Character	d("OTHER");
+
+	c.equip(a);
+	c.use(0, d);
 
 	delete a;
 	delete b;

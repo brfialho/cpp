@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/13 18:05:15 by brfialho          #+#    #+#             */
-/*   Updated: 2026/08/14 18:35:39 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/08/14 19:31:27 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 
 #include <string>
 #include <iostream>
-#include "AMateria.hpp"
+
+class AMateria;
 
 class	ICharacter {
 

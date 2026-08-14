@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/13 18:32:11 by brfialho          #+#    #+#             */
-/*   Updated: 2026/08/14 18:31:06 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/08/14 19:24:27 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,11 @@ Cure&	Cure::operator=(const Cure& other)
 Cure::~Cure()
 {
 	std::cout << "Cure Destructor has been called\n";
+}
+
+void	Cure::use(ICharacter& target)
+{
+	std::cout << "* heals " << target.getName() << "'s wounds *\n";
 }
 
 AMateria	*Cure::clone() const
