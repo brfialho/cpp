@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/14 18:56:40 by brfialho          #+#    #+#             */
-/*   Updated: 2026/08/14 19:38:51 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/08/14 19:59:52 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,13 @@ _inventory()
 }
 
 Character::Character( const Character &other ):
-_name(other._name)
+_name(other._name),
+_inventory()
 {
-	for (int i = 0; i < INVENTORY_SLOTS; i++)
-		_inventory[i] = other._inventory[i];
 	std::cout << "Character Copy Constructor has been called\n";
+	for (int i = 0; i < INVENTORY_SLOTS; i++)
+		if (other._inventory[i])
+			_inventory[i] = other._inventory[i]->clone();
 }
 
 Character&	Character::operator=(const Character& other)
@@ -42,7 +44,8 @@ Character&	Character::operator=(const Character& other)
 
 	_name = other._name;
 	for (int i = 0; i < INVENTORY_SLOTS; i++)
-		_inventory[i] = other._inventory[i];
+		if (other._inventory[i])
+			_inventory[i] = other._inventory[i]->clone();
 	// Do I just lose the refrence here?????
 	return *this;
 }
@@ -79,5 +82,6 @@ void	Character::use(int idx, ICharacter& target)
 {
 	if (idx < 0 || idx >= INVENTORY_SLOTS || _inventory[idx] == NULL)
 		return;
+	std::cout << getName() << " using slot: " << idx << "	";
 	_inventory[idx]->use(target);
 }

@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/13 17:57:01 by brfialho          #+#    #+#             */
-/*   Updated: 2026/08/14 19:51:44 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/08/14 20:01:43 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,29 @@ int	main ( void )
 	c.use(2, d);
 	c.use(3, d);
 
-	c.unequip (0);
-	c.equip(m[4]);
-	c.use (1, d);
+	AMateria	*ice = new Ice;
+	c.unequip (2);
+	c.equip(ice);
+	c.use (2, d);
 	c.use(-1, d);
+
+	Character	e(c);
+
+	e.use(0, d);
+	e.use(1, d);
+	e.use(2, d);
+	e.use(3, d);
+
+	Character f;
+
+	f = c;
+
+	e.use(0, d);
+	e.use(1, d);
+	e.use(2, d);
+	e.use(3, d);
 
 	for (int i = 0; i < 6; i++)
 		delete m[i];
+	delete ice;
 }
