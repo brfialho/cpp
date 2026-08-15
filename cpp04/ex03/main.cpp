@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/13 17:57:01 by brfialho          #+#    #+#             */
-/*   Updated: 2026/08/14 21:20:05 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/08/14 21:25:38 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,46 +17,46 @@
 
 int	main ( void )
 {
-	// {
-	// 	AMateria	*m[6] = {NULL};
+	{
+		AMateria	*m[6] = {NULL};
 
-	// 	for (int i = 0; i < 6; i++)
-	// 		i % 2 ? m[i] = new Ice : m[i] = new Cure;
+		for (int i = 0; i < 6; i++)
+			i % 2 ? m[i] = new Ice : m[i] = new Cure;
 
-	// 	Character	c("BOB");
-	// 	Character	d("OTHER");
+		Character	c("BOB");
+		Character	d("OTHER");
 
-	// 	c.unequip (1);
-	// 	for (int i = 0; i < 6; i++)
-	// 		c.equip(m[i]);
+		c.unequip (1);
+		for (int i = 0; i < 6; i++)
+			c.equip(m[i]);
 		
-	// 	c.use(0, d);
-	// 	c.use(1, d);
-	// 	c.use(2, d);
-	// 	c.use(3, d);
+		c.use(0, d);
+		c.use(1, d);
+		c.use(2, d);
+		c.use(3, d);
 
-	// 	AMateria	*ice = new Ice;
-	// 	c.unequip (2);
-	// 	c.equip(ice);
-	// 	c.use (2, d);
-	// 	c.use(-1, d);
+		AMateria	*ice = new Ice;
+		c.unequip (2);
+		c.equip(ice);
+		c.use (2, d);
+		c.use(-1, d);
 
-	// 	Character	e(c);
+		Character	e(c);
 
-	// 	e.use(0, d);
-	// 	e.use(1, d);
-	// 	e.use(2, d);
-	// 	e.use(3, d);
+		e.use(0, d);
+		e.use(1, d);
+		e.use(2, d);
+		e.use(3, d);
 
-	// 	Character f;
+		Character f;
 
-	// 	f = c;
+		f = c;
 
-	// 	e.use(0, d);
-	// 	e.use(1, d);
-	// 	e.use(2, d);
-	// 	e.use(3, d);
-	// }
+		e.use(0, d);
+		e.use(1, d);
+		e.use(2, d);
+		e.use(3, d);
+	}
 	std::cout << "\n\n";
 	{
 		IMateriaSource* src = new MateriaSource();
