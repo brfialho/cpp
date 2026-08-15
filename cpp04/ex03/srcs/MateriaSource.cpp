@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/14 18:56:48 by brfialho          #+#    #+#             */
-/*   Updated: 2026/08/14 21:10:04 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/08/14 21:18:23 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	MateriaSource::learnMateria(AMateria* m)
 		++i;
 	if (i == MATERIA_SLOTS || m == NULL || _slots[i] == m)
 		return;
-	_slots[i] = m->clone();
+	_slots[i] = m;
 }
 
 AMateria	*MateriaSource::createMateria( const std::string &type )
