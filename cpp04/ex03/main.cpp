@@ -6,53 +6,74 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/13 17:57:01 by brfialho          #+#    #+#             */
-/*   Updated: 2026/08/14 20:15:13 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/08/14 21:14:14 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Ice.hpp"
 #include "Cure.hpp"
 #include "Character.hpp"
+#include "MateriaSource.hpp"
 
 int	main ( void )
 {
-	AMateria	*m[6] = {NULL};
+	// {
+	// 	AMateria	*m[6] = {NULL};
 
-	for (int i = 0; i < 6; i++)
-		i % 2 ? m[i] = new Ice : m[i] = new Cure;
+	// 	for (int i = 0; i < 6; i++)
+	// 		i % 2 ? m[i] = new Ice : m[i] = new Cure;
 
-	Character	c("BOB");
-	Character	d("OTHER");
+	// 	Character	c("BOB");
+	// 	Character	d("OTHER");
 
-	c.unequip (1);
-	for (int i = 0; i < 6; i++)
-		c.equip(m[i]);
-	
-	c.use(0, d);
-	c.use(1, d);
-	c.use(2, d);
-	c.use(3, d);
+	// 	c.unequip (1);
+	// 	for (int i = 0; i < 6; i++)
+	// 		c.equip(m[i]);
+		
+	// 	c.use(0, d);
+	// 	c.use(1, d);
+	// 	c.use(2, d);
+	// 	c.use(3, d);
 
-	AMateria	*ice = new Ice;
-	c.unequip (2);
-	c.equip(ice);
-	c.use (2, d);
-	c.use(-1, d);
+	// 	AMateria	*ice = new Ice;
+	// 	c.unequip (2);
+	// 	c.equip(ice);
+	// 	c.use (2, d);
+	// 	c.use(-1, d);
 
-	Character	e(c);
+	// 	Character	e(c);
 
-	e.use(0, d);
-	e.use(1, d);
-	e.use(2, d);
-	e.use(3, d);
+	// 	e.use(0, d);
+	// 	e.use(1, d);
+	// 	e.use(2, d);
+	// 	e.use(3, d);
 
-	Character f;
+	// 	Character f;
 
-	f = c;
+	// 	f = c;
 
-	e.use(0, d);
-	e.use(1, d);
-	e.use(2, d);
-	e.use(3, d);
-
+	// 	e.use(0, d);
+	// 	e.use(1, d);
+	// 	e.use(2, d);
+	// 	e.use(3, d);
+	// }
+	std::cout << "\n\n";
+	{
+		IMateriaSource* src = new MateriaSource();
+		src->learnMateria(new Ice());
+		src->learnMateria(new Cure());
+		ICharacter* me = new Character("me");
+		AMateria* tmp;
+		tmp = src->createMateria("ice");
+		me->equip(tmp);
+		tmp = src->createMateria("cure");
+		me->equip(tmp);
+		ICharacter* bob = new Character("bob");
+		me->use(0, *bob);
+		me->use(1, *bob);
+		delete bob;
+		delete me;
+		delete src;
+		return 0;
+	}
 }

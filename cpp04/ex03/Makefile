@@ -20,7 +20,8 @@ SRC= main.cpp \
 	srcs/AMateria.cpp \
 	srcs/Ice.cpp \
 	srcs/Cure.cpp \
-	srcs/Character.cpp
+	srcs/Character.cpp \
+	srcs/MateriaSource.cpp
 
 O_DIR= obj/
 OBJ= $(SRC:%.cpp=$(O_DIR)%.o)
