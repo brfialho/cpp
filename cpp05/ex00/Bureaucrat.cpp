@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/16 12:56:22 by brfialho          #+#    #+#             */
-/*   Updated: 2026/09/16 15:19:18 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/09/16 15:37:40 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ _grade(grade)
 {
 	// std::cout << "Bureaucrat name/grade Constructor has been called\n";
 
-	if (grade <= 0)
+	if (grade < MAX_GRADE)
 		throw GradeTooHighException;
-	if (grade > 150)
+	if (grade > MIN_GRADE)
 		throw GradeTooLowException;
 }
 
@@ -59,6 +59,34 @@ const std::string	&Bureaucrat::getName( void ) const
 int	Bureaucrat::getGrade( void ) const
 {
 	return (_grade)	;
+}
+
+void	Bureaucrat::upGrade( void )
+{
+	--_grade;
+	if (_grade < MAX_GRADE)
+		throw GradeTooHighException;
+}
+
+void	Bureaucrat::upGrade( int n )
+{
+	_grade -= n;
+	if (_grade < MAX_GRADE)
+		throw GradeTooHighException;
+}
+
+void	Bureaucrat::downGrade( void )
+{
+	++_grade;
+	if (_grade > MIN_GRADE)
+		throw GradeTooLowException;
+}
+
+void	Bureaucrat::downGrade( int n )
+{
+	_grade += n;
+	if (_grade > MIN_GRADE)
+		throw GradeTooLowException;
 }
 
 std::ostream&	operator<<(std::ostream& out, const Bureaucrat& b)

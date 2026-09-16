@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/16 12:55:04 by brfialho          #+#    #+#             */
-/*   Updated: 2026/09/16 15:26:56 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/09/16 15:38:15 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,14 +43,18 @@ int	main ( void )
 	// 	}
 	// 	return err;
 	// }
-	
 
+	a.upGrade();
+	b.downGrade();
 	std::cout << a << '\n' << b << '\n';
-	// Bureaucrat c("Dom Pedro II", 0);
-	// Bureaucrat d("Dom Pedro III", 151);
-	// catch(int err)
-	// {
-	// 	std::cerr << RED "Error: " << (err == Bureaucrat::GradeTooHighException ? "GradeTooHighException" : "GradeTooLowException") << RESET "\n";
-	// 	return err;
-	// }
+	try
+	{
+		// a.downGrade(2);
+		b.upGrade(2);
+	}
+	catch(int err)
+	{
+		std::cerr << RED "Error: " << (err == Bureaucrat::GradeTooHighException ? "GradeTooHighException" : "GradeTooLowException") << RESET "\n";
+		return err;
+	}
 }

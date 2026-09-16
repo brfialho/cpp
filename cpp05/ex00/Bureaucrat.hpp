@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/16 12:56:17 by brfialho          #+#    #+#             */
-/*   Updated: 2026/09/16 14:03:15 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/09/16 15:38:39 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 
 #include <iostream>
 #include <string>
+
+#define MAX_GRADE 1
+#define MIN_GRADE 150
 
 class	Bureaucrat {
 
@@ -33,10 +36,12 @@ public:
 	~Bureaucrat();
 
 	const std::string	&getName( void ) const;
-	int				getGrade( void ) const;
+	int					getGrade( void ) const;
 
 	void	upGrade( void );
+	void	upGrade( int n );
 	void	downGrade( void );
+	void	downGrade( int n );
 
 };
 
