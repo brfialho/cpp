@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/16 12:55:04 by brfialho          #+#    #+#             */
-/*   Updated: 2026/09/16 15:38:15 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/09/16 16:03:28 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,21 +27,10 @@ int	main ( void )
 	// 	Bureaucrat c("Dom Pedro II", 0);
 	// 	Bureaucrat d("Dom Pedro III", 151);
 	// }
-	// catch(int err)
+	// catch (std::exception &e)
 	// {
-	// 	std::cout << RED "Error: ";
-	// 	switch (err)
-	// 	{
-	// 		case (Bureaucrat::GradeTooHighException):
-	// 			std::cout << "GradeTooHighException\n" RESET;
-	// 			break;
-	// 		case (Bureaucrat::GradeTooLowException):
-	// 			std::cout << "GradeTooLowException\n" RESET;
-	// 			break;
-	// 		default:
-	// 			std::cout << "Unknow\n" RESET;
-	// 	}
-	// 	return err;
+	// 	std::cout << RED "error: "<< e.what() << RESET "\n";
+	// 	return 1;
 	// }
 
 	a.upGrade();
@@ -52,9 +41,10 @@ int	main ( void )
 		// a.downGrade(2);
 		b.upGrade(2);
 	}
-	catch(int err)
+	catch (std::exception &e)
 	{
-		std::cerr << RED "Error: " << (err == Bureaucrat::GradeTooHighException ? "GradeTooHighException" : "GradeTooLowException") << RESET "\n";
-		return err;
+		std::cout << RED "error: "<< e.what() << RESET "\n";
+		return 2;
 	}
+
 }

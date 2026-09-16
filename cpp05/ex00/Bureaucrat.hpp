@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/16 12:56:17 by brfialho          #+#    #+#             */
-/*   Updated: 2026/09/16 15:38:39 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/09/16 15:59:29 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,6 @@ private:
 	int					_grade;
 
 public:
-	static	const int	GradeTooLowException = 1;
-	static	const int	GradeTooHighException = 2;
 
 	Bureaucrat();
 	Bureaucrat( const std::string &name, int grade );
@@ -42,6 +40,16 @@ public:
 	void	upGrade( int n );
 	void	downGrade( void );
 	void	downGrade( int n );
+
+	class	GradeTooHighException : public std::exception {
+		public:
+			const char	*what(void) const throw();
+	};
+
+	class	GradeTooLowException : public std::exception {
+		public:
+			const char	*what(void) const throw();
+	};
 
 };
 
