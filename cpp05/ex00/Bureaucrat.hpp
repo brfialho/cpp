@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/16 12:56:17 by brfialho          #+#    #+#             */
-/*   Updated: 2026/09/16 13:27:28 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/09/16 14:03:15 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,9 @@ private:
 	int					_grade;
 
 public:
+	static	const int	GradeTooLowException = 1;
+	static	const int	GradeTooHighException = 2;
+
 	Bureaucrat();
 	Bureaucrat( const std::string &name, int grade );
 	Bureaucrat( const Bureaucrat &other );
