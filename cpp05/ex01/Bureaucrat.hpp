@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/16 12:56:17 by brfialho          #+#    #+#             */
-/*   Updated: 2026/09/16 15:59:29 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/09/18 00:35:34 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 
 #define MAX_GRADE 1
 #define MIN_GRADE 150
+
+class Form;
 
 class	Bureaucrat {
 
@@ -40,6 +42,7 @@ public:
 	void	upGrade( int n );
 	void	downGrade( void );
 	void	downGrade( int n );
+	void	signForm ( Form &f );
 
 	class	GradeTooHighException : public std::exception {
 		public:

@@ -6,11 +6,12 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/17 13:52:37 by brfialho          #+#    #+#             */
-/*   Updated: 2026/09/17 14:37:35 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/09/17 19:40:16 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
+#include "Bureaucrat.hpp"
 
 Form::Form():
 _name(""),
@@ -75,6 +76,13 @@ int	Form::getExecReqGrade ( void ) const
 bool	Form::getIsSigned ( void ) const
 {
 	return _isSigned;
+}
+
+void	Form::beSigned( const Bureaucrat &b )
+{
+	if (b.getGrade() > _signReqGrade)
+		throw GradeTooLowException();
+	_isSigned = true;
 }
 
 const char	*Form::GradeTooHighException::what() const throw()
