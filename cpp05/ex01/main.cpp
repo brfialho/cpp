@@ -6,15 +6,12 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/16 12:55:04 by brfialho          #+#    #+#             */
-/*   Updated: 2026/09/18 18:39:39 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/09/18 18:41:43 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
-
-#define RED "\033[31m"
-#define RESET "\033[0m"
 
 int	main ( void )
 {
@@ -25,8 +22,8 @@ int	main ( void )
 	std::cout << f << '\n';
 	std::cout << f2 << '\n';
 
-	b.signForm(f2);
 	b.signForm(f);
+	b.signForm(f2);
 
 	std::cout << f << '\n';
 	std::cout << f2 << '\n';
