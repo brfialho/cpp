@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/16 12:56:22 by brfialho          #+#    #+#             */
-/*   Updated: 2026/09/18 18:32:14 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/09/18 18:53:57 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,9 +98,9 @@ void	Bureaucrat::signForm ( Form &f )
 	{
 		f.beSigned( *this );
 	}
-	catch (std::exception &e)
+	catch (Form::GradeTooLowException &e)
 	{
-		std::cout << RED << "error: " << e.what() << RESET << '\n';
+		// std::cout << RED << "error: " << e.what() << RESET << '\n';
 		std::cout << _name << " couldn't sign " << f.getName() << " because he is not qualified." << '\n';
 	}
 	std::cout << _name << " signed " << f.getName() << '\n';
