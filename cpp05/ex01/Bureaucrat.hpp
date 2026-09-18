@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/16 12:56:17 by brfialho          #+#    #+#             */
-/*   Updated: 2026/09/18 00:35:34 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/09/18 18:25:09 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,14 @@
 
 #define MAX_GRADE 1
 #define MIN_GRADE 150
+
+#ifndef RED
+# define RED "\033[31m"
+#endif 
+
+#ifndef RESET
+# define RESET "\033[0m"
+#endif
 
 class Form;
 
