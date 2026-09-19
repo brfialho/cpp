@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/16 12:56:17 by brfialho          #+#    #+#             */
-/*   Updated: 2026/09/18 21:18:40 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/09/19 19:42:09 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,8 @@ public:
 	void	upGrade( int n );
 	void	downGrade( void );
 	void	downGrade( int n );
-	void	signForm ( AForm &f );
-	void	executeForm(AForm const & form) const;
+	void	signForm ( AForm &f ) const;
+	void	executeForm( AForm const & form ) const;
 
 	class	GradeTooHighException : public std::exception {
 		public:

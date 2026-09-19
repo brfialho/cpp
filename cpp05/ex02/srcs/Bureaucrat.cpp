@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/16 12:56:22 by brfialho          #+#    #+#             */
-/*   Updated: 2026/09/18 22:34:16 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/09/19 19:42:17 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ void	Bureaucrat::downGrade( int n )
 		throw GradeTooLowException();
 }
 
-void	Bureaucrat::signForm ( AForm &f )
+void	Bureaucrat::signForm ( AForm &f ) const
 {
 	try
 	{
