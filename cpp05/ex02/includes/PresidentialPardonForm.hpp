@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/18 18:57:30 by brfialho          #+#    #+#             */
-/*   Updated: 2026/09/18 18:57:31 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/09/18 21:30:49 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,9 @@
 
 #include <string>
 #include <iostream>
+#include "AForm.hpp"
 
-class	PresidentialPardonForm {
-
-private:
-
+class	PresidentialPardonForm : public AForm {
 
 public:
 	PresidentialPardonForm();

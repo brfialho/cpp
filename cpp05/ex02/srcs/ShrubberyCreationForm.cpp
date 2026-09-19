@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/18 18:57:37 by brfialho          #+#    #+#             */
-/*   Updated: 2026/09/18 18:57:38 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/09/18 19:08:52 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ ShrubberyCreationForm::ShrubberyCreationForm()
 
 ShrubberyCreationForm::ShrubberyCreationForm( const ShrubberyCreationForm &other )
 {
+	(void)other;
 	// std::cout << "ShrubberyCreationForm Copy Constructor has been called\n";
 }
 

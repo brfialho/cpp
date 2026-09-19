@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/18 18:57:32 by brfialho          #+#    #+#             */
-/*   Updated: 2026/09/18 18:57:33 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/09/18 19:08:33 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ RobotomyRequestForm::RobotomyRequestForm()
 
 RobotomyRequestForm::RobotomyRequestForm( const RobotomyRequestForm &other )
 {
+	(void)other;
 	// std::cout << "RobotomyRequestForm Copy Constructor has been called\n";
 }
 

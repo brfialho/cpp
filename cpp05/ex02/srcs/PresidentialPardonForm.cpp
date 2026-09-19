@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/18 18:57:28 by brfialho          #+#    #+#             */
-/*   Updated: 2026/09/18 18:57:29 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/09/18 19:08:45 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ PresidentialPardonForm::PresidentialPardonForm()
 
 PresidentialPardonForm::PresidentialPardonForm( const PresidentialPardonForm &other )
 {
+	(void)other;
 	// std::cout << "PresidentialPardonForm Copy Constructor has been called\n";
 }
 

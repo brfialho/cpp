@@ -6,24 +6,26 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/17 13:52:37 by brfialho          #+#    #+#             */
-/*   Updated: 2026/09/18 19:01:12 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/09/18 21:58:53 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
 #include "Bureaucrat.hpp"
 
-Form::Form():
+AForm::AForm():
 _name(""),
+_target(""),
 _signReqGrade(1),
 _execReqGrade(1),
 _isSigned(false)
 {
-	// std::cout << "Form Default Constructor has been called\n";
+	// std::cout << "AForm Default Constructor has been called\n";
 }
 
-Form::Form( const std::string &name, int signReqGrade, int execReqGrade ):
+AForm::AForm( const std::string &name, const std::string &target, int signReqGrade, int execReqGrade ):
 _name(name),
+_target(target),
 _signReqGrade(signReqGrade),
 _execReqGrade(execReqGrade),
 _isSigned(false)
@@ -34,18 +36,19 @@ _isSigned(false)
 		throw GradeTooLowException();
 }
 
-Form::Form( const Form &other ):
+AForm::AForm( const AForm &other ):
 _name(other._name),
+_target(other._target),
 _signReqGrade(other._signReqGrade),
 _execReqGrade(other._execReqGrade),
 _isSigned(other._isSigned)
 {
-	// std::cout << "Form Copy Constructor has been called\n";
+	// std::cout << "AForm Copy Constructor has been called\n";
 }
 
-Form&	Form::operator=(const Form& other)
+AForm&	AForm::operator=(const AForm& other)
 {
-	// std::cout << "Form Assignment Operator has been called\n";
+	// std::cout << "AForm Assignment Operator has been called\n";
 	if (this == &other)
 		return *this;
 	return *this;
@@ -53,49 +56,62 @@ Form&	Form::operator=(const Form& other)
 	_isSigned = other._isSigned;
 }
 
-Form::~Form()
+AForm::~AForm()
 {
-	// std::cout << "Form Destructor has been called\n";
+	// std::cout << "AForm Destructor has been called\n";
 }
 
-const	std::string	&Form::getName( void ) const
+const	std::string	&AForm::getName( void ) const
 {
 	return _name;
 }
 
-int	Form::getSignReqGrade ( void ) const
+const	std::string	&AForm::getTarget( void ) const
+{
+	return _target;
+}
+
+
+int	AForm::getSignReqGrade ( void ) const
 {
 	return _signReqGrade;
 }
 
-int	Form::getExecReqGrade ( void ) const
+int	AForm::getExecReqGrade ( void ) const
 {
 	return _execReqGrade;
 }
 
-bool	Form::getIsSigned ( void ) const
+bool	AForm::getIsSigned ( void ) const
 {
 	return _isSigned;
 }
 
-void	Form::beSigned( const Bureaucrat &b )
+void	AForm::beSigned( const Bureaucrat &b )
 {
 	if (b.getGrade() > _signReqGrade)
 		throw GradeTooLowException();
 	_isSigned = true;
 }
 
-const char	*Form::GradeTooHighException::what() const throw()
+void	AForm::execute( Bureaucrat const & executor ) const
+{
+	if (executor.getGrade() > _execReqGrade)
+		throw GradeTooLowException();
+	formAction();
+}
+
+const char	*AForm::GradeTooHighException::what() const throw()
 {
 	return "grade too high";
 }
 
-const char	*Form::GradeTooLowException::what() const throw()
+const char	*AForm::GradeTooLowException::what() const throw()
 {
 	return "grade too low";
 }
 
-std::ostream&	operator<<(std::ostream& out, const Form& f)
+std::ostream&	operator<<(std::ostream& out, const AForm& f)
 {
 	// out << BOLD << f.getName() << RESET
 	// 	<< " is " << (f.getIsSigned() ? "" : "not ") << "signed" 
@@ -103,6 +119,7 @@ std::ostream&	operator<<(std::ostream& out, const Form& f)
 	// 	<< " and its execution requirement grade is " << BOLD << f.getExecReqGrade() << RESET
 	// 	<< ".";
 	out << BOLD << f.getName() << RESET << '\n'
+		<< "Taget: " << f.getTarget() << '\n'
 		<< "Status: " << (f.getIsSigned() ? "signed" : "not signed") << '\n'
 		<< "Sign requirement grade: " << f.getSignReqGrade() << '\n'
 		<< "Execution requirement grade: " << f.getExecReqGrade() << '\n';

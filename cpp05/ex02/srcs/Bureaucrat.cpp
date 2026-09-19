@@ -6,12 +6,12 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/16 12:56:22 by brfialho          #+#    #+#             */
-/*   Updated: 2026/09/18 18:53:57 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/09/18 21:22:45 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 
 Bureaucrat::Bureaucrat():
 _name(""),
@@ -92,16 +92,30 @@ void	Bureaucrat::downGrade( int n )
 		throw GradeTooLowException();
 }
 
-void	Bureaucrat::signForm ( Form &f )
+void	Bureaucrat::signForm ( AForm &f )
 {
 	try
 	{
-		f.beSigned( *this );
+		f.beSigned(*this);
 	}
-	catch (Form::GradeTooLowException &e)
+	catch (AForm::GradeTooLowException &e)
 	{
 		// std::cout << RED << "error: " << e.what() << RESET << '\n';
 		std::cout << _name << " couldn't sign " << f.getName() << " because he is not qualified." << '\n';
+	}
+	std::cout << _name << " signed " << f.getName() << '\n';
+}
+
+void	Bureaucrat::executeForm(AForm const & form) const
+{
+	try
+	{
+		f.execute(*this);
+	}
+	catch (AForm::GradeTooLowException &e)
+	{
+		// std::cout << RED << "error: " << e.what() << RESET << '\n';
+		std::cout << _name << " couldn't execute " << f.getName() << " because he is not qualified." << '\n';
 	}
 	std::cout << _name << " signed " << f.getName() << '\n';
 }
