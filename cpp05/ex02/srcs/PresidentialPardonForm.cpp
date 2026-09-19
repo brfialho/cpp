@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/18 18:57:28 by brfialho          #+#    #+#             */
-/*   Updated: 2026/09/18 22:17:08 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/09/19 20:42:37 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,5 @@ PresidentialPardonForm::~PresidentialPardonForm()
 
 void		PresidentialPardonForm::formAction( void ) const
 {
-	std::cout << "PRESIDENT\n";
+	std::cout << getTarget() << " has been pardoned by Zaphod Beeblebrox.\n";
 }

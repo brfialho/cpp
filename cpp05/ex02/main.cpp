@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/16 12:55:04 by brfialho          #+#    #+#             */
-/*   Updated: 2026/09/19 20:03:49 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/09/19 20:06:32 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,5 @@ int	main ( void )
 
 
 // fix assign
-// think about no signed excep
 // implement form actions
 // test ex01 bad cases if it signs

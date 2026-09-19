@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/18 18:57:32 by brfialho          #+#    #+#             */
-/*   Updated: 2026/09/18 22:26:24 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/09/19 20:51:39 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ RobotomyRequestForm::~RobotomyRequestForm()
 
 void		RobotomyRequestForm::formAction( void ) const
 {
-	std::cout << "ROBOTOMY\n";
+	// std::cout << "*DRILL NOISES*\n";
+	// std::sleep
 }
 
