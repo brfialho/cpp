@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/17 13:52:37 by brfialho          #+#    #+#             */
-/*   Updated: 2026/09/18 21:58:53 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/09/18 22:15:50 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,7 +119,7 @@ std::ostream&	operator<<(std::ostream& out, const AForm& f)
 	// 	<< " and its execution requirement grade is " << BOLD << f.getExecReqGrade() << RESET
 	// 	<< ".";
 	out << BOLD << f.getName() << RESET << '\n'
-		<< "Taget: " << f.getTarget() << '\n'
+		<< "Target: " << f.getTarget() << '\n'
 		<< "Status: " << (f.getIsSigned() ? "signed" : "not signed") << '\n'
 		<< "Sign requirement grade: " << f.getSignReqGrade() << '\n'
 		<< "Execution requirement grade: " << f.getExecReqGrade() << '\n';

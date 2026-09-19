@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/16 12:56:22 by brfialho          #+#    #+#             */
-/*   Updated: 2026/09/18 21:22:45 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/09/18 22:28:56 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,22 +102,24 @@ void	Bureaucrat::signForm ( AForm &f )
 	{
 		// std::cout << RED << "error: " << e.what() << RESET << '\n';
 		std::cout << _name << " couldn't sign " << f.getName() << " because he is not qualified." << '\n';
+		return;
 	}
 	std::cout << _name << " signed " << f.getName() << '\n';
 }
 
-void	Bureaucrat::executeForm(AForm const & form) const
+void	Bureaucrat::executeForm( AForm const & form ) const
 {
 	try
 	{
-		f.execute(*this);
+		form.execute(*this);
 	}
 	catch (AForm::GradeTooLowException &e)
 	{
 		// std::cout << RED << "error: " << e.what() << RESET << '\n';
-		std::cout << _name << " couldn't execute " << f.getName() << " because he is not qualified." << '\n';
+		std::cout << _name << " couldn't execute " << form.getName() << " because he is not qualified." << '\n';
+		return;
 	}
-	std::cout << _name << " signed " << f.getName() << '\n';
+	std::cout << _name << " executed " << form.getName() << '\n';
 }
 
 const char	*Bureaucrat::GradeTooHighException::what( void ) const throw()

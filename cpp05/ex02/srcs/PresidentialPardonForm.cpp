@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/18 18:57:28 by brfialho          #+#    #+#             */
-/*   Updated: 2026/09/18 19:08:45 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/09/18 22:17:08 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,15 @@ PresidentialPardonForm::PresidentialPardonForm()
 	// std::cout << "PresidentialPardonForm Default Constructor has been called\n";
 }
 
-PresidentialPardonForm::PresidentialPardonForm( const PresidentialPardonForm &other )
+PresidentialPardonForm::PresidentialPardonForm( const std::string &target ):
+AForm("PresidentialPardonForm", target, 145, 137)
 {
-	(void)other;
+// std::cout << "PresidentialPardonForm target Constructor has been called\n";
+}
+
+PresidentialPardonForm::PresidentialPardonForm( const PresidentialPardonForm &other ):
+AForm(other)
+{
 	// std::cout << "PresidentialPardonForm Copy Constructor has been called\n";
 }
 
@@ -28,6 +34,8 @@ PresidentialPardonForm&	PresidentialPardonForm::operator=(const PresidentialPard
 	// std::cout << "PresidentialPardonForm Assignment Operator has been called\n";
 	if (this == &other)
 		return *this;
+
+	AForm::operator=(other);
 	return *this;
 }
 
@@ -36,3 +44,7 @@ PresidentialPardonForm::~PresidentialPardonForm()
 	// std::cout << "PresidentialPardonForm Destructor has been called\n";
 }
 
+void		PresidentialPardonForm::formAction( void ) const
+{
+	std::cout << "PRESIDENT\n";
+}

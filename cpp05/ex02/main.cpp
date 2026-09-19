@@ -6,25 +6,36 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/16 12:55:04 by brfialho          #+#    #+#             */
-/*   Updated: 2026/09/18 19:05:02 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/09/18 22:26:11 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "AForm.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
 
 int	main ( void )
 {
-	AForm	f("Contract from below", 10, 1);
-	AForm	f2("Golpe da shopee", 150, 150);
+	
 	Bureaucrat	b("Putin", 11);
+	PresidentialPardonForm	fp("Casa branca");
+	RobotomyRequestForm		fr("Fabcrica de robos");
+	ShrubberyCreationForm	fs("shurberry");
 
-	std::cout << f << '\n';
-	std::cout << f2 << '\n';
+	std::cout << fp << '\n';
+	std::cout << fr << '\n';
+	std::cout << fs << '\n';
 
-	b.signForm(f);
-	b.signForm(f2);
+	b.signForm(fp);
+	b.signForm(fr);
+	b.signForm(fs);
 
-	std::cout << f << '\n';
-	std::cout << f2 << '\n';
+	std::cout << fp << '\n';
+	std::cout << fr << '\n';
+	std::cout << fs << '\n';
+
+	b.executeForm(fp);
+	b.executeForm(fr);
+	b.executeForm(fs);
 }

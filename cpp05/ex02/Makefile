@@ -19,8 +19,8 @@ INCLUDES= -Iincludes/
 SRC= main.cpp \
 	srcs/AForm.cpp \
 	srcs/Bureaucrat.cpp \
-	srcs/RobotomyRequestForm.cpp \
 	srcs/ShrubberyCreationForm.cpp \
+	srcs/RobotomyRequestForm.cpp \
 	srcs/PresidentialPardonForm.cpp
 
 O_DIR= obj/

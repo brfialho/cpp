@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/18 18:57:30 by brfialho          #+#    #+#             */
-/*   Updated: 2026/09/18 21:30:49 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/09/18 22:20:41 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,12 @@ class	PresidentialPardonForm : public AForm {
 
 public:
 	PresidentialPardonForm();
+	PresidentialPardonForm( const std::string &target );
 	PresidentialPardonForm( const PresidentialPardonForm &other );
 	PresidentialPardonForm& operator=( const PresidentialPardonForm &other );
 	~PresidentialPardonForm();
 
+	void	formAction( void ) const;
 };
 
 #endif
