@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/17 13:52:37 by brfialho          #+#    #+#             */
-/*   Updated: 2026/09/18 22:15:50 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/09/19 19:57:49 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,8 @@ void	AForm::beSigned( const Bureaucrat &b )
 
 void	AForm::execute( Bureaucrat const & executor ) const
 {
+	if (!_isSigned)
+		throw NotSignedException();
 	if (executor.getGrade() > _execReqGrade)
 		throw GradeTooLowException();
 	formAction();
@@ -109,6 +111,11 @@ const char	*AForm::GradeTooHighException::what() const throw()
 const char	*AForm::GradeTooLowException::what() const throw()
 {
 	return "grade too low";
+}
+
+const char	*AForm::NotSignedException::what() const throw()
+{
+	return "form not signed";
 }
 
 std::ostream&	operator<<(std::ostream& out, const AForm& f)

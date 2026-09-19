@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/16 12:56:22 by brfialho          #+#    #+#             */
-/*   Updated: 2026/09/19 19:42:17 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/09/19 20:04:51 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,10 +98,10 @@ void	Bureaucrat::signForm ( AForm &f ) const
 	{
 		f.beSigned(*this);
 	}
-	catch (AForm::GradeTooLowException &e)
+	catch (AForm::IFormException &e)
 	{
 		// std::cout << RED << "error: " << e.what() << RESET << '\n';
-		std::cout << _name << " couldn't sign " << f.getName() << " because he is not qualified." << '\n';
+		std::cout << _name << " couldn't sign " << f.getName() << " : " << RED << e.what() << RESET <<'\n';
 		return;
 	}
 	std::cout << _name << " signed " << f.getName() << '\n';
@@ -109,19 +109,14 @@ void	Bureaucrat::signForm ( AForm &f ) const
 
 void	Bureaucrat::executeForm( AForm const & form ) const
 {
-	if (!form.getIsSigned())
-	{
-		std::cout << _name << " couldn't execute " << form.getName() << " because the form is not signed." << '\n';
-		return;
-	}
 	try
 	{
 		form.execute(*this);
 	}
-	catch (AForm::GradeTooLowException &e)
+	catch (AForm::IFormException &e)
 	{
 		// std::cout << RED << "error: " << e.what() << RESET << '\n';
-		std::cout << _name << " couldn't execute " << form.getName() << " because he is not qualified." << '\n';
+		std::cout << _name << " couldn't execute " << form.getName() << " : " << RED << e.what() << RESET <<'\n';
 		return;
 	}
 	std::cout << _name << " executed " << form.getName() << '\n';

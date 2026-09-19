@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/17 13:52:40 by brfialho          #+#    #+#             */
-/*   Updated: 2026/09/18 21:57:42 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/09/19 20:00:46 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,12 +52,22 @@ public:
 	void				execute( Bureaucrat const & executor ) const;
 	virtual	void		formAction( void ) const = 0;
 
-	class	GradeTooHighException : public std::exception {
+	class	IFormException : public std::exception {
+		public:
+			const char	*what(void) const throw() = 0;
+	};
+
+	class	GradeTooHighException : public IFormException {
 		public:
 			const char	*what(void) const throw();
 	};
 
-	class	GradeTooLowException : public std::exception {
+	class	GradeTooLowException : public IFormException {
+		public:
+			const char	*what(void) const throw();
+	};
+
+	class	NotSignedException : public IFormException {
 		public:
 			const char	*what(void) const throw();
 	};
