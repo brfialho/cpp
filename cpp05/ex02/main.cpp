@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/16 12:55:04 by brfialho          #+#    #+#             */
-/*   Updated: 2026/09/19 20:06:32 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/09/24 18:03:25 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,13 @@
 
 int	main ( void )
 {
+	// if (argc == 3 && std::string(argv[2]) == "-s")
+	// 	std::string seed(argv[3]);
 	
 	{
 		Bureaucrat	b("Roberto Carlos", 50);
 		PresidentialPardonForm	fp("White House");
-		RobotomyRequestForm		fr("Robot Factory");
+		RobotomyRequestForm		fr("Trump");
 		ShrubberyCreationForm	fs("Idk");
 
 		std::cout << fp << '\n'
@@ -47,6 +49,11 @@ int	main ( void )
 		b.executeForm(fr);
 		b.signForm(fs);
 		b.executeForm(fs);
+
+		std::cout << "\n\n";
+		// std::cout << std::boolalpha;
+		for (int i = 0; i < 20; i++)
+			b.executeForm(fr);
 	}
 }
 
