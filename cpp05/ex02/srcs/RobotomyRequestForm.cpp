@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/18 18:57:32 by brfialho          #+#    #+#             */
-/*   Updated: 2026/09/24 18:12:36 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/09/25 18:01:10 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,15 +56,6 @@ void		RobotomyRequestForm::formAction( void ) const
 	}
 	state = state * 1103515245 + 12345;
 
-	// std::cout << "*DRILL NOISES*\n"
-	// 		<< getTarget() << ((state >> 16) % 2 ? " has been successfully robotomized" : " has not survived romotomization") << '\n';
-	// std::cout << (bool)((state >> 16) % 2) << '\n';
-
-	for (int i = 63; i >= 0; i--)
-	{
-		std::cout << (state & 1UL << i ? 1 : 0);
-		if (i % 8 == 0)
-			std::cout << ' ';
-	}
-	std::cout << '\n';
+	std::cout << "*DRILL NOISES*\n"
+			<< getTarget() << ((state >> 16) % 2 ? " has been successfully robotomized" : " has not survived romotomization") << '\n';
 }
