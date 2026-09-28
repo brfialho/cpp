@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/16 12:55:04 by brfialho          #+#    #+#             */
-/*   Updated: 2026/09/28 00:11:38 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/09/28 00:17:56 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int	main ( void )
 		std::cout << *form << '\n';
 		b.signForm(*form);
 		b.executeForm(*form);
+		std::cout << '\n';
 		delete form;
 	}
 
@@ -41,6 +42,7 @@ int	main ( void )
 		std::cout << *form << '\n';
 		b.signForm(*form);
 		b.executeForm(*form);
+		std::cout << '\n';
 		delete form;
 	}
 
@@ -51,6 +53,7 @@ int	main ( void )
 		std::cout << *form << '\n';
 		b.signForm(*form);
 		b.executeForm(*form);
+		std::cout << '\n';
 		delete form;
 	}
 
