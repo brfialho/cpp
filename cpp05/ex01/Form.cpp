@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/17 13:52:37 by brfialho          #+#    #+#             */
-/*   Updated: 2026/09/18 18:53:26 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/09/27 22:07:17 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,9 @@ Form&	Form::operator=(const Form& other)
 	// std::cout << "Form Assignment Operator has been called\n";
 	if (this == &other)
 		return *this;
-	return *this;
-
+		
 	_isSigned = other._isSigned;
+	return *this;
 }
 
 Form::~Form()
@@ -97,11 +97,6 @@ const char	*Form::GradeTooLowException::what() const throw()
 
 std::ostream&	operator<<(std::ostream& out, const Form& f)
 {
-	// out << BOLD << f.getName() << RESET
-	// 	<< " is " << (f.getIsSigned() ? "" : "not ") << "signed" 
-	// 	<< ". Its sign requirement grade is " << BOLD << f.getSignReqGrade() << RESET
-	// 	<< " and its execution requirement grade is " << BOLD << f.getExecReqGrade() << RESET
-	// 	<< ".";
 	out << BOLD << f.getName() << RESET << '\n'
 		<< "Status: " << (f.getIsSigned() ? "signed" : "not signed") << '\n'
 		<< "Sign requirement grade: " << f.getSignReqGrade() << '\n'
