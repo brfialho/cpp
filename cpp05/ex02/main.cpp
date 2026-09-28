@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/16 12:55:04 by brfialho          #+#    #+#             */
-/*   Updated: 2026/09/27 21:25:17 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/09/27 22:04:08 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ int	main ( void )
 {
 	{
 		Bureaucrat				b("Roberto Carlos", 50);
-		PresidentialPardonForm	fp("White House");
+		PresidentialPardonForm	fp("Putin");
 		RobotomyRequestForm		fr("Trump");
-		ShrubberyCreationForm	fs("Idk");
+		ShrubberyCreationForm	fs("Trees");
 
 		std::cout << fp << '\n'
 				<< fr << '\n'
@@ -53,8 +53,3 @@ int	main ( void )
 		// 	b.executeForm(fr);
 	}
 }
-
-
-// fix assign
-// implement form actions
-// test ex01 bad cases if it signs

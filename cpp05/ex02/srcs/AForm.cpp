@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/17 13:52:37 by brfialho          #+#    #+#             */
-/*   Updated: 2026/09/27 21:22:50 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/09/27 22:05:47 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,11 +120,6 @@ const char	*AForm::NotSignedException::what() const throw()
 
 std::ostream&	operator<<(std::ostream& out, const AForm& f)
 {
-	// out << BOLD << f.getName() << RESET
-	// 	<< " is " << (f.getIsSigned() ? "" : "not ") << "signed" 
-	// 	<< ". Its sign requirement grade is " << BOLD << f.getSignReqGrade() << RESET
-	// 	<< " and its execution requirement grade is " << BOLD << f.getExecReqGrade() << RESET
-	// 	<< ".";
 	out << BOLD << f.getName() << RESET << '\n'
 		<< "Target: " << f.getTarget() << '\n'
 		<< "Status: " << (f.getIsSigned() ? "signed" : "not signed") << '\n'
