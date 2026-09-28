@@ -65,6 +65,7 @@ ${class_name}&	${class_name}::operator=(const ${class_name}& other)
 	// std::cout << "${class_name} Assignment Operator has been called\n";
 	if (this == &other)
 		return *this;
+
 	return *this;
 }
 
