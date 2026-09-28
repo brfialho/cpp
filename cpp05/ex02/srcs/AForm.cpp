@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/17 13:52:37 by brfialho          #+#    #+#             */
-/*   Updated: 2026/09/19 19:57:49 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/09/27 21:22:50 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,9 @@ AForm&	AForm::operator=(const AForm& other)
 	// std::cout << "AForm Assignment Operator has been called\n";
 	if (this == &other)
 		return *this;
-	return *this;
 
 	_isSigned = other._isSigned;
+	return *this;
 }
 
 AForm::~AForm()
