@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/27 22:24:11 by brfialho          #+#    #+#             */
-/*   Updated: 2026/09/27 23:56:26 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/09/28 00:10:38 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,12 @@ public:
 			const char	*what(void) const throw();
 	};
 
-		class	InternExceptionTooManyForms : public IInternException {
+	class	InternExceptionTooManyForms : public IInternException {
+		public:
+			const char	*what(void) const throw();
+	};
+
+	class	InternExceptionInvalidFormConstructor : public IInternException {
 		public:
 			const char	*what(void) const throw();
 	};

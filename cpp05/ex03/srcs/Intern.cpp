@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/27 22:24:07 by brfialho          #+#    #+#             */
-/*   Updated: 2026/09/27 23:55:57 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/09/28 00:11:24 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ void	Intern::addForm( const std::string &name, AForm	*(*f)( const std::string &)
 {
 	if (name.empty())
 		throw InternExceptionInvalidName();
+	if (!f)
+		throw InternExceptionInvalidFormConstructor();
 
 	int	i = 0;
 	while (i < MAX_FORMS && forms[i] != NULL)
@@ -77,4 +79,9 @@ const char	*Intern::InternExceptionInvalidName::what(void) const throw()
 const char	*Intern::InternExceptionTooManyForms::what(void) const throw()
 {
 	return ("form limit reached");
+}
+
+const char	*Intern::InternExceptionInvalidFormConstructor::what(void) const throw()
+{
+	return ("NULL passed to form constructor array");
 }
