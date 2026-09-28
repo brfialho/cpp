@@ -6,11 +6,16 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/18 18:57:32 by brfialho          #+#    #+#             */
-/*   Updated: 2026/09/27 23:35:52 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/09/27 23:58:17 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
+
+AForm	*RobotomyRequestForm::createForm( const std::string &target )
+{
+	return (new RobotomyRequestForm(target));
+}
 
 RobotomyRequestForm::RobotomyRequestForm()
 {
@@ -60,7 +65,3 @@ void		RobotomyRequestForm::formAction( void ) const
 			<< getTarget() << ((state >> 16) % 2 ? " has been successfully robotomized" : " has not survived romotomization") << '\n';
 }
 
-AForm	*RobotomyRequestForm::createForm( const std::string &target )
-{
-	return (new RobotomyRequestForm(target));
-}

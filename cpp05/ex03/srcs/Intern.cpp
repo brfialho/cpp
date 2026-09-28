@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/27 22:24:07 by brfialho          #+#    #+#             */
-/*   Updated: 2026/09/27 23:51:03 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/09/27 23:55:57 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@ void	Intern::addForm( const std::string &name, AForm	*(*f)( const std::string &)
 		throw InternExceptionInvalidName();
 
 	int	i = 0;
-	while (i < MAX_FORMS && forms[i] == NULL)
+	while (i < MAX_FORMS && forms[i] != NULL)
 		++i;
 	if (i == MAX_FORMS)
-		throw InternExceptionInvalidName();
+		throw InternExceptionTooManyForms();
 
 	forms[i] = f;
 	formNames[i] = name;
@@ -64,10 +64,8 @@ AForm	*Intern::makeForm( const std::string &name, const std::string &target ) co
 
 	while (i < MAX_FORMS && forms[i] && formNames[i] != name)
 		i++;
-	std::cout << "VALOR DO I: " << i << std::endl;
 	if (i == MAX_FORMS || forms[i] == NULL)
 		throw InternExceptionInvalidName();
-	std::cout << "PASSOU\n";
 	return (forms[i](target));
 }
 
