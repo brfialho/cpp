@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/16 12:55:04 by brfialho          #+#    #+#             */
-/*   Updated: 2026/09/27 22:04:08 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/09/27 23:51:22 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,42 +14,23 @@
 #include "PresidentialPardonForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
+#include "Intern.hpp"
 
 int	main ( void )
 {
-	{
-		Bureaucrat				b("Roberto Carlos", 50);
-		PresidentialPardonForm	fp("Putin");
-		RobotomyRequestForm		fr("Trump");
-		ShrubberyCreationForm	fs("Trees");
+	Intern::addForm("robotomy request", RobotomyRequestForm::createForm);
+	// Intern::addForm("presidential pardon", PresidentialPardonForm::createForm);
+	// Intern::addForm("shrubbery creation", ShrubberyCreationForm::createForm);
 
-		std::cout << fp << '\n'
-				<< fr << '\n'
-				<< fs << '\n';
-
-		std::cout << b << '\n';
-		b.signForm(fp);
-		b.signForm(fr);
-		b.signForm(fs);
-
-		std::cout << fp << '\n'
-				<< fr << '\n'
-				<< fs << '\n';
-
-		b.executeForm(fp);
-		b.executeForm(fr);
-		b.executeForm(fs);
-
-		b.upGrade(49);
-
-		std::cout << b << '\n';
-		b.executeForm(fr);
-		b.signForm(fs);
-		b.executeForm(fs);
-
-		// std::cout << "\n\n";
-		// std::cout << std::boolalpha;
-		// for (int i = 0; i < 20; i++)
-		// 	b.executeForm(fr);
-	}
+	// {
+	// 	Bureaucrat	b("Urso da Coca-Cola", 1);
+	// 	Intern	i;
+	
+	// 	AForm	*form;
+	// 	form = i.makeForm("robotomy request", "Papai Noel");
+	// 	std::cout << form << '\n';
+	// 	// b.signForm(*form);
+	// 	// b.executeForm(*form);
+	// 	// delete form;
+	// }
 }

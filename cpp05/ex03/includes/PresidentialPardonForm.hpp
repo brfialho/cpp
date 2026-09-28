@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/18 18:57:30 by brfialho          #+#    #+#             */
-/*   Updated: 2026/09/27 21:32:32 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/09/27 23:35:01 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 class	PresidentialPardonForm : public AForm {
 
 public:
+	static AForm	*createForm( const std::string &target );
+
 	PresidentialPardonForm();
 	PresidentialPardonForm( const std::string &target );
 	PresidentialPardonForm( const PresidentialPardonForm &other );

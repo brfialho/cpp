@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/18 18:57:35 by brfialho          #+#    #+#             */
-/*   Updated: 2026/09/27 21:32:38 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/09/27 23:35:15 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 class	RobotomyRequestForm : public AForm {
 
 public:
+	static AForm	*createForm( const std::string &target );
+
 	RobotomyRequestForm();
 	RobotomyRequestForm( const RobotomyRequestForm &other );
 	RobotomyRequestForm( const std::string &target );

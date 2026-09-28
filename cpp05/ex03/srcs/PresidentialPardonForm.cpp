@@ -6,11 +6,16 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/18 18:57:28 by brfialho          #+#    #+#             */
-/*   Updated: 2026/09/19 20:42:37 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/09/27 23:44:11 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
+
+AForm	*PresidentialPardonForm::createForm( const std::string &target )
+{
+	return (new PresidentialPardonForm(target));
+}
 
 PresidentialPardonForm::PresidentialPardonForm()
 {
@@ -48,3 +53,4 @@ void		PresidentialPardonForm::formAction( void ) const
 {
 	std::cout << getTarget() << " has been pardoned by Zaphod Beeblebrox.\n";
 }
+

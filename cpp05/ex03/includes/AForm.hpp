@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/17 13:52:40 by brfialho          #+#    #+#             */
-/*   Updated: 2026/09/24 17:33:31 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/09/27 23:34:39 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,17 +24,11 @@
 # define RESET "\033[0m"
 #endif
 
-#ifndef	DEFAULT_SEED
-#define	DEFAULT_SEED 1234567890
-#endif
-
 class Bureaucrat;
 
 class	AForm {
 
 private:
-	// static long			seed;
-
 	const	std::string	_name;
 	const	std::string	_target;
 	const	int			_signReqGrade;
@@ -48,8 +42,6 @@ public:
 	AForm& operator=( const AForm &other );
 	virtual	~AForm();
 
-	// void				setSeed( const std::string &s ) const;
-
 	const	std::string	&getName( void ) const;
 	const	std::string	&getTarget( void ) const;
 	int					getSignReqGrade ( void ) const;
@@ -58,6 +50,7 @@ public:
 
 	void				beSigned( const Bureaucrat &b );
 	void				execute( Bureaucrat const & executor ) const;
+
 	virtual	void		formAction( void ) const = 0;
 
 	class	IFormException : public std::exception {

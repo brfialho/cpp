@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/18 18:57:37 by brfialho          #+#    #+#             */
-/*   Updated: 2026/09/27 21:59:27 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/09/27 23:35:56 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,4 +68,9 @@ void		ShrubberyCreationForm::formAction( void ) const
 	"⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠿⠿⠿⠛⠁⠀⠀⠙⠻⠿⠿⠿⠿⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\n";
 
 	file.close();
+}
+
+AForm	*ShrubberyCreationForm::createForm( const std::string &target )
+{
+	return (new ShrubberyCreationForm(target));
 }
