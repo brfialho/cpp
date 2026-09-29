@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/28 16:16:17 by brfialho          #+#    #+#             */
-/*   Updated: 2026/09/28 17:18:38 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/09/29 20:55:41 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,12 @@ static char	convertChar( const std::string &s )
 
 static int	convertInt( const std::string &s )
 {
-	char	*end[1000] = {0};
 	long	integer;
+	char	*end = NULL;
 
-	integer = strtol(s.c_str(), end, 10);
-	// if (*end)
-	// 	throw ScalarConverter::intNaNExcepition();
+	integer = strtol(s.c_str(), &end, 10);
+	if (*end)
+		throw ScalarConverter::intNaNExcepition();
 	if (integer > INT_MAX)
 		throw ScalarConverter::intOverflowExcepition();
 	if (integer < INT_MIN)
@@ -42,13 +42,13 @@ void	ScalarConverter::convert( const std::string &literal )
 		std::cout << "char: " << convertChar(literal) << '\n';
 	}
 	catch (std::exception &e ){
-		std::cout << "char: " << e.what() << '\n';
+		std::cout << e.what() << '\n';
 	}
 	try {
 		std::cout << "int: " << convertInt(literal) << '\n';
 	}
 	catch (std::exception &e ){
-		std::cout << "char: " << e.what() << '\n';
+		std::cout << e.what() << '\n';
 	}
 		// << "float :" << convertFloat() << '\n'
 		// << "double : " << convertDouble() << '\n';
