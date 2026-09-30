@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/30 02:55:51 by brfialho          #+#    #+#             */
-/*   Updated: 2026/09/30 02:55:51 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/09/30 03:13:35 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 class	Base {
 
 public:
-	virtual	~Base();
+	virtual	~Base(){};
 
 };
 
