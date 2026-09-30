@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/30 01:05:03 by brfialho          #+#    #+#             */
-/*   Updated: 2026/09/30 02:09:31 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/09/30 02:33:03 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,7 @@
 
 #include <string>
 #include <iostream>
-
-typedef unsigned long	uintptr_t;
+#include <stdint.h>
 
 class	Data;
 
@@ -29,8 +28,8 @@ private:
 	~Serializer();
 
 public:
-	uintptr_t	serialize(Data* ptr);
-	Data*		deserialize(uintptr_t raw);
+	static uintptr_t	serialize(Data* ptr);
+	static Data*		deserialize(uintptr_t raw);
 
 };
 
