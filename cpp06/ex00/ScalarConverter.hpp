@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/28 16:16:14 by brfialho          #+#    #+#             */
-/*   Updated: 2026/09/29 21:14:01 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/09/29 23:23:08 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@
 #include <iostream>
 #include <cstdlib>
 #include <cerrno>
-#include <climits>
+// #include <climits>
+#include <limits>
 #include <iomanip>
 
 class	ScalarConverter {

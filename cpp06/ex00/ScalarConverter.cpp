@@ -6,64 +6,88 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/28 16:16:17 by brfialho          #+#    #+#             */
-/*   Updated: 2026/09/29 21:14:12 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/09/29 23:42:58 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
 
-static char	convertChar( const std::string &s )
+static char	convertChar( long double raw )
 {
-	if (s.size() != 1)
+	if (raw != raw || raw < 0 || raw > 127)
 		throw ScalarConverter::charNotPossibleExcepition();
-	if (s[0] < 33 || s[0] == 127)
+	if (raw < 33 || raw == 127)
 		throw ScalarConverter::charNotVisibleException();
-	return ((char) s[0]);
+	return (static_cast<char>(raw));
 }
 
-static int	convertInt( const std::string &s )
+static int	convertInt( long double raw )
 {
-	long	integer;
-	char	*end = NULL;
-
-	integer = strtol(s.c_str(), &end, 10);
-	if (*end)
+	if (raw != raw)
 		throw ScalarConverter::intNaNExcepition();
-	if (integer > INT_MAX)
+	if (raw > std::numeric_limits<int>::max())
 		throw ScalarConverter::intOverflowExcepition();
-	if (integer < INT_MIN)
+	if (raw < std::numeric_limits<int>::min())
 		throw ScalarConverter::intUnderflowExcepition();
-	return ((int)integer);
+	return (static_cast<int>(raw));
 }
 
-static float	convertFloat( const std::string &s )
+// static float	convertFloat( const std::string &s )
+// {
+// 	(void)s;
+// 	return (3.0);
+// }
+
+static long double	getRaw( std::string s )
 {
-	(void)s;
-	return (3.0);
+	long double	raw;
+	char		*end = NULL;
+
+	errno = 0;
+	// if (s == "inf")
+	// 	return (std::numeric_limits<long double>::infinity());
+	// if (s == "-inf")
+	// 	return (-std::numeric_limits<long double>::infinity());
+	if (s.empty() || s == "f")
+		return (std::numeric_limits<long double>::quiet_NaN());
+	// if (s[s.length() - 1] == 'f')
+	// 	s.erase(s.length() - 1);
+	raw = strtold(s.c_str(), &end);
+
+
+	std::cout << "RAW: " << raw << "\n"
+			<< "END: " << ((end) ? (char *)&*end : "NULL") << "\n"
+			<< "ERRNO: " << errno << '\n'
+			<< std::boolalpha << ((char *)(s.c_str() + s.length()) == end) << '\n';
+	if (*end && std::string(end) != "f")
+		return (std::numeric_limits<long double>::quiet_NaN());
+	return raw;
 }
 
 void	ScalarConverter::convert( const std::string &literal )
 {
 	std::cout << std::showpoint;
-	std::cout << std::setprecision(2);
+	std::cout << std::setprecision(5);
+
+	long double	ld = getRaw(literal);
 	try {
-		std::cout << "char: " << convertChar(literal) << '\n';
+		std::cout << "char: " << convertChar(ld) << '\n';
 	}
 	catch (std::exception &e ){
 		std::cout << e.what() << '\n';
 	}
 	try {
-		std::cout << "int: " << convertInt(literal) << '\n';
+		std::cout << "int: " << convertInt(ld) << '\n';
 	}
 	catch (std::exception &e ){
 		std::cout << e.what() << '\n';
 	}
-	try {
-		std::cout << "float: " << convertFloat(literal) << '\n';
-	}
-	catch (std::exception &e ){
-		std::cout << e.what() << '\n';
-	}
+	// try {
+	// 	std::cout << "float: " << convertFloat(literal) << '\n';
+	// }
+	// catch (std::exception &e ){
+	// 	std::cout << e.what() << '\n';
+	// }
 		// << "float :" << convertFloat() << '\n'
 		// << "double : " << convertDouble() << '\n';
 }
