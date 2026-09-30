@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/30 01:05:03 by brfialho          #+#    #+#             */
-/*   Updated: 2026/09/30 01:26:31 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/09/30 02:09:31 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 
 #include <string>
 #include <iostream>
-#include <cstdint>
+
+typedef unsigned long	uintptr_t;
 
 class	Data;
 
