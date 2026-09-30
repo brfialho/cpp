@@ -6,11 +6,16 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/28 16:16:17 by brfialho          #+#    #+#             */
-/*   Updated: 2026/09/29 23:49:11 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/09/30 00:08:57 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
+
+ScalarConverter::ScalarConverter(){}
+ScalarConverter::ScalarConverter( const ScalarConverter &other ){(void)other;}
+ScalarConverter::~ScalarConverter(){}
+ScalarConverter&	ScalarConverter::operator=(const ScalarConverter& other){(void)other;return *this;}
 
 static char	convertChar( long double raw )
 {
@@ -32,12 +37,6 @@ static int	convertInt( long double raw )
 	return (static_cast<int>(raw));
 }
 
-// static float	convertFloat( const std::string &s )
-// {
-// 	(void)s;
-// 	return (3.0);
-// }
-
 static long double	getRaw( std::string s )
 {
 	long double	raw;
@@ -53,49 +52,26 @@ static long double	getRaw( std::string s )
 
 void	ScalarConverter::convert( const std::string &literal )
 {
-	std::cout << std::showpoint;
-	std::cout << std::setprecision(5);
+	std::cout << std::showpoint
+			<< std::fixed
+			<< std::setprecision(1);
 
-	long double	ld = getRaw(literal);
+	long double	raw = getRaw(literal);
 	try {
-		std::cout << "char: " << convertChar(ld) << '\n';
+		std::cout << "char: " << convertChar(raw) << '\n';
 	}
-	catch (std::exception &e ){
+	catch (IScalarConverterException &e ) {
 		std::cout << e.what() << '\n';
 	}
 	try {
-		std::cout << "int: " << convertInt(ld) << '\n';
+		std::cout << "int: " << convertInt(raw) << '\n';
 	}
-	catch (std::exception &e ){
+	catch (IScalarConverterException &e ) {
 		std::cout << e.what() << '\n';
 	}
-	// try {
-	// 	std::cout << "float: " << convertFloat(literal) << '\n';
-	// }
-	// catch (std::exception &e ){
-	// 	std::cout << e.what() << '\n';
-	// }
-		// << "float :" << convertFloat() << '\n'
-		// << "double : " << convertDouble() << '\n';
+	std::cout << "float: " << static_cast<float>(raw) << "f\n";
+	std::cout << "double: " << static_cast<double>(raw) << '\n';
 }
-
-
-ScalarConverter::ScalarConverter()
-{}
-
-ScalarConverter::ScalarConverter( const ScalarConverter &other )
-{
-	(void)other;
-}
-
-ScalarConverter&	ScalarConverter::operator=(const ScalarConverter& other)
-{
-	(void)other;
-	return *this;
-}
-
-ScalarConverter::~ScalarConverter()
-{}
 
 const char	*ScalarConverter::charNotPossibleExcepition::what(void) const throw()
 {

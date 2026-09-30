@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/28 16:16:14 by brfialho          #+#    #+#             */
-/*   Updated: 2026/09/29 23:23:08 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/09/30 00:15:28 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,44 +17,49 @@
 #include <iostream>
 #include <cstdlib>
 #include <cerrno>
-// #include <climits>
 #include <limits>
 #include <iomanip>
 
 class	ScalarConverter {
 
-public:
-	static void	convert( const std::string &literal );
-
+private:
 	ScalarConverter();
 	ScalarConverter( const ScalarConverter &other );
 	ScalarConverter& operator=( const ScalarConverter &other );
 	~ScalarConverter();
 
-	class	charNotVisibleException : public std::exception {
+
+public:
+	static void	convert( const std::string &literal );
+
+	class	IScalarConverterException : public std::exception {
+		public:
+			const char	*what(void) const throw() = 0;
+	};
+
+	class	charNotVisibleException : public IScalarConverterException {
 		public:
 			const char	*what(void) const throw();
 	};
 
-	class	charNotPossibleExcepition : public std::exception {
+	class	charNotPossibleExcepition : public IScalarConverterException {
 		public:
 			const char	*what(void) const throw();
 	};
 
-	class	intOverflowExcepition : public std::exception {
+	class	intOverflowExcepition : public IScalarConverterException {
 		public:
 			const char	*what(void) const throw();
 	};
 
-	class	intUnderflowExcepition : public std::exception {
+	class	intUnderflowExcepition : public IScalarConverterException {
 		public:
 			const char	*what(void) const throw();
 	};
-	class	intNaNExcepition : public std::exception {
+	class	intNaNExcepition : public IScalarConverterException {
 		public:
 			const char	*what(void) const throw();
 	};
-
 
 };
 
