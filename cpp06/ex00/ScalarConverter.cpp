@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/28 16:16:17 by brfialho          #+#    #+#             */
-/*   Updated: 2026/09/29 23:42:58 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/09/29 23:49:11 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,22 +43,9 @@ static long double	getRaw( std::string s )
 	long double	raw;
 	char		*end = NULL;
 
-	errno = 0;
-	// if (s == "inf")
-	// 	return (std::numeric_limits<long double>::infinity());
-	// if (s == "-inf")
-	// 	return (-std::numeric_limits<long double>::infinity());
 	if (s.empty() || s == "f")
 		return (std::numeric_limits<long double>::quiet_NaN());
-	// if (s[s.length() - 1] == 'f')
-	// 	s.erase(s.length() - 1);
 	raw = strtold(s.c_str(), &end);
-
-
-	std::cout << "RAW: " << raw << "\n"
-			<< "END: " << ((end) ? (char *)&*end : "NULL") << "\n"
-			<< "ERRNO: " << errno << '\n'
-			<< std::boolalpha << ((char *)(s.c_str() + s.length()) == end) << '\n';
 	if (*end && std::string(end) != "f")
 		return (std::numeric_limits<long double>::quiet_NaN());
 	return raw;
