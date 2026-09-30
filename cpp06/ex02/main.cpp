@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/30 02:58:06 by brfialho          #+#    #+#             */
-/*   Updated: 2026/09/30 03:43:28 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/09/30 03:46:15 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,18 +73,21 @@ void	identify(Base& p)
 		A	&a = dynamic_cast<A&>(p);
 		(void)a;
 		std::cout << "A";
+		return;
 	}
 	catch (std::exception &e){}
 	try {
 		B	&b = dynamic_cast<B&>(p);
 		(void)b;
 		std::cout << "B";
+		return;
 	}
 	catch (std::exception &e){}
 	try {
 		C	&c = dynamic_cast<C&>(p);
 		(void)c;
 		std::cout << "C";
+		return;
 	}
 	catch (std::exception &e){}
 }
