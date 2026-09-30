@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/28 16:16:17 by brfialho          #+#    #+#             */
-/*   Updated: 2026/09/29 20:55:41 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/09/29 21:14:12 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,16 @@ static int	convertInt( const std::string &s )
 	return ((int)integer);
 }
 
+static float	convertFloat( const std::string &s )
+{
+	(void)s;
+	return (3.0);
+}
+
 void	ScalarConverter::convert( const std::string &literal )
 {
+	std::cout << std::showpoint;
+	std::cout << std::setprecision(2);
 	try {
 		std::cout << "char: " << convertChar(literal) << '\n';
 	}
@@ -46,6 +54,12 @@ void	ScalarConverter::convert( const std::string &literal )
 	}
 	try {
 		std::cout << "int: " << convertInt(literal) << '\n';
+	}
+	catch (std::exception &e ){
+		std::cout << e.what() << '\n';
+	}
+	try {
+		std::cout << "float: " << convertFloat(literal) << '\n';
 	}
 	catch (std::exception &e ){
 		std::cout << e.what() << '\n';
