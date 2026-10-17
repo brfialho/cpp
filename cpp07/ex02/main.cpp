@@ -6,22 +6,21 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/05 18:51:37 by brfialho          #+#    #+#             */
-/*   Updated: 2026/10/05 18:56:21 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/10/17 14:12:07 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-
-ifndef TTT
-# define TTT
-template<typename T>
-T	*test( int n )
-{
-	return (new T[n]);
-}
-#endif
+#include "Array.hpp"
 
 int	main( void )
 {
-	T	*a = test(5);
+	Array<int>	a;
+
+	for (int i = 0; i < 10; i++)
+		a[i] = i * 100;
+
+	std::cout << a << '\n';
+	a[3] = 2;
+	std::cout << a << '\n';
 }
