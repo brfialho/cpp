@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/20 13:10:42 by brfialho          #+#    #+#             */
-/*   Updated: 2026/10/20 13:50:18 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/10/20 13:56:34 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,20 @@ public:
 	const std::vector<int>	&getVector( void ) const;
 
 	void	addNumber( int n );
+	int		shortestSpan( void ) const;
+	int		longestSpan( void ) const;
 
-	class	SpanOverflowException : public std::exception {
+	class	SpanException : public std::exception	{
+		public:
+			const char	*what ( void ) const throw() = 0;
+	};
+
+	class	SpanOverflowException : public SpanException {
+		public:
+			const char	*what ( void ) const throw();
+	};
+
+	class	SpanInsufficientElementsException : public SpanException {
 		public:
 			const char	*what ( void ) const throw();
 	};

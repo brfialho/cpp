@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/20 13:10:39 by brfialho          #+#    #+#             */
-/*   Updated: 2026/10/20 13:48:46 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/10/20 14:25:28 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,28 @@ void	Span::addNumber( int n )
 	_v.push_back(n);
 }
 
+int		Span::shortestSpan( void ) const
+{
+	if (_v.size() < 2)
+		throw	SpanInsufficientElementsException();
+	return 0;
+}
+
+int		Span::longestSpan( void ) const
+{
+	if (_v.size() < 2)
+		throw	SpanInsufficientElementsException();
+	return	*(std::max_element(_v.begin(), _v.end())) - *(std::min_element(_v.begin(), _v.end()));
+}
+
 const char	*Span::SpanOverflowException::what ( void ) const throw()
 {
 	return "span: span overflow";
+}
+
+const char	*Span::SpanInsufficientElementsException::what ( void ) const throw()
+{
+	return "span: insuficient elements for span calculation";
 }
 
 std::ostream	&operator<<( std::ostream &out, Span &s )
