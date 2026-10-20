@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/20 13:10:39 by brfialho          #+#    #+#             */
-/*   Updated: 2026/10/20 14:38:24 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/10/20 17:04:15 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,17 +64,22 @@ int		Span::shortestSpan( void ) const
 {
 	if (_v.size() < 2)
 		throw	SpanInsufficientElementsException();
-	std::sort(_v.begin(), _v.end());
 
-	std::vector<int>::const_reverse_iterator it = _v.rbegin();
-	int	currLowest = longestSpan();
-	int	tmp = *it;
+	std::vector<int>	v(_v);
+	std::sort(v.begin(), v.end());
 
-	for (; it != _v.rend(); it++)
+	std::vector<int>::const_reverse_iterator	it = v.rbegin();
+	int											tmp = *it;
+	int											currLowest = longestSpan();
+
+	it++;
+	for (; it != v.rend(); it++)
 	{
-		
+		if (tmp - *it < currLowest)
+			currLowest = tmp - *it;
+		tmp = *it;
 	}
-	return 0;
+	return currLowest;
 }
 
 int		Span::longestSpan( void ) const
