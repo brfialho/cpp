@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/20 13:18:38 by brfialho          #+#    #+#             */
-/*   Updated: 2026/10/20 17:08:38 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/10/30 13:14:39 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,15 @@ int main ( void )
 		s.addNumber(11);
 		std::cout << s.longestSpan() << '\n'
 				<< s.shortestSpan() << '\n';
+	}
+	{
+		Span s(15);
+		try {
+			std::cout << s.longestSpan() << '\n'
+				<< s.shortestSpan() << '\n';
+		}
+		catch (Span::SpanException &e) {
+			std::cout << e.what() << '\n';
+		}
 	}
 }
