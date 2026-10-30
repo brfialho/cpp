@@ -158,10 +158,6 @@ ${class_name}<T>::${class_name}( void )
 {}
 
 template <typename T>
-${class_name}<T>::${class_name}( unsigned int n )
-{}
-
-template <typename T>
 ${class_name}<T>::${class_name}( const ${class_name}<T> &other )
 {}
 
@@ -177,6 +173,7 @@ ${class_name}<T>&	${class_name}<T>::operator=(const ${class_name} &other)
 
 	return *this;
 }
+
 #endif
 EOF
 	} > "${class_name}.tpp"
