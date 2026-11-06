@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/30 16:22:38 by brfialho          #+#    #+#             */
-/*   Updated: 2026/11/06 12:32:06 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/11/06 13:40:56 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,13 @@ MutantStack<T>&	MutantStack<T>::operator=(const MutantStack<T> &other)
 template <typename T>
 typename MutantStack<T>::Iterator	MutantStack<T>::begin( void ) const
 {
-	return Iterator();
+	return Iterator(&(this->top()));
 }
 
 template <typename T>
 typename MutantStack<T>::Iterator	MutantStack<T>::end( void ) const
 {
-	return Iterator();
+	return Iterator(&(this->top()) + this->size());
 }
 
 template <typename T>

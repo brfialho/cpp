@@ -9,13 +9,17 @@ template <typename T>
 class	MutantStack<T>::Iterator {
 
 private:
-	T	*p;
+	T	*_p;
 
 public:
 	Iterator();
+	Iterator( const T *p );
 	Iterator( const Iterator &other );
 	~Iterator();
 	Iterator& operator=( const Iterator &other );
+
+	T	&operator->( void ) const;
+	T	&operator->( void );
 
 };
 	#include "Iterator.tpp"

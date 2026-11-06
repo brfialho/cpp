@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/06 09:55:41 by brfialho          #+#    #+#             */
-/*   Updated: 2026/11/06 12:25:59 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/11/06 13:43:23 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,4 +27,14 @@ int main( void )
 			<< m << '\n';
 
 	MutantStack<int>::Iterator it = m.begin();
+	MutantStack<int>::Iterator eit = m.end();
+
+	
 }
+
+
+// Cansei desa pora exercicio chato pra krl pior lista
+// stack nao é continuo na memoria precisa ver comon fazer o begin e end
+// tomanocu
+// horas resolvendo erro de compilação
+// 

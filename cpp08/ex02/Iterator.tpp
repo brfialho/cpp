@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/06 10:49:13 by brfialho          #+#    #+#             */
-/*   Updated: 2026/11/06 12:30:15 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/11/06 13:39:21 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,21 @@
 # define ITERATOR_TPP
 
 #include "MutantStack.hpp"
-// #include "Iterator.hpp"
 
 template <typename T>
-MutantStack<T>::Iterator::Iterator( void )
+MutantStack<T>::Iterator::Iterator( void ):
+_p(NULL)
 {}
 
 template <typename T>
-MutantStack<T>::Iterator::Iterator( const MutantStack<T>::Iterator &other )
-{(void)other;}
+MutantStack<T>::Iterator::Iterator( const T *p ):
+_p(p)
+{}
+
+template <typename T>
+MutantStack<T>::Iterator::Iterator( const MutantStack<T>::Iterator &other ):
+_p(other._p)
+{}
 
 template <typename T>
 MutantStack<T>::Iterator::~Iterator()
@@ -34,7 +40,20 @@ typename MutantStack<T>::Iterator&	MutantStack<T>::Iterator::operator=(const Mut
 	if (this == &other)
 		return *this;
 
+	_p = other._p;
 	return *this;
+}
+
+template <typename T>
+T	&MutantStack<T>::Iterator::operator->( void ) const
+{
+	return *_p;
+}
+
+template <typename T>
+T	&MutantStack<T>::Iterator::operator->( void )
+{
+	return *_p;
 }
 
 #endif
