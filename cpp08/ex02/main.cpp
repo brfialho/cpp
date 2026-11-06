@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/06 09:55:41 by brfialho          #+#    #+#             */
-/*   Updated: 2026/11/06 10:26:42 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/11/06 12:25:59 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,6 @@ int main( void )
 
 	std::cout << m.top() << '\n'
 			<< m << '\n';
-	
+
+	MutantStack<int>::Iterator it = m.begin();
 }

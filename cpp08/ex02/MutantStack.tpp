@@ -6,14 +6,15 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/30 16:22:38 by brfialho          #+#    #+#             */
-/*   Updated: 2026/11/06 10:28:35 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/11/06 12:32:06 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MUTANTSTACK_TPP
 # define MUTANTSTACK_TPP
 
-#include "MutantStack.hpp"
+// #include "MutantStack.hpp"
+#include "Iterator.hpp"
 
 template <typename T>
 MutantStack<T>::MutantStack( void )
@@ -36,6 +37,18 @@ MutantStack<T>&	MutantStack<T>::operator=(const MutantStack<T> &other)
 
 	std::stack<T>::operator=(other);
 	return *this;
+}
+
+template <typename T>
+typename MutantStack<T>::Iterator	MutantStack<T>::begin( void ) const
+{
+	return Iterator();
+}
+
+template <typename T>
+typename MutantStack<T>::Iterator	MutantStack<T>::end( void ) const
+{
+	return Iterator();
 }
 
 template <typename T>
