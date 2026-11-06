@@ -166,7 +166,7 @@ ${class_name}<T>::~${class_name}()
 {}
 
 template <typename T>
-${class_name}<T>&	${class_name}<T>::operator=(const ${class_name} &other)
+${class_name}<T>&	${class_name}<T>::operator=(const ${class_name}<T> &other)
 {
 	if (this == &other)
 		return *this;
