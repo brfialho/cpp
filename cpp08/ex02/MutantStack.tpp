@@ -6,15 +6,12 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/30 16:22:38 by brfialho          #+#    #+#             */
-/*   Updated: 2026/11/06 13:40:56 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/11/09 16:40:21 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MUTANTSTACK_TPP
 # define MUTANTSTACK_TPP
-
-// #include "MutantStack.hpp"
-#include "Iterator.hpp"
 
 template <typename T>
 MutantStack<T>::MutantStack( void )
@@ -40,15 +37,27 @@ MutantStack<T>&	MutantStack<T>::operator=(const MutantStack<T> &other)
 }
 
 template <typename T>
-typename MutantStack<T>::Iterator	MutantStack<T>::begin( void ) const
+typename MutantStack<T>::iterator	MutantStack<T>::begin( void )
 {
-	return Iterator(&(this->top()));
+	return this->c.begin();
 }
 
 template <typename T>
-typename MutantStack<T>::Iterator	MutantStack<T>::end( void ) const
+typename MutantStack<T>::iterator	MutantStack<T>::end( void )
 {
-	return Iterator(&(this->top()) + this->size());
+	return this->c.end();
+}
+
+template <typename T>
+typename MutantStack<T>::const_iterator	MutantStack<T>::begin( void ) const
+{
+	return this->c.begin();
+}
+
+template <typename T>
+typename MutantStack<T>::const_iterator	MutantStack<T>::end( void ) const
+{
+	return this->c.end();
 }
 
 template <typename T>

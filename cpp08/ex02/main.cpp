@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/06 09:55:41 by brfialho          #+#    #+#             */
-/*   Updated: 2026/11/06 13:43:23 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/11/09 16:53:52 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,10 @@
 
 int main( void )
 {
-	MutantStack<int>	m;
+	MutantStack<int>					m;
+	MutantStack<int>::const_iterator 	cit;
+	MutantStack<int>::const_iterator	ceit;
+	MutantStack<int>::iterator			it;
 
 	std::cout << std::boolalpha;
 
@@ -22,19 +25,28 @@ int main( void )
 
 	m.push(1);
 	m.push(2);
+	std::cout << m.top() << '\n';
 
-	std::cout << m.top() << '\n'
-			<< m << '\n';
+	for (int i = 3; i < 15; i ++)
+		m.push(i);
+			
+	cit = m.begin();
+	ceit = m.end();
+	++cit;
+	--ceit;
 
-	MutantStack<int>::Iterator it = m.begin();
-	MutantStack<int>::Iterator eit = m.end();
+	std::cout << m << '\n';
 
-	
+	std::cout << "BOTTOM >>| ";
+	while (cit != ceit)
+		std::cout << *cit++ << ' ';
+	std::cout << "|>> TOP \n";
+
+	it = m.begin();
+	it += m.size() / 2;
+	*it = 100;
+	std::cout << m << '\n';
+
+	std::stack<int>s(m);
+	std::cout << m.top() << '\n';
 }
-
-
-// Cansei desa pora exercicio chato pra krl pior lista
-// stack nao é continuo na memoria precisa ver comon fazer o begin e end
-// tomanocu
-// horas resolvendo erro de compilação
-// 
