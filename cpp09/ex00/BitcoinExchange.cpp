@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/14 17:37:39 by brfialho          #+#    #+#             */
-/*   Updated: 2026/11/14 20:28:41 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/11/14 20:36:17 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,6 @@ void	BitcoinExchange::parseDatabase( const std::string &filename )
 		ss >> value;
 		_data.insert(std::make_pair(Date(rawDate, '-'), value));
 	}
-	// for (std::map<Date, double>::iterator it = _data.begin(); it != _data.end(); it++)
-	// 	std::cout << "DATABASE  | DATA: " << (*it).first << " PRICE: " << (*it).second << '\n';
 }
 
 static void	parseLine( std::stringstream &ss, Date &date, double *d)
@@ -66,7 +64,8 @@ static void	parseLine( std::stringstream &ss, Date &date, double *d)
 		throw BitcoinExchange::BitcoinExchangeBadInput();
 
 	std::getline(ss, rawDate, '|');
-	rawDate.erase(rawDate.find(' '), 1);
+	if (rawDate.find(' ') != std::string::npos)
+		rawDate.erase(rawDate.find(' '), 1);
 	date = Date(rawDate, '-');
 	ss >> *d;
 	if (ss.fail() || !ss.eof())
