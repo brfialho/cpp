@@ -20,7 +20,28 @@ public:
 	BitcoinExchange& operator=( const BitcoinExchange &other );
 
 	void	parseDatabase( const std::string &filename );
-	// void 	parseInput( const std::string &input );
+	void 	checkBitcoinValue( const std::string &input );
+
+	class	IBitcoinExchangeException : public std::exception {
+		public:
+			const char	*what( void ) const throw() = 0;
+	};
+
+	class	BitcoinExchangeCouldNotOpenFile : public IBitcoinExchangeException {
+		public:
+			const char	*what( void ) const throw();
+	};
+
+	class	BitcoinExchangeInvalidFile : public IBitcoinExchangeException {
+		public:
+			const char	*what( void ) const throw();
+	};
+
+	class	BitcoinExchangeBadInput : public IBitcoinExchangeException {
+		public:
+			const char	*what( void ) const throw();
+	};
+
 };
 
 #endif
