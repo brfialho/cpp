@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/14 16:04:47 by brfialho          #+#    #+#             */
-/*   Updated: 2026/11/14 16:41:51 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/11/14 17:14:41 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,32 @@
 
 void	Date::parseDate( Date &d, const std::string &s )
 {
+	char				c[2] = {0};
 	std::stringstream	ss(s);
-	char				c;
 
 	ss >> d._year;
-	ss >> c;
+	ss >> c[0];
 	ss >> d._month;
-	ss >> c;
+	ss >> c[1];
 	ss >> d._day;
 
-	if (ss.fail() || !ss.eof())
+	if (ss.fail() || !ss.eof() || c[0] != d._separator || c[1] != d._separator)
 		throw DateExceptionBadInput();
+	if (d._year < MIN_YEAR || d._year > MAX_YEAR
+		|| d._month < MIN_MONTH || d._month > MAX_MONTH
+		|| d._day < MIN_DAY || d._day > MAX_DAY)
+		throw DateExceptionInvalidRange();
 }
 
 Date::Date():
 _year(0),
 _month(0),
-_day(0)
+_day(0),
+_separator(0)
 {}
 
-Date::Date( const std::string &date )
+Date::Date( const std::string &date, char separator ):
+_separator(separator)
 {
 	parseDate(*this, date);
 }
@@ -41,7 +47,8 @@ Date::Date( const std::string &date )
 Date::Date( const Date &other ):
 _year(other._year),
 _month(other._month),
-_day(other._day)
+_day(other._day),
+_separator(other._separator)
 {}
 
 Date::~Date()
@@ -54,6 +61,7 @@ Date&	Date::operator=(const Date& other)
 	_year = other._year;
 	_month = other._month;
 	_day = other._day;
+	_separator = other._separator;
 
 	return *this;
 }
@@ -78,9 +86,52 @@ void	Date::changeDate( const std::string &newDate )
 	parseDate(*this, newDate);
 }
 
+bool	Date::operator>(const Date &other) const
+{
+	if (_year != other._year)
+		return (_year > other._year);
+	if (_month != other._month)
+		return (_month > other._month);
+	return (_day > other._day);
+}
+
+bool	Date::operator<(const Date &other) const
+{
+	if (_year != other._year)
+		return (_year < other._year);
+	if (_month != other._month)
+		return (_month < other._month);
+	return (_day < other._day);
+}
+
+bool	Date::operator>=(const Date &other) const
+{
+	return !(*this < other);
+}
+
+bool	Date::operator<=(const Date &other) const
+{
+	return !(*this > other);
+}
+
+bool	Date::operator==(const Date &other) const
+{
+	return !(*this > other || *this < other);
+}
+
+bool	Date::operator!=(const Date &other) const
+{
+	return !(*this == other);
+}
+
 const char	*Date::DateExceptionBadInput::what( void ) const throw()
 {
 	return ("Date: bad input");
+}
+
+const char	*Date::DateExceptionInvalidRange::what( void ) const throw()
+{
+	return ("Date: invalid range");
 }
 
 std::ostream	&operator<<( std::ostream &out, const Date &d )
