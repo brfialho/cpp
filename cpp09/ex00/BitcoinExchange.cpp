@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/14 17:37:39 by brfialho          #+#    #+#             */
-/*   Updated: 2026/11/14 19:49:28 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/11/14 20:15:58 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,10 +75,9 @@ static void	parseLine( std::stringstream &ss, Date &date, double *d)
 		throw BitcoinExchange::BitcoinExchangeOverflow();
 	if (*d < 0)
 		throw BitcoinExchange::BitcoinExchangeNegative();
-	std::cout << date << "   " << *d << '\n';
 }
 
-void 	BitcoinExchange::checkBitcoinValue( const std::string &input )
+void 	BitcoinExchange::checkBitcoinExchangeValue( const std::string &input )
 {
 	std::ifstream		f(input.c_str());
 	std::string			line;
@@ -91,13 +90,14 @@ void 	BitcoinExchange::checkBitcoinValue( const std::string &input )
 	if (line != "date | value")
 		throw BitcoinExchangeInvalidFile();
 
+	std::cout << std::fixed;
+	std::cout << std::setprecision(2);
 	while (std::getline(f, line))
 	{
 		try {
 			std::stringstream	ss(line);
 			parseLine(ss, date, &value);
-			
-			
+			std::cout << date << " => " << value << " = " << value * findBitcoinPrice(date) << '\n';
 		}
 		catch (BitcoinExchange::BitcoinExchangeBadInput &e) {
 			std::cout << "error: " << e.what() << line << '\n';
@@ -106,6 +106,20 @@ void 	BitcoinExchange::checkBitcoinValue( const std::string &input )
 			std::cout << "error: " << e.what() << '\n';
 		}
 	}
+}
+
+double	BitcoinExchange::findBitcoinPrice( const Date &date )
+{
+	std::map<Date, double>::iterator it;
+
+	it = _data.find(date);
+	if (it != _data.end())
+		return _data[date];
+	for (std::map<Date, double>::reverse_iterator rit = _data.rbegin(); rit != _data.rend(); rit++)
+		if ((*it).first < date)
+			return ((*it).second);
+	throw BitcoinExchangeDateTooEarly();
+	return 0;
 }
 
 const char	*BitcoinExchange::BitcoinExchangeCouldNotOpenFile::what( void ) const throw()
@@ -131,4 +145,9 @@ const char	*BitcoinExchange::BitcoinExchangeOverflow::what( void ) const throw()
 const char	*BitcoinExchange::BitcoinExchangeNegative::what( void ) const throw()
 {
 	return "negative value";
+}
+
+const char	*BitcoinExchange::BitcoinExchangeDateTooEarly::what( void ) const throw()
+{
+	return "date predates database";
 }

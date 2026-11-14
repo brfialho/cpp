@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/14 15:22:45 by brfialho          #+#    #+#             */
-/*   Updated: 2026/11/14 19:30:40 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/11/14 20:01:10 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int main ( int argc, char **argv )
 
 	BitcoinExchange	Binance("data/data.csv");
 	try {
-		Binance.checkBitcoinValue(argv[1]);
+		Binance.checkBitcoinExchangeValue(argv[1]);
 	}
 	catch (BitcoinExchange::IBitcoinExchangeException &e) {
 		std::cout << e.what() << '\n';

@@ -21,7 +21,8 @@ public:
 	BitcoinExchange& operator=( const BitcoinExchange &other );
 
 	void	parseDatabase( const std::string &filename );
-	void 	checkBitcoinValue( const std::string &input );
+	void 	checkBitcoinExchangeValue( const std::string &input );
+	double	findBitcoinPrice( const Date &date );
 
 	class	IBitcoinExchangeException : public std::exception {
 		public:
@@ -53,6 +54,10 @@ public:
 			const char	*what( void ) const throw();
 	};
 
+	class	BitcoinExchangeDateTooEarly : public IBitcoinExchangeException {
+		public:
+			const char	*what( void ) const throw();
+	};
 
 };
 
