@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/14 17:37:39 by brfialho          #+#    #+#             */
-/*   Updated: 2026/11/14 20:15:58 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/11/14 20:28:41 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,8 @@ void	BitcoinExchange::parseDatabase( const std::string &filename )
 		ss >> value;
 		_data.insert(std::make_pair(Date(rawDate, '-'), value));
 	}
-// 	for (std::map<Date, double>::iterator it = _data.begin(); it != _data.end(); it++)
-// 		std::cout << (*it).first << ": " << (*it).second << '\n';
+	// for (std::map<Date, double>::iterator it = _data.begin(); it != _data.end(); it++)
+	// 	std::cout << "DATABASE  | DATA: " << (*it).first << " PRICE: " << (*it).second << '\n';
 }
 
 static void	parseLine( std::stringstream &ss, Date &date, double *d)
@@ -71,7 +71,7 @@ static void	parseLine( std::stringstream &ss, Date &date, double *d)
 	ss >> *d;
 	if (ss.fail() || !ss.eof())
 		throw BitcoinExchange::BitcoinExchangeBadInput();
-	if (*d > std::numeric_limits<int>::max())
+	if (*d > 1000)
 		throw BitcoinExchange::BitcoinExchangeOverflow();
 	if (*d < 0)
 		throw BitcoinExchange::BitcoinExchangeNegative();
@@ -116,8 +116,8 @@ double	BitcoinExchange::findBitcoinPrice( const Date &date )
 	if (it != _data.end())
 		return _data[date];
 	for (std::map<Date, double>::reverse_iterator rit = _data.rbegin(); rit != _data.rend(); rit++)
-		if ((*it).first < date)
-			return ((*it).second);
+		if ((*rit).first < date)
+			return ((*rit).second);
 	throw BitcoinExchangeDateTooEarly();
 	return 0;
 }
@@ -134,7 +134,7 @@ const char	*BitcoinExchange::BitcoinExchangeInvalidFile::what( void ) const thro
 
 const char	*BitcoinExchange::BitcoinExchangeBadInput::what( void ) const throw()
 {
-	return "bad input ";
+	return "bad input => ";
 }
 
 const char	*BitcoinExchange::BitcoinExchangeOverflow::what( void ) const throw()
