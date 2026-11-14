@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/14 15:22:45 by brfialho          #+#    #+#             */
-/*   Updated: 2026/11/14 18:59:01 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/11/14 19:30:40 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,12 @@ int main ( int argc, char **argv )
 	catch (BitcoinExchange::IBitcoinExchangeException &e) {
 		std::cout << e.what() << '\n';
 	}
+
+
+	// std::stringstream	ss("|");
+	// std::string 		s;
+
+	// if (std::getline(ss, s))
+	// 	std::cout << "TRUE: " << s <<'\n';
+	// std::cout << s << '\n';
 }

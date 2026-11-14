@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/14 17:37:39 by brfialho          #+#    #+#             */
-/*   Updated: 2026/11/14 19:18:35 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/11/14 19:44:17 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,17 +66,26 @@ static void	parseLine( std::stringstream &ss, Date &date, double *d)
 		throw BitcoinExchange::BitcoinExchangeBadInput();
 
 	std::getline(ss, rawDate, '|');
+	rawDate.erase(rawDate.find(' '), 1);
+	date = Date(rawDate, '-');
+	ss >> *d;
+	if (ss.fail() || !ss.eof())
+		throw BitcoinExchange::BitcoinExchangeBadInput();
+	if (*d > std::numeric_limits<int>::max())
+		throw BitcoinExchange::BitcoinExchangeOverflow();
+	if (*d < 0)
+		throw BitcoinExchange::BitcoinExchangeNegative();
+	// std::cout << date << "   " << *d << '\n';
 }
 
 void 	BitcoinExchange::checkBitcoinValue( const std::string &input )
 {
-	std::stringstream	ss;
 	std::ifstream		f(input.c_str());
 	std::string			line;
 	Date				date;
 	double				value;
 
-	if (f.is_open()) 
+	if (!f.is_open()) 
 		throw BitcoinExchangeCouldNotOpenFile();
 	std::getline(f, line);
 	if (line != "date | value")
@@ -85,15 +94,40 @@ void 	BitcoinExchange::checkBitcoinValue( const std::string &input )
 	while (std::getline(f, line))
 	{
 		try {
-			ss = std::stringstream(line);
+			std::stringstream	ss(line);
 			parseLine(ss, date, &value);
 			
 		}
 		catch (BitcoinExchange::BitcoinExchangeBadInput &e) {
-			std::cout << e.what() << input << '\n';
+			std::cout << "error: " << e.what() << line << '\n';
 		}
 		catch (std::exception &e) {
-			std::cout << e.what() << '\n';
+			std::cout << "error: " << e.what() << '\n';
 		}
 	}
+}
+
+const char	*BitcoinExchange::BitcoinExchangeCouldNotOpenFile::what( void ) const throw()
+{
+	return "btc: could not open file";
+}
+
+const char	*BitcoinExchange::BitcoinExchangeInvalidFile::what( void ) const throw()
+{
+	return "btc: input file must start with 'date | value'";
+}
+
+const char	*BitcoinExchange::BitcoinExchangeBadInput::what( void ) const throw()
+{
+	return "bad input ";
+}
+
+const char	*BitcoinExchange::BitcoinExchangeOverflow::what( void ) const throw()
+{
+	return "value too big";
+}
+
+const char	*BitcoinExchange::BitcoinExchangeNegative::what( void ) const throw()
+{
+	return "negative value";
 }

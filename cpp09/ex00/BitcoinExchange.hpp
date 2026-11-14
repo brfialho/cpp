@@ -5,6 +5,7 @@
 #include <iostream>
 #include <map>
 #include <fstream>
+#include <limits>
 #include "Date.hpp"
 
 class	BitcoinExchange {
@@ -41,6 +42,17 @@ public:
 		public:
 			const char	*what( void ) const throw();
 	};
+
+	class	BitcoinExchangeOverflow : public IBitcoinExchangeException {
+		public:
+			const char	*what( void ) const throw();
+	};
+
+	class	BitcoinExchangeNegative : public IBitcoinExchangeException {
+		public:
+			const char	*what( void ) const throw();
+	};
+
 
 };
 
