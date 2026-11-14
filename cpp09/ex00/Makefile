@@ -17,7 +17,8 @@ endef
 CC= c++ -Werror -Wextra -Wall -std=c++98
 INCLUDES= -Iincludes/
 SRC= main.cpp \
-	BitcoinExchange.cpp
+	BitcoinExchange.cpp \
+	Date.cpp
 
 O_DIR= obj/
 OBJ= $(SRC:%.cpp=$(O_DIR)%.o)

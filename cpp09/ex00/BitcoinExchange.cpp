@@ -4,7 +4,7 @@ BitcoinExchange::BitcoinExchange()
 {}
 
 BitcoinExchange::BitcoinExchange( const BitcoinExchange &other )
-{}
+{(void)other;}
 
 BitcoinExchange::~BitcoinExchange()
 {}
@@ -16,3 +16,8 @@ BitcoinExchange&	BitcoinExchange::operator=(const BitcoinExchange& other)
 
 	return *this;
 }
+
+// void	BitcoinExchange::parseDatabase( const std::string &data )
+// {
+
+// }
