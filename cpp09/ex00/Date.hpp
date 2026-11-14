@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/14 16:04:44 by brfialho          #+#    #+#             */
-/*   Updated: 2026/11/14 17:07:24 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/11/14 19:52:44 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <string>
 #include <iostream>
 #include <sstream>
+#include <iomanip>
 
 #define MIN_YEAR 2008
 #define MAX_YEAR 2027

@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/14 16:04:47 by brfialho          #+#    #+#             */
-/*   Updated: 2026/11/14 17:14:41 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/11/14 19:53:20 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,7 +136,11 @@ const char	*Date::DateExceptionInvalidRange::what( void ) const throw()
 
 std::ostream	&operator<<( std::ostream &out, const Date &d )
 {
-	out << d.getDay() << '/' << d.getMonth() << '/' << d.getYear();
-	
+    out << d.getYear() << '-'
+        << std::setfill('0') << std::setw(2) << d.getMonth() << '-'
+        << std::setw(2) << d.getDay();
+
+    out << std::setfill(' ');
+
 	return out;	
 }

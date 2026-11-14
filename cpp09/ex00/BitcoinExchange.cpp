@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/14 17:37:39 by brfialho          #+#    #+#             */
-/*   Updated: 2026/11/14 19:44:17 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/11/14 19:49:28 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ static void	parseLine( std::stringstream &ss, Date &date, double *d)
 		throw BitcoinExchange::BitcoinExchangeOverflow();
 	if (*d < 0)
 		throw BitcoinExchange::BitcoinExchangeNegative();
-	// std::cout << date << "   " << *d << '\n';
+	std::cout << date << "   " << *d << '\n';
 }
 
 void 	BitcoinExchange::checkBitcoinValue( const std::string &input )
@@ -96,6 +96,7 @@ void 	BitcoinExchange::checkBitcoinValue( const std::string &input )
 		try {
 			std::stringstream	ss(line);
 			parseLine(ss, date, &value);
+			
 			
 		}
 		catch (BitcoinExchange::BitcoinExchangeBadInput &e) {
