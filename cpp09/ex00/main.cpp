@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/14 15:22:45 by brfialho          #+#    #+#             */
-/*   Updated: 2026/11/14 17:39:51 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/11/14 17:47:47 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int main ( int argc, char **argv )
 {
 	if (argc != 2)
 		return std::cout << "usage: ./btc {input_file}\n", 1;
-	// (void)argv;
+	(void)argv;
 
 	// Date	d("2010-03-03", '-');
 	// Date	f("2010-03-03", '-');

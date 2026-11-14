@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/14 17:37:39 by brfialho          #+#    #+#             */
-/*   Updated: 2026/11/14 17:41:33 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/11/14 18:24:55 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ BitcoinExchange&	BitcoinExchange::operator=(const BitcoinExchange& other)
 
 void	BitcoinExchange::parseDatabase( const std::string &filename )
 {
-	std::ofstream	f(filename.c_str());
+	std::ifstream	f(filename.c_str());
 	std::string		line;
 
 	while (std::getline(f, line))
