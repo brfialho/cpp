@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/14 21:41:16 by brfialho          #+#    #+#             */
-/*   Updated: 2026/11/14 23:11:43 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/11/14 23:25:52 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,16 @@ public:
 	};
 
 	class	RPNExceptioninStackUnderflow : public IRPNException	{
+		public:
+			const char	*what( void ) const throw();
+	};
+
+	class	RPNExceptioninExtraTokens : public IRPNException	{
+		public:
+			const char	*what( void ) const throw();
+	};
+
+	class	RPNExceptioninDivisonByZero : public IRPNException	{
 		public:
 			const char	*what( void ) const throw();
 	};

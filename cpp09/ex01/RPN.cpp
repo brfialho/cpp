@@ -6,7 +6,7 @@
 /*   By: brfialho <brfialho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/14 21:41:19 by brfialho          #+#    #+#             */
-/*   Updated: 2026/11/14 23:13:50 by brfialho         ###   ########.fr       */
+/*   Updated: 2026/11/14 23:31:06 by brfialho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ void	RPN::evaluateExpression( const std::string &expr )
 
 	while (ss >> token)
 	{
-		std::cout << token << '\n';
 		if (token == ' ')
 			continue;
 		else if (token >= '0' && token <= '9')
@@ -42,6 +41,8 @@ void	RPN::evaluateExpression( const std::string &expr )
 		else
 			throw RPNExceptionInvalidToken();
 	}
+	if (_stack.size() > 1)
+		throw RPNExceptioninExtraTokens();
 	std::cout << _stack.top() << '\n';
 }
 
@@ -78,6 +79,8 @@ void RPN::multi( int first, int second )
 
 void RPN::div( int first, int second )
 {
+	if (second == 0)
+		throw RPNExceptioninDivisonByZero();
 	_stack.push(first / second);
 }
 
@@ -88,5 +91,15 @@ const char	*RPN::RPNExceptionInvalidToken::what( void ) const throw()
 
 const char	*RPN::RPNExceptioninStackUnderflow::what( void ) const throw()
 {
-	return "stack underflow";
+	return "invalid expression";
+}
+
+const char	*RPN::RPNExceptioninExtraTokens::what( void ) const throw()
+{
+	return "incomplete expression";
+}
+
+const char	*RPN::RPNExceptioninDivisonByZero::what( void ) const throw()
+{
+	return "divison by zero";
 }
